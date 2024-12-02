@@ -1,0 +1,22 @@
+﻿@using Performance.Management.UIL.Language;
+
+@{
+    ViewBag.Title = "UserGuide";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section title{
+    <h1>
+        @Performance.Management.UIL.Language.Resource.PerformanceManagement
+        <small>@Resource.UserGuide </small>
+    </h1>
+}
+
+@section breadcrumb{
+    <li class="active">@Resource.UserGuide </li>
+}
+
+
+<section class="content text-center">
+    <iframe src="~/Content/pdf/Guide.pdf" style="overflow: auto; min-height: 700px; height: 700px; width: 100%;" onload="this.height=screen.height;"></iframe>
+</section>

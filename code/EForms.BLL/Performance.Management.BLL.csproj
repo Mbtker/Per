@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4525B69F-A941-426E-B117-2E770CF36B42}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Performance.Management.BLL</RootNamespace>
+    <AssemblyName>Performance.Management.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\EForms.DAL\bin\Debug\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\EForms.DAL\bin\Debug\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\ReasonRepository.cs" />
+    <Compile Include="Core\SActionLogic.cs" />
+    <Compile Include="Core\StatusLogic.cs" />
+    <Compile Include="Core\RequestLogic.cs" />
+    <Compile Include="Helper\ADSync.cs" />
+    <Compile Include="Helper\Alert.cs" />
+    <Compile Include="Helper\IEnumerableExtentions.cs" />
+    <Compile Include="Helper\InMemoryCache.cs" />
+    <Compile Include="Helper\Common.cs" />
+    <Compile Include="Helper\Email.cs" />
+    <Compile Include="Helper\GeneralValue.cs" />
+    <Compile Include="Helper\JQueryDataTableParams.cs" />
+    <Compile Include="Helper\MyExtensions.cs" />
+    <Compile Include="Helper\OasisSync.cs" />
+    <Compile Include="Helper\Permission.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\HRService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\QryExe\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\EmpDataModel.cs" />
+    <Compile Include="ViewModel\EmpSearch.cs" />
+    <Compile Include="ViewModel\Enums\ActionEnum.cs" />
+    <Compile Include="ViewModel\Enums\RequestEditableStatusEnum.cs" />
+    <Compile Include="ViewModel\Enums\RequestStatusEnum.cs" />
+    <Compile Include="ViewModel\Enums\ManageStatusEnum.cs" />
+    <Compile Include="ViewModel\Enums\RequestTypeEnum.cs" />
+    <Compile Include="ViewModel\GoalViewModel.cs" />
+    <Compile Include="ViewModel\OasisProductCode.cs" />
+    <Compile Include="ViewModel\OasisUser.cs" />
+    <Compile Include="ViewModel\ReasonModel.cs" />
+    <Compile Include="ViewModel\SActionModel.cs" />
+    <Compile Include="ViewModel\PositionType.cs" />
+    <Compile Include="ViewModel\Position.cs" />
+    <Compile Include="ViewModel\Department.cs" />
+    <Compile Include="ViewModel\Employee.cs" />
+    <Compile Include="ViewModel\MailModel.cs" />
+    <Compile Include="ViewModel\HomeModel.cs" />
+    <Compile Include="ViewModel\StatusModel.cs" />
+    <Compile Include="ViewModel\RequestModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Service References\HRService\HRService.wsdl" />
+    <None Include="Service References\HRService\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HRService\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HRService\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QryExe\QryExe.wsdl" />
+    <None Include="Service References\QryExe\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QryExe\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QryExe\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\HRService\" />
+    <WCFMetadataStorage Include="Service References\QryExe\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HRService\Service.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HRService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HRService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HRService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\QryExe\Service.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\QryExe\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\QryExe\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\QryExe\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EForms.DAL\Performance.Management.DAL.csproj">
+      <Project>{dbc497d1-7604-4048-a9cd-a74a78a7760c}</Project>
+      <Name>Performance.Management.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EForms.DML\Performance.Management.DML.csproj">
+      <Project>{25faffac-563b-4a5e-9a9b-b6ef8a161775}</Project>
+      <Name>Performance.Management.DML</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

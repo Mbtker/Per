@@ -1,0 +1,128 @@
+﻿@{
+    ViewBag.Title = "AllRequests";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section title{
+    <h1>
+        @Performance.Management.UIL.Language.Resource.PerformanceManagement
+        <small>All Requests</small>
+    </h1>
+}
+
+@section breadcrumb{
+    <li class="active">All Requests </li>
+}
+
+
+
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header">
+            <h3 class="box-title">Requests</h3>
+        </div>
+
+        <div class="box-body">
+            <div>
+                <table class="table table-bordered table-striped" id="tblData">
+                    <thead>
+                        <tr role="row">
+                            <th>Number</th>
+                            <th>Date & Time</th>
+                            <th>Department</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <tfoot>
+                        <tr role="row">
+                            <th>Number</th>
+                            <th>Date & Time</th>
+                            <th>Department</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+
+            $.fn.dataTable.ext.legacy.ajax = true;
+
+            if ($.fn.DataTable.isDataTable('#tblData')) {
+                $('#tblData').dataTable().fnDestroy();
+                $('#tblData').dataTable().empty();
+
+            }
+
+            var complete = $('#tblData').DataTable(
+                    {
+                        "serverSide": true,
+                        "destroy": true,
+                        "processing": true,
+                        "order": [[0, "desc"]],
+                        "autowidth": true,
+                        "ajax":
+                        {
+                            url: "/Request/AllRequest",
+                            method: "POST"
+                        },
+                        "columns": [
+                            { "data": "ID", "autowidth": true },
+                            { "data": "DateTime", "autowidth": true },
+                            { "data": "RequesterDeptEnglishName", "autowidth": true },
+                           //{ "data": "Status", "autowidth": true },
+                            {
+                                "data": "RequestStatus", "autowidth": true, "render": function (data) {
+                                    var Status = '';
+                                    if (data.StatusID === 4 || data.StatusID === 8) {
+                                        Status = '<span class="btn btn-danger btn-xs">' + data.StatusName + '</span>'
+                                    }
+                                    else if (data.StatusID === 7) {
+                                        //Status = '<span class="btn btn-success btn-xs">' + data.StatusName + '</span>  '
+                                        Status = '<span class="btn btn-success btn-xs">@Performance.Management.UIL.Language.Resource.ResolvedRequests</span>'
+                                    }
+                                    else if (data.StatusID === 3 || data.StatusID === 5 || data.StatusID === 12 || data.StatusID === 14) {
+                                        Status = '<span class="btn btn-warning btn-xs">' + data.StatusName + '</span>'
+                                    }
+                                    else {
+                                        Status = '<span class="btn btn-primary btn-xs">' + data.StatusName + '</span>'
+                                    }
+
+                                    return Status;
+                                }
+                            },
+                            {
+                                "data": "ID", "autowidth": true, "render": function (data) {
+                                    return '<a href="/Request/Details?id=' + data + '&IsReport=true" class="btn btn-primary btn-xs load"  target="_blank"><i class="fa fa-share"></i> Preview</a>'
+                                }
+                            }
+                        ]
+                    }
+
+                );
+
+            ///// Following code is for filter input to apply filter only on Enter
+            //var itm = $("#tblOrder_filter input")
+
+            //itm.unbind();
+            //itm.keyup(function (e) {
+            //    //enter or tab
+            //    if (e.keyCode == 13) {
+            //        complete.search(this.value).draw();
+            //    }
+            //});
+
+
+        });
+    </script>
+}

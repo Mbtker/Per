@@ -1,0 +1,695 @@
+﻿@using Performance.Management.UIL.Language;
+@using Performance.Management.BLL.ViewModel.Enums;
+
+@model Performance.Management.BLL.ViewModel.RequestModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section title {
+    <h1>
+        @Resource.PerformanceManagement
+
+        @if (Model.EditMode == "Edit")
+        {
+            <small>@Resource.Edit</small>
+        }
+        else
+        {
+            <small>@Resource.Create</small>
+        }
+    </h1>
+}
+
+@section breadcrumb{
+    @if (Model.EditMode == "Edit")
+    {
+        <li class="active">@Resource.Edit - @Resource.Evaluate </li>
+    }
+    else
+    {
+        <li class="active">@Resource.Create - @Resource.Evaluate </li>
+    }
+}
+
+@{
+    string lang = Context.Request.Cookies["culture"].Value ?? "en";
+    string username = new Performance.Management.UIL.Controllers.BaseController().GetUserName();
+}
+
+<style>
+    .LockOn {
+        display: block;
+        visibility: visible;
+        position: absolute;
+        z-index: 999;
+        top: 0px;
+        left: 0px;
+        width: 105%;
+        height: 105%;
+        background-color: white;
+        vertical-align: bottom;
+        padding-top: 20%;
+        filter: alpha(opacity=75);
+        opacity: 0.75;
+        font-size: large;
+        color: blue;
+        font-style: italic;
+        font-weight: 400;
+        background-image: url('../../Content/images/spinner.gif');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+
+    .txt {
+        margin: auto;
+        width: 25%;
+        padding: 30px;
+        background-color: white;
+        font-size: x-large;
+        color: blue;
+        font-style: italic;
+        font-weight: 900;
+    }
+</style>
+
+<section class="content" id="sctnContent">
+
+    <div id="coverScreen" class="loader LockOn" hidden>
+        <div class="txt">
+            @Resource.PleaseBePatientCreateRequest
+        </div>
+    </div>
+
+    <div class="text-center" id="divButton">
+        <a href="/Request/Search" class="btn btn-danger btn-md"><i class="fa fa-times"></i> @Resource.Cancel</a>
+        @if (Model.EditMode == "Edit")
+        {
+            <a href="/Request/Draft/@Model.Request.ID" class="btn btn-success btn-md"><i class="fa fa-angle-double-right"></i> @Resource.Back</a>
+        }
+        else
+        {
+            <a href="/Request/Draft/@Model.SelectedEmployee.DOC_NUMBER" class="btn btn-success btn-md"><i class="fa fa-angle-double-right"></i> @Resource.Back</a>
+        }
+    </div>
+    <br />
+
+    @if (Model.EditMode == "Edit")
+    {
+        @Html.Partial("Edit/_RequestDetails", Model)
+    }
+    else
+    {
+        @Html.Partial("Evaluate/_EmployeeDetails", Model)
+    }
+
+    @using (Html.BeginForm(Model.EditMode, "Request", FormMethod.Post, new { id = "CreateForm", enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(m => m.Grade)
+        @Html.HiddenFor(m => m.Language)
+        @Html.HiddenFor(m => m.IsHRUser)
+        @Html.HiddenFor(m => m.CurrentUserName)
+        @Html.HiddenFor(m => m.FeedBackGiven)
+        @Html.HiddenFor(m => m.IsFinished)
+        @Html.HiddenFor(m => m.FormSubmit)
+        @Html.HiddenFor(m => m.Year)
+        @Html.HiddenFor(m => m.RequestTypeID)
+
+        <div id="createFormDiv" style="float:right!important;">
+            <div class="box box-primary">
+
+                <div class="box-header  with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-sticky-note-o"></i>
+                        @Resource.Evaluation
+                    </h3>
+                </div>
+
+                <div class="box-body">
+
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12">
+                            @Html.ValidationSummary()
+                        </div>
+                    </div>
+
+                    @if (Model.FormSubmit)
+                    {
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label>@Resource.Year</label>
+                                    @Html.DisplayFor(m => m.Year)
+                                </div>
+                            </div>
+
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label>@Resource.RequestType</label>
+                                    @{
+                                        var _requestType = Model.RequestTypes.FirstOrDefault(x => x.ID == Model.RequestTypeID);
+                                        var _requestTypeName = lang == "Ar" ? _requestType.NameAr : _requestType.NameEn;
+                                    }
+
+                                    @Html.DisplayFor(m => _requestTypeName)
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    @{
+                                        List<int> years = new List<int>();
+
+                                        foreach (var year in Enumerable.Range(DateTime.Now.Year - 5, 6))
+                                        {
+                                            years.Add(year);
+                                        }
+                                    }
+
+                                    <label>@Resource.Year</label>
+                                    @Html.DropDownListFor(m => m.Request.Year, new SelectList(years, selectedValue: DateTime.Now.Year), @Resource.DropDownSelect + @Resource.Year + " -", new { @class = "form-control Select", id = "lstYears", @disabled = "disabled" })
+                                </div>
+                                @Html.ValidationMessageFor(m => m.Request.Year)
+                            </div>
+
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label>@Resource.RequestType</label>
+                                    @Html.DropDownListFor(m => m.Request.RequestTypeID, new SelectList(Model.RequestTypes, "ID", lang == "Ar" ? "NameAr" : "NameEn", (int)Model.Grade), @Resource.DropDownSelect + @Resource.RequestType + " -", new { @class = "form-control Select", id = "lstRequestTypes", @disabled = "disabled" })
+                                </div>
+                                @Html.ValidationMessageFor(m => m.Request.RequestTypeID)
+                            </div>
+                        </div>
+                    }
+
+                    @if (Model.Goals.Any() && Model.Goals.Count() > 0)
+                    {
+                        <div class="box box-primary" id="goals-tbl">
+
+                            <div class="box-header  with-border">
+                                <h3 class="box-title">
+                                    <i class="fa fa-user-circle"></i>
+                                    @Resource.Evaluation - @Resource.GoalsName
+                                </h3>
+                            </div>
+
+                            <div class="box-body">
+                                <div>
+
+                                    <div class="callout callout-success">
+                                        <b>
+                                            <i class="fa fa-warning"></i>
+                                            لابد من ادخال من 3 اهداف الى 6 اهداف وان يكون مجموع الوزن النسبي يساوي 100%
+                                        </b>
+                                        <br />
+
+                                        <b>
+                                            <i class="fa fa-info-circle"></i>
+                                            الحد الادنى للأهداف 3 و الحد الاقصي للأهداف 6
+                                        </b>
+                                    </div>
+                                    <div class="callout callout-info">
+                                        <b>
+                                            <i class="fa fa-search-plus"></i>
+                                            لشرح الاهداف من فضلك قم بالاطلاع على الرابط التالي
+                                        </b>
+                                        <a href="~/Content/pdf/Goal-Guide.pdf" class="text-bold" target="_blank"><i class="fa fa-heart"></i> @Resource.UserGuide @Resource.GoalsName</a>
+
+                                    </div>
+                                    <br />
+                                    <table class="table table-bordered table-striped" id="tblData">
+                                        <thead>
+                                            <tr role="row">
+                                                <th>@Resource.Index</th>
+                                                <th>@Resource.Name</th>
+                                                <th>@Resource.MeasurementStandard</th>
+                                                <th>@Resource.RelativeWeight</th>
+                                                <th>@Resource.TargetOutput</th>
+
+                                                @if (Model.Request.IsFinished == true && Model.Request.RequesterUserName == username)
+                                                {
+                                                    <th>@Resource.Fulfillment</th>
+                                                }
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @for (int i = 0; i < Model.Goals.Count; i++)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(m => m.Goals[i].Index)
+                                                    </td>
+                                                    <td>
+                                                        @Html.TextAreaFor(m => m.Goals[i].Name, new { @class = "Goal_NameInput form-control", maxlength = 448, rows = 2, @placeholder = Resource.Name, @type = "text", @id = "GoalName" + Model.Goals[i].Index })
+                                                    </td>
+                                                    <td>
+                                                        @Html.TextBoxFor(m => m.Goals[i].MeasurementStandard, new { @class = "Goal_MeasurementStandardInput form-control", @placeholder = Resource.MeasurementStandard, @type = "text", @id = "GoalMeasurementStandard" + Model.Goals[i].Index })
+                                                    </td>
+                                                    <td>
+                                                        @Html.TextBoxFor(m => m.Goals[i].RelativeWeight, new { @class = "Goal_RelativeWeightInput form-control", @placeholder = Resource.RelativeWeight, @type = "number", @id = "GoalRelativeWeight" + Model.Goals[i].Index })
+                                                    </td>
+                                                    <td>
+                                                        @Html.TextBoxFor(m => m.Goals[i].TargetOutput, new { @class = "Goal_TargetOutputInput form-control", maxlength = 350, @placeholder = Resource.TargetOutput, @type = "text", @id = "GoalTargetOutput" + Model.Goals[i].Index })
+                                                    </td>
+
+                                                    @if (Model.Request.IsFinished == true && Model.Request.RequesterUserName == username)
+                                                    {
+                                                        <td>
+                                                            @Html.TextBoxFor(m => m.Goals[i].Fulfillment, new { @class = "Goal_Fulfillment form-control", @placeholder = Resource.Fulfillment, @type = "number", @id = "GoalFulfillment" + Model.Goals[i].Index })
+                                                        </td>
+                                                    }
+
+                                                </tr>
+                                            }
+                                        </tbody>
+                                        <tfoot>
+                                            <tr role="row">
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th>
+                                                    <label>@Resource.RelativeWeightSum</label>
+                                                    <label id="RelativeWeightGoalSum"></label> %
+                                                </th>
+                                                <th></th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+
+                                <div class="callout callout-danger goals-bottom-failed" hidden="hidden" id="goals-bottom-failed">
+                                    @*<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>*@
+                                    <b><i class="fa fa-exclamation-triangle"></i></b> <b class="msgGoalText"></b>
+                                    <span></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    }
+
+                    @if (Model.Competencies.Any() && Model.Competencies.Count() > 0)
+                    {
+                        <div class="box box-primary">
+
+                            <div class="box-header  with-border">
+                                <h3 class="box-title">
+                                    <i class="fa fa-check-circle"></i>
+                                    @Resource.Evaluation - @Resource.Competency
+                                </h3>
+                            </div>
+
+                            <div class="box-body">
+                                <div>
+
+                                    <div class="callout callout-success">
+                                        <b>
+                                            <i class="fa fa-warning"></i>
+                                            لابد من ان يكون مجموع الوزن النسبي يساوي 100%
+                                        </b>
+                                    </div>
+                                    <br />
+
+                                    <table class="table table-bordered table-striped" id="tblCompetencyData">
+                                        <thead>
+                                            <tr role="row">
+                                                <th>@Resource.Index</th>
+                                                <th>@Resource.Name</th>
+                                                <th>@Resource.CompetencyThemesAndBehavioral</th>
+                                                <th>@Resource.RelativeWeight</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @for (int i = 0; i < Model.Competencies.Count; i++)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.HiddenFor(m => m.Competencies[i].CompetencyLookupID)
+                                                        @Html.HiddenFor(m => m.Competencies[i].Index)
+                                                        @Html.DisplayFor(m => m.Competencies[i].Index)
+                                                    </td>
+                                                    <td>
+                                                        @Html.HiddenFor(m => m.Competencies[i].NameAr)
+                                                        @Html.HiddenFor(m => m.Competencies[i].NameEn)
+
+                                                        @if (lang == "Ar")
+                                                        {
+                                                            @Html.DisplayFor(m => m.Competencies[i].NameAr)
+                                                        }
+                                                        else
+                                                        {
+                                                            @Html.DisplayFor(m => m.Competencies[i].NameEn)
+                                                        }
+                                                    </td>
+                                                    <td>
+                                                        @for (int y = 0; y < Model.Competencies[i].Details.Count; y++)
+                                                        {
+                                                            <div class="row">
+                                                                <div class="col-sm-1">
+                                                                    @Html.HiddenFor(m => m.Competencies[i].Details[y].Index)
+                                                                    @Html.DisplayFor(m => m.Competencies[i].Details[y].Index)
+                                                                </div>
+                                                                <div class="col-sm-3">
+                                                                    @Html.HiddenFor(m => m.Competencies[i].Details[y].CompetencyThemes)
+                                                                    @Html.DisplayFor(m => m.Competencies[i].Details[y].CompetencyThemes)
+                                                                </div>
+                                                                <div class="col-sm-8">
+                                                                    @Html.HiddenFor(m => m.Competencies[i].Details[y].CompetencyDesc)
+                                                                    @Html.DisplayFor(m => m.Competencies[i].Details[y].CompetencyDesc)
+                                                                </div>
+                                                            </div>
+                                                            if (Model.Competencies[i].Details[y].Index >= 1 && Model.Competencies[i].Details.Count != Model.Competencies[i].Details[y].Index)
+                                                            {
+                                                                <hr align="center" class="table_break">
+                                                            }
+                                                        }
+                                                    </td>
+                                                    <td>
+                                                        @Html.TextBoxFor(m => m.Competencies[i].RelativeWeight, new { @class = "Competency_RelativeWeightInput form-control", @placeholder = Resource.RelativeWeight, @type = "number", @id = "CompetencyRelativeWeight" + Model.Competencies[i].Index })
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                        <tfoot>
+                                            <tr role="row">
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th>
+                                                    <label>@Resource.RelativeWeightSum</label>
+                                                    <label id="RelativeWeightCompetencySum"></label> %
+                                                </th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    }
+
+                    <hr align="center" class="break">
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label>@Resource.Notes</label>
+                                @Html.TextAreaFor(m => m.Request.Note, new { maxlength = 498, @class = "form-control", @style = "width: 100%", @rows = "2", @placeholder = @Resource.Notes })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Request.Note)
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label>@Resource.Attachments</label>
+                                <div class="input-group">
+                                    <input type="file" name="File" class="form-control" />
+                                    <span class="input-group-addon"><i class="fa fa-paperclip"></i></span>
+
+                                    @Html.ValidationMessageFor(m => m.Request.Attachment)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="callout callout-danger bottom-failed" hidden="hidden" id="bottom-failed">
+                @*<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>*@
+                <b><i class="fa fa-exclamation-triangle"></i></b> <b class="msgText"></b>
+                <span></span>
+            </div>
+
+            <div class="text-center" id="divButton">
+                <a href="/Request/Draft/@Model.SelectedEmployee.DOC_NUMBER" class="btn btn-success btn-md"><i class="fa fa-angle-double-right"></i> @Resource.Back</a>
+                <a href="/Request/Search" class="btn btn-danger btn-md"><i class="fa fa-times"></i> @Resource.Cancel</a>
+                @if (Model.EditMode == "Edit")
+                {
+                    <button type="submit" id="btnAddRequest" class="btn btn-primary btn-md"><i class="fa fa-check"></i> @Resource.Edit </button>
+                }
+                else
+                {
+                    <button type="submit" id="btnAddRequest" class="btn btn-primary btn-md"><i class="fa fa-check"></i> @Resource.Evaluation</button>
+                }
+            </div>
+        </div>
+    }
+
+</section>
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            calcCompetency_RelativeWeightInputSum();
+            calcGoal_RelativeWeightInputSum();
+
+            $(".Competency_RelativeWeightInput").change(function () {
+                //alert(this.value);
+
+                calcCompetency_RelativeWeightInputSum();
+            });
+
+            $(".Goal_RelativeWeightInput").change(function () {
+                //alert(this.value);
+
+                calcGoal_RelativeWeightInputSum();
+            });
+        });
+
+        var CompetencyTotal = 0;
+
+        function calcCompetency_RelativeWeightInputSum() {
+            CompetencyTotal = 0;
+
+            $(".Competency_RelativeWeightInput").each(function () {
+                CompetencyTotal += parseInt(this.value, 10);
+                if (!isNaN(this.value) && this.value > 0 && (this.value < 10 || this.value > 40)) {
+                    $("#bottom-failed .msgText").text("@Resource.Competency - @Resource.TargetOutputValidationOfPercentage");
+                    $("#bottom-failed").fadeIn(1200).delay(4000).fadeOut(600);
+                }
+            });
+
+            //alert(CompetencyTotal);
+            $("#RelativeWeightCompetencySum").text(CompetencyTotal);
+
+            if (CompetencyTotal > 100) {
+                $("#RelativeWeightCompetencySum").css("color", "red");
+            } else if (CompetencyTotal < 100) {
+                $("#RelativeWeightCompetencySum").css("color", "blue");
+            } else {
+                $("#RelativeWeightCompetencySum").css("color", "green");
+            }
+        }
+
+        var GoalTotal = 0;
+        var GoalCount = 0;
+        var GoalIndexes = [];
+
+        function calcGoal_RelativeWeightInputSum() {
+            GoalTotal = 0;
+            GoalCount = 0;
+            GoalIndexes = [];
+
+            $(".Goal_RelativeWeightInput").each(function () {
+                let _value = parseInt(this.value, 10);
+                GoalTotal += _value;
+                if (_value>0) {
+                    GoalCount++;
+                    var _index = parseInt(this.id.slice(-1), 10);
+                    if (!isNaN(_index) && _index != undefined && _index>0) {
+                        GoalIndexes.push(_index);
+                    }
+                }
+                //goals-bottom-failed
+            });
+
+            //alert(GoalCount);
+            if (GoalCount < 3) {
+                $("#goals-bottom-failed .msgGoalText").text("@Resource.GoalsValidation_InsertThreeAtLeast - @Resource.GoalsName @Resource.FinishedCount " + GoalCount);
+                $("#goals-bottom-failed").fadeIn(1200).delay(4000).fadeOut(600);
+            }
+
+            //alert(GoalTotal);
+            $("#RelativeWeightGoalSum").text(GoalTotal);
+
+            if (GoalTotal > 100) {
+                $("#RelativeWeightGoalSum").css("color", "red");
+            } else if (GoalTotal < 100) {
+                $("#RelativeWeightGoalSum").css("color", "blue");
+            } else {
+                $("#RelativeWeightGoalSum").css("color", "green");
+            }
+
+            checkGoalsValidation()
+        }
+
+        function checkGoalsValidation() {
+            //
+            for (let index = 0; index < GoalIndexes.length; ++index) {
+                const element = GoalIndexes[index];
+                debugger
+
+                let _nameEnID = '#GoalName' + element;
+                let _nameEnValue = $(_nameEnID).val();
+                console.log(_nameEnValue)
+                if (_nameEnValue == undefined || _nameEnValue == null || _nameEnValue == "") {
+                    $("#goals-bottom-failed .msgGoalText").text("@Resource.PleaseInsert - @Resource.Name - @Resource.RowNumber " + element);
+                    $("#goals-bottom-failed").fadeIn(1200).delay(4000).fadeOut(600);
+                    return false;
+                }
+
+                //let _nameArID = '#GoalNameAr' + element;
+                //let _nameArValue = $(_nameArID).val();
+                //console.log(_nameArValue)
+                //if (_nameArValue == undefined || _nameArValue == null || _nameArValue == "") {
+                //    $("#goals-bottom-failed .msgGoalText").text("@Resource.PleaseInsert - @Resource.Name Ar - @Resource.RowNumber " + element);
+                //    $("#goals-bottom-failed").fadeIn(1200).delay(4000).fadeOut(600);
+                //    return false;
+                //}
+
+                let _MeasurementStandardID = '#GoalMeasurementStandard' + element;
+                let _MeasurementStandardValue = $(_MeasurementStandardID).val();
+                console.log(_MeasurementStandardValue)
+                if (_MeasurementStandardValue == undefined || _MeasurementStandardValue == null || _MeasurementStandardValue == "") {
+                    $("#goals-bottom-failed .msgGoalText").text("@Resource.PleaseInsert - @Resource.MeasurementStandard - @Resource.RowNumber " + element);
+                    $("#goals-bottom-failed").fadeIn(1200).delay(4000).fadeOut(600);
+                    return false;
+                }
+
+                let _RelativeWeightID = '#GoalRelativeWeight' + element;
+                let _RelativeWeightValue = $(_RelativeWeightID).val();
+                console.log(_RelativeWeightValue)
+                var integerMeasurement = parseInt(_RelativeWeightValue);
+                if (!isNaN(integerMeasurement) && integerMeasurement > 0 && (integerMeasurement < 10 || integerMeasurement > 40)) {
+                    $("#goals-bottom-failed .msgGoalText").text("@Resource.RelativeWeight - @Resource.TargetOutputValidationOfPercentage - @Resource.RowNumber " + element);
+                    $("#goals-bottom-failed").fadeIn(1200).delay(4000).fadeOut(600);
+                    return false;
+                }
+
+                let _TargetOutputID = '#GoalTargetOutput' + element;
+                let _TargetOutputValue = $(_TargetOutputID).val();
+                console.log(_TargetOutputValue)
+                if (_TargetOutputValue == undefined || _TargetOutputValue == null || _TargetOutputValue == "") {
+                    $("#goals-bottom-failed .msgGoalText").text("@Resource.PleaseInsert - @Resource.TargetOutput - @Resource.RowNumber " + element);
+                    $("#goals-bottom-failed").fadeIn(1200).delay(4000).fadeOut(600);
+                    return false;
+                }
+
+                let _FulfillmentID = '#GoalFulfillment' + element;
+                let _FulfillmentValue = $(_FulfillmentID).val();
+                console.log(_FulfillmentValue)
+                if (_FulfillmentValue == undefined || _FulfillmentValue == null || _FulfillmentValue == "") {
+                    $("#goals-bottom-failed .msgGoalText").text("@Resource.PleaseInsert - @Resource.Fulfillment - @Resource.RowNumber " + element);
+                    $("#goals-bottom-failed").fadeIn(1200).delay(4000).fadeOut(600);
+                    return false;
+                }
+            }
+
+        }
+
+        let myLang = '@lang';
+
+        function calcCompetency_RelativeWeightValidation() {
+            var CompetencyIndexes = [];
+
+            $(".Competency_RelativeWeightInput").each(function () {
+                if (!isNaN(this.value) && this.value > 0 && (this.value < 10 || this.value > 40)) {
+                    $("#bottom-failed .msgText").text("@Resource.Competency - @Resource.TargetOutputValidationOfPercentage");
+                    $("#bottom-failed").fadeIn(1200).delay(4000).fadeOut(600);
+                    return false;
+                }
+                return true;
+            });
+
+        }
+
+        $(function () {
+            $("#coverScreen").hide();
+
+                $(".bottom-failed").fadeOut(600);
+                $(".goals-bottom-failed").fadeOut(600);
+
+            $("#btnAddRequest").click(function () {
+
+                debugger;
+
+                var checkGoals = checkGoalsValidation();
+
+                if (checkGoals == false) {
+                    $([document.documentElement, document.body]).animate({
+                        scrollTop: $("#goals-tbl").offset().top
+                    }, 2000);
+
+                    return false;
+                }
+
+                var CheckComp = calcCompetency_RelativeWeightValidation();
+
+                if (CheckComp == false) {
+                    return false;
+                } else {
+                    if (CompetencyTotal > 10 && (CompetencyTotal > 100 || CompetencyTotal < 100)) {
+                            $("#bottom-failed .msgText").text("@Resource.Competency - @Resource.RelativeWeightSumValidation");
+                            $("#bottom-failed").fadeIn(1200).delay(4000).fadeOut(600);
+                            return false;
+                    }
+
+                    if (GoalTotal > 10 && (GoalTotal > 100 || GoalTotal < 100)) {
+                        $("#bottom-failed .msgText").text("@Resource.GoalsName - @Resource.RelativeWeightSumValidation");
+                        $("#bottom-failed").fadeIn(1200).delay(4000).fadeOut(600);
+                        return false;
+                    }
+
+                    if (confirm('Are you sure you want to save this thing into the database?')) {
+                        // Save it!
+                        $("#coverScreen").show();
+
+                        console.log('Thing was saved to the database.');
+                    } else {
+                        // Do nothing!
+                        console.log('Thing was not saved to the database.');
+                        return false;
+                    }
+                }
+
+            });
+
+        });
+
+        /**
+         * Take the difference between the dates and divide by milliseconds per day.
+         * Round to nearest whole number to deal with DST.
+         */
+        function datediff(first, second) {
+            //return Math.round((second - first) / (1000 * 60 * 60 * 24));
+            let diffInMs = new Date(second) - new Date(first)
+            let diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+
+            console.log(diffInDays);
+
+            return diffInDays + 1;
+        }
+
+        /**
+         * new Date("dateString") is browser-dependent and discouraged, so we'll write
+         * a simple parse function for U.S. date format (which does no error checking)
+         */
+        function parseDate(str) {
+            let mdy = str.split('/');
+            let newDate = new Date(mdy[2], mdy[0] - 1, mdy[1]);
+
+            console.log(newDate);
+
+            return newDate;
+        }
+    </script>
+}

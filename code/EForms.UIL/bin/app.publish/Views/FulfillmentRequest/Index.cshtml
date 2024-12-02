@@ -1,0 +1,218 @@
+﻿@using Performance.Management.UIL.Language;
+
+@model Performance.Management.BLL.ViewModel.RequestModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section title{
+    <h1>
+        @Resource.PerformanceManagement
+        <small>@Resource.ManageMyRequests</small>
+    </h1>
+}
+
+@section breadcrumb{
+    <li class="active">@Resource.ManageMyRequests </li>
+}
+
+@{
+    string lang = Context.Request.Cookies["culture"].Value ?? "en";
+
+    string username = new Performance.Management.UIL.Controllers.BaseController().GetUserName();
+
+    //var finishedItemName = lang == "Ar" ? Model.StatusList.FirstOrDefault(x => x.ID == (int)_finished).NameAr : Model.StatusList.FirstOrDefault(x => x.ID == (int)_finished).Name;
+}
+
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header">
+
+            <a href="/Request/Search" class="btn btn-primary btn-group-lg pull-right"><i class="fa fa-plus"></i> @Resource.NewRequest</a>
+        </div>
+
+        <div class="box-body">
+            <div class="row" hidden>
+
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Resource.Statuses</label>
+                        <div class="form-group">
+                            @Html.DropDownListFor(m => m.Request.StatusID, new SelectList(Model.StatusList, "ID", lang == "Ar" ? "NameAr" : "Name"), @Resource.All, new { @class = "form-control Select", id = "lstStatuses" })
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <br /><br />
+            <div>
+                <table class="table table-bordered table-striped" id="tblData">
+                    <thead>
+                        <tr role="row">
+                            <th>@Resource.RequestNumber</th>
+                            <th>@Resource.DateTime</th>
+                            <th>@Resource.RequestType</th>
+                            <th>@Resource.Requester</th>
+                            <th>@Resource.Employee</th>
+                            <th>@Resource.Statuses</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                    <tfoot>
+                        <tr role="row">
+                            <th>@Resource.RequestNumber</th>
+                            <th>@Resource.DateTime</th>
+                            <th>@Resource.RequestType</th>
+                            <th>@Resource.Requester</th>
+                            <th>@Resource.Employee</th>
+                            <th>@Resource.Statuses</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    @*<button>Click to redirect</button>*@
+</section>
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            //iCheck for checkbox and radio inputs
+            $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+                //checkboxClass: 'icheckbox_minimal-blue',
+                radioClass: 'iradio_minimal-blue'
+            })
+            //Red color scheme for iCheck
+            $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+                //checkboxClass: 'icheckbox_minimal-red',
+                radioClass: 'iradio_minimal-red'
+            })
+
+            //Flat red color scheme for iCheck
+            $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+                //checkboxClass: 'icheckbox_flat-green',
+                radioClass: 'iradio_flat-green'
+            })
+
+            $.fn.dataTable.ext.legacy.ajax = true;
+
+            if ($.fn.DataTable.isDataTable('#tblData')) {
+                $('#tblData').dataTable().fnDestroy();
+                $('#tblData').dataTable().empty();
+            }
+
+            GetData('Index');
+
+            $("#lstFormTypes, #lstStatuses").change(function () {
+
+                //debugger;
+
+                GetData();
+
+            });
+
+
+            function GetData(url) {
+
+                var st = -1;//get selected stataus
+                var rt = -1;//get selected type
+
+                if ($("#lstFormTypes").val() != null && $("#lstFormTypes").val() != undefined && $("#lstFormTypes").val() != '' && $("#lstFormTypes").val() != 0) {
+                    rt = $("#lstFormTypes").val();
+                } else {
+                    rt = -1;
+                }
+
+                if ($("#lstStatuses").val() != null && $("#lstStatuses").val() != undefined && $("#lstStatuses").val() != '' && $("#lstStatuses").val() != 0) {
+                    st = $("#lstStatuses").val();
+                } else {
+                    st = -1;
+                }
+
+                var Data = $('#tblData').DataTable(
+                    {
+                        "serverSide": true,
+                        "destroy": true,
+                        "processing": true,
+                        "order": [[0, "desc"]],
+                        "autowidth": true,
+                        "ajax":
+                        {
+                            url: "/Request/Index?rt=" + rt + "&st=" + st,
+                            method: "POST"
+                        },
+                        "columns": [
+                            { "data": "ID", "autowidth": true },
+                            { "data": "DateTime", "autowidth": true },
+                            { "data": "RequestType", "autowidth": true },
+                            //{ "data": "RequestDeptEnglishName", "autowidth": true },
+                            { "data": "RequesterUserEnglishName", "autowidth": true },
+                            { "data": "EmployeeUserEnglishName", "autowidth": true },
+                            //{ "data": "Status", "autowidth": true },
+                            {
+                                "data": "RequestStatus", "autowidth": true, "render": function (data) {
+                                    var Status = '';
+                                    if (data.StatusID === 4 || data.StatusID === 8) {
+                                        Status = '<span class="btn btn-danger btn-xs">' + data.StatusName + '</span>'
+                                    }
+                                    else if (data.StatusID === 7) {
+                                        Status = '<span class="btn btn-success btn-xs">' + data.StatusName + '</span>  '                                    }
+                                    else if (data.StatusID === 3 || data.StatusID === 5 || data.StatusID === 12 || data.StatusID === 14) {
+                                        Status = '<span class="btn btn-warning btn-xs">' + data.StatusName + '</span>'
+                                    }
+                                    else {
+                                        Status = '<span class="btn btn-primary btn-xs">' + data.StatusName + '</span>'
+                                    }
+
+                                    return Status;
+                                }
+                            },
+                            {
+                                "data": "AllowDelete", "autowidth": true, "render": function (data) {
+                                    var Buttons = '<a href="/Request/Details/' + data.RequestID + '" class="btn btn-primary btn-xs" target="_blank"><i class="fa fa-share"></i> @Resource.Preview</a>';
+
+                                    //debugger;
+                                    if (data.CanAction) {
+                                        Buttons += ' <a href="/Request/Manage/' + data.RequestID + '" class="btn btn-primary btn-xs" target="_blank"><i class="fa fa-gear"></i> @Resource.Action</a>'
+                                    }
+
+                                    if (data.IsFinished) {
+                                        Buttons += ' <a href="http://sqlintralistnr/reportserver/?/performancemanagement/PerformanceEvReport&RequestID=' + data.RequestID + '&rs:Command=Render&rs:Format=PDF" class="btn btn-primary btn-xs" target="_blank"><i class="fa fa-print"></i> @Resource.Print</a>'
+                                    }
+
+                                    if (data.IsRequestUserName) {
+                                        if (!data.CanDelete) {
+                                            Buttons += ' <p class="btn btn-warning disabled  btn-xs" title="@Resource.OnlyRequesterDelete2"><i class="fa fa-ban"></i> @Resource.Delete</p>'
+                                            Buttons += ' <a href="/Request/Manage/' + data.RequestID + '" class="btn btn-primary btn-xs" target="_blank"><i class="fa fa-gear"></i> @Resource.Feedback</a>'
+                                        }
+                                        else {
+                                            Buttons += ' <button class="btn btn-danger btn-xs" id="' + data.RequestID + '" data-id="' + data.RequestID + '" data-url="/Request/Delete/" data-index="/Request/Index"  data-toggle="modal" data-target="#modal-danger"><i class="fa fa-trash-o"></i> @Resource.Delete</button>'
+                                        }
+                                    }
+                                    else {
+                                        Buttons += ' <p class="btn btn-danger disabled  btn-xs" title="@Resource.OnlyRequesterDelete"><i class="fa fa-ban"></i> @Resource.Delete</p>'
+                                    }
+
+                                    return Buttons;
+                                }
+                            }
+                        ]
+                    }
+
+                );
+
+
+                return Data;
+            }
+        });
+    </script>
+}

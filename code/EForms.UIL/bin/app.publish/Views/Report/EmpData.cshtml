@@ -1,0 +1,372 @@
+﻿@using Performance.Management.UIL.Language;
+@model Performance.Management.BLL.ViewModel.EmpDataModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section title{
+    <h1>
+        @Resource.Performance_charter
+        <small>@Resource.AllEmpStat</small>
+    </h1>
+}
+
+@{
+    string lang = Context.Request.Cookies["culture"].Value ?? "en";
+
+    string username = new Performance.Management.UIL.Controllers.BaseController().GetUserName();
+
+    //var finishedItemName = lang == "Ar" ? Model.StatusList.FirstOrDefault(x => x.ID == (int)_finished).NameAr : Model.StatusList.FirstOrDefault(x => x.ID == (int)_finished).Name;
+}
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+    #table-1 tr:hover {
+        background-color: aqua;
+        color: #fff;
+    }
+
+    .large-table-container-3 {
+        max-width: 100%;
+        overflow-x: scroll;
+        overflow-y: auto;
+    }
+
+        .large-table-container-3 table {
+        }
+
+    .large-table-fake-top-scroll-container-3 {
+        max-width: 100%;
+        overflow-x: scroll;
+        overflow-y: auto;
+        margin-bottom: 10px;
+    }
+
+        .large-table-fake-top-scroll-container-3 div {
+            /*background-color: red;*/
+            font-size: 1px;
+            line-height: 1px;
+        }
+
+    /*misc*/
+    td {
+        /*border: 1px solid gray;*/
+    }
+
+    th {
+        /*text-align: left;*/
+    }
+</style>
+
+<section class="content" id="employeesContent">
+    <div class="box box-primary">
+        <div class="box-header">
+
+            <h4>@Resource.AllEmpStat</h4>
+        </div>
+
+        <div class="large-table-fake-top-scroll-container-3">
+            <div>&nbsp;</div>
+        </div>
+
+        <div class="box-body">
+            <div class="table-responsive large-table-container-3">
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>@Resource.Department @Resource.DropDownSelect </label>
+                            <div class="form-group">
+                                @Html.DropDownListFor(m => m.Department, new SelectList(Model.Department, "WORK_ENTITY", lang == "Ar" ? "DEPT_NAME_EN" : "DEPT_NAME_EN"), @Resource.All, new { @class = "form-control Select", id = "lstDepts" })
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <br />
+
+                <table class="table table-bordered table-striped" id="empdatatable" cellspacing="0" cellpadding="2">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.STAFF_ID)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.STAFF_NAME)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.ARBIC_NAME)</th>
+                            <th class="SupervisorUser" hidden>IS Supervisor</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.CONT_START_DATE)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.CONT_END_DATE)</th>
+                            @*<th>@Html.DisplayNameFor(dummy => Model.Header.TERMINATION_DATE)</th>
+                                <th>@Html.DisplayNameFor(dummy => Model.Header.LAST_WORKING_DATE)</th>*@
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.GRADE_STEP)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.CONTRACT_STATUS)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.DEPT_NAME)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.WORK_ENTITY)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.POSITION_DESCRIPTION)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.DATE_OF_BIRTH)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.NATIONALITY_USER_CODE)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.NATIONALITY)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.DATE_IN_KINGDOM)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.SEX)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.SERVICES)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.AGE)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.STAFF_CATEGORY)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.CONTRACT_TYPE)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.NATIONALITY_CODE)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.BANNED_FROM_TRAVELING)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.SX)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.CONTRACT_TYPE_DESC)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.RELIGION_USER_CODE)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.RELIGION)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.MAIN_POSITION)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.MAIN_POSITION_CODE)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.WORK_DEPT_NAME)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.POST_NUMBER)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.POST_DATE_STARTED)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.POST_DATE_ENDED)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.STAFF_CONTRACT_NO)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.MANAGER_STAFF_ID)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.MANAGER_NAME)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.MANAGER_JOB_CODE)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.MANAGER_JOB_TITLE)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.MANAGER_GRADE)</th>
+                            <th>@Resource.Action</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.STAFF_ID)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.STAFF_NAME)</th>
+                            <th class="SupervisorUser" hidden>IS Supervisor</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.ARBIC_NAME)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.CONT_START_DATE)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.CONT_END_DATE)</th>
+                            @*<th>@Html.DisplayNameFor(dummy => Model.Header.TERMINATION_DATE)</th>
+                                <th>@Html.DisplayNameFor(dummy => Model.Header.LAST_WORKING_DATE)</th>*@
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.GRADE_STEP)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.CONTRACT_STATUS)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.DEPT_NAME)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.WORK_ENTITY)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.POSITION_DESCRIPTION)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.DATE_OF_BIRTH)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.NATIONALITY_USER_CODE)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.NATIONALITY)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.DATE_IN_KINGDOM)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.SEX)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.SERVICES)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.AGE)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.STAFF_CATEGORY)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.CONTRACT_TYPE)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.NATIONALITY_CODE)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.BANNED_FROM_TRAVELING)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.SX)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.CONTRACT_TYPE_DESC)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.RELIGION_USER_CODE)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.RELIGION)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.MAIN_POSITION)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.MAIN_POSITION_CODE)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.WORK_DEPT_NAME)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.POST_NUMBER)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.POST_DATE_STARTED)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.POST_DATE_ENDED)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.STAFF_CONTRACT_NO)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.MANAGER_STAFF_ID)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.MANAGER_NAME)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.MANAGER_JOB_CODE)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.MANAGER_JOB_TITLE)</th>
+                            <th>@Html.DisplayNameFor(dummy => Model.Header.MANAGER_GRADE)</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+
+    <script type="text/javascript">
+        $(function () {
+            $('.SupervisorUser').hide();
+            GetData();
+
+            var tableContainer = $(".large-table-container-3");
+            var table = $(".large-table-container-3 table");
+            var fakeContainer = $(".large-table-fake-top-scroll-container-3");
+            var fakeDiv = $(".large-table-fake-top-scroll-container-3 div");
+
+            var tableWidth = table.width();
+            fakeDiv.width(tableWidth);
+
+            fakeContainer.scroll(function () {
+                tableContainer.scrollLeft(fakeContainer.scrollLeft());
+            });
+            tableContainer.scroll(function () {
+                fakeContainer.scrollLeft(tableContainer.scrollLeft());
+            });
+        });
+
+        $("#lstDepts").change(function () {
+            GetData();
+
+            $('.SupervisorUser').show();
+        });
+
+        function GetData() {
+            let workEntity = "-1";//get selected stataus
+
+            if ($("#lstDepts").val() != null && $("#lstDepts").val() != undefined && $("#lstDepts").val() != '' && $("#lstDepts").val() != 0) {
+                workEntity = $("#lstDepts").val();
+            } else {
+                workEntity = "-1";
+            }
+
+            let dtFormat = "DD-MM-YYYY";
+
+            $('#empdatatable').DataTable(
+                {
+                    "serverSide": false,
+                    "destroy": true,
+                    "processing": true,
+                    "order": [[0, "desc"]],
+                    "autowidth": true,
+                    "info": true,         // Will show "1 to n of n entries" Text at bottom
+                    "lengthChange": true, // Will Disabled Record number per page
+                    "ajax":
+                    {
+                        url: "/Report/GetEmpData?workEntity="+workEntity,
+                        method: "POST"
+                    },
+                    "columns": [
+                        { "data": "STAFF_ID", "autowidth": true },
+                        { "data": "STAFF_NAME", "autowidth": true },
+                        { "data": "ARBIC_NAME", "autowidth": true },
+                        { "data": "IsSupervisor", "autowidth": true },
+                        {
+                            "data": "CONT_START_DATE", "autowidth": true, render: function (data, type, row) {
+                                if (type === "sort" || type === "type") {
+                                    return data;
+                                }
+                                return moment(data).format(dtFormat);
+                            }
+                        },
+                        {
+                            "data": "CONT_END_DATE", "autowidth": true, render: function (data, type, row) {
+                                if (type === "sort" || type === "type") {
+                                    return data;
+                                }
+                                return moment(data).format(dtFormat);
+                            }
+                        },
+                        //{ "data": "TERMINATION_DATE", "autowidth": true },
+                        //{ "data": "LAST_WORKING_DATE", "autowidth": true },
+                        { "data": "GRADE_STEP", "autowidth": true },
+                        { "data": "CONTRACT_STATUS", "autowidth": true },
+                        { "data": "DEPT_NAME", "autowidth": true },
+                        { "data": "WORK_ENTITY", "autowidth": true },
+                        { "data": "POSITION_DESCRIPTION", "autowidth": true },
+                        {
+                            "data": "DATE_OF_BIRTH", "autowidth": true, render: function (data, type, row) {
+                                if (type === "sort" || type === "type") {
+                                    return data;
+                                }
+                                return moment(data).format(dtFormat);
+                            }
+                        },
+                        { "data": "NATIONALITY_USER_CODE", "autowidth": true },
+                        { "data": "NATIONALITY", "autowidth": true },
+                        {
+                            "data": "DATE_IN_KINGDOM", "autowidth": true, render: function (data, type, row) {
+                                if (type === "sort" || type === "type") {
+                                    return data;
+                                }
+                                return moment(data).format(dtFormat);
+                            }
+                        },
+                        { "data": "SEX", "autowidth": true },
+                        { "data": "SERVICES", "autowidth": true },
+                        { "data": "AGE", "autowidth": true },
+                        { "data": "STAFF_CATEGORY", "autowidth": true },
+                        { "data": "CONTRACT_TYPE", "autowidth": true },
+                        { "data": "NATIONALITY_CODE", "autowidth": true },
+                        { "data": "BANNED_FROM_TRAVELING", "autowidth": true },
+                        { "data": "SX", "autowidth": true },
+                        { "data": "CONTRACT_TYPE_DESC", "autowidth": true },
+                        { "data": "RELIGION_USER_CODE", "autowidth": true },
+                        { "data": "RELIGION", "autowidth": true },
+                        { "data": "MAIN_POSITION", "autowidth": true },
+                        { "data": "MAIN_POSITION_CODE", "autowidth": true },
+                        { "data": "WORK_DEPT_NAME", "autowidth": true },
+                        { "data": "POST_NUMBER", "autowidth": true },
+                        {
+                            "data": "POST_DATE_STARTED", "autowidth": true, render: function (data, type, row) {
+                                if (type === "sort" || type === "type") {
+                                    return data;
+                                }
+                                return moment(data).format(dtFormat);
+                            }
+                        },
+                        {
+                            "data": "POST_DATE_ENDED", "autowidth": true, render: function (data, type, row) {
+                                if (type === "sort" || type === "type") {
+                                    return data;
+                                }
+                                return moment(data).format();
+                            }
+                        },
+                        { "data": "STAFF_CONTRACT_NO", "autowidth": true },
+                        { "data": "MANAGER_STAFF_ID", "autowidth": true },
+                        { "data": "MANAGER_NAME", "autowidth": true },
+                        { "data": "MANAGER_JOB_CODE", "autowidth": true },
+                        { "data": "MANAGER_JOB_TITLE", "autowidth": true },
+                        { "data": "MANAGER_GRADE", "autowidth": true },
+                        {
+                            "data": "STAFF_ID", "autowidth": true, "render": function (data) {
+                                var Buttons = '<a href="/Report/EmpSearch/' + data + '" class="btn btn-primary btn-xs" target="_blank"><i class="fa fa-share"></i> @Resource.Preview </a>';
+
+                                return Buttons;
+                            }
+                        }
+                    ],
+                    dom: 'lBfrtip',
+                    buttons: [
+                        {
+                            extend: 'excelHtml5',
+                            text: 'Export to Excel',
+                            //className: 'btn btn-default btn-lg'
+                        },
+                        {
+                            extend: 'pdfHtml5',
+                            text: 'Export to PDF',
+                            //className: 'btn btn-default btn-lg'
+                        },
+                        'print'
+                        //'excelHtml5',
+                        //'pdfHtml5',
+                        //'csvHtml5'
+                    ]
+                }
+
+            );
+        }
+    </script>
+
+}

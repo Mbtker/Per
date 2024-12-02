@@ -1,0 +1,315 @@
+﻿@using Performance.Management.UIL.Language;
+@using Performance.Management.BLL.ViewModel;
+
+@model Performance.Management.BLL.ViewModel.OasisUser
+
+<div>
+    <h4>@Resource.Result</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DocNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StaffId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StaffId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StaffNameAr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StaffNameAr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StaffNameEn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StaffNameEn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HiringDateAr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HiringDateAr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NatAr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NatAr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HiringDateEn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HiringDateEn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NatEn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NatEn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContStartDateEn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContStartDateEn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContStartDateAr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContStartDateAr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContEndDateEn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContEndDateEn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContEndDateAr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContEndDateAr)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.TodayEn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TodayEn)
+        </dd>*@
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.TodayAr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TodayAr)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PositionAr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PositionAr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PositionEn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PositionEn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartmentEn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartmentEn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartmentAr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartmentAr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PatientNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContractTypeEn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContractTypeEn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContractTypeAr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContractTypeAr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContractStatusEn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContractStatusEn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContractStatusAr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContractStatusAr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkEntity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkEntity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PositionType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PositionType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReportToName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReportToName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReportToNationalId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReportToNationalId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReportToId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReportToId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReportToEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReportToEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReportToDept)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReportToDept)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReportToJobTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReportToJobTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReportToPostNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReportToPostNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Grade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grade)
+        </dd>
+
+    </dl>
+</div>

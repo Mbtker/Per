@@ -1,0 +1,12 @@
+C:\PSCC\SourceCode\Performance.Management\Code\EForms.DML\bin\Debug\Performance.Management.DML.dll.config
+C:\PSCC\SourceCode\Performance.Management\Code\EForms.DML\bin\Debug\Performance.Management.DML.dll
+C:\PSCC\SourceCode\Performance.Management\Code\EForms.DML\bin\Debug\Performance.Management.DML.pdb
+C:\PSCC\SourceCode\Performance.Management\Code\EForms.DML\bin\Debug\EntityFramework.dll
+C:\PSCC\SourceCode\Performance.Management\Code\EForms.DML\bin\Debug\EntityFramework.SqlServer.dll
+C:\PSCC\SourceCode\Performance.Management\Code\EForms.DML\bin\Debug\EntityFramework.xml
+C:\PSCC\SourceCode\Performance.Management\Code\EForms.DML\bin\Debug\EntityFramework.SqlServer.xml
+C:\PSCC\SourceCode\Performance.Management\Code\EForms.DML\obj\Debug\Performance.Management.DML.csproj.AssemblyReference.cache
+C:\PSCC\SourceCode\Performance.Management\Code\EForms.DML\obj\Debug\Performance.Management.DML.csproj.CoreCompileInputs.cache
+C:\PSCC\SourceCode\Performance.Management\Code\EForms.DML\obj\Debug\Performance.Management.DML.csproj.CopyComplete
+C:\PSCC\SourceCode\Performance.Management\Code\EForms.DML\obj\Debug\Performance.Management.DML.dll
+C:\PSCC\SourceCode\Performance.Management\Code\EForms.DML\obj\Debug\Performance.Management.DML.pdb

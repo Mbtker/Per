@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PSCC_Setting.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DepartmentHead">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmentCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartmentName" Type="nvarchar" MaxLength="100" />
+          <Property Name="DepartmentHeadStaffID" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartmentHeadUserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartmentHeadFullName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartmentHeadPositionCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartmentHeadPositionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartmentDeputyDirectorStaffID" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartmentDeputyDirectorUserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartmentDeputyDirectorFullName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartmentDeputyDirectorPositionCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartmentDeputyDirectorPositionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartmentActingDirectorStaffID" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartmentActingDirectorUserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartmentActingDirectorFullName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartmentActingDirectorPositionCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartmentActingDirectorPositionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DirectorTypeID" Type="int" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DirectorType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_DepartmentHead_DirectorType">
+          <End Role="DirectorType" Type="Self.DirectorType" Multiplicity="0..1" />
+          <End Role="DepartmentHead" Type="Self.DepartmentHead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DirectorType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DepartmentHead">
+              <PropertyRef Name="DirectorTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PSCC_SettingStoreContainer">
+          <EntitySet Name="DepartmentHead" EntityType="Self.DepartmentHead" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DirectorType" EntityType="Self.DirectorType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DepartmentHead_DirectorType" Association="Self.FK_DepartmentHead_DirectorType">
+            <End Role="DirectorType" EntitySet="DirectorType" />
+            <End Role="DepartmentHead" EntitySet="DepartmentHead" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PSCC_Setting" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PSCCSetting" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DepartmentHeads" EntityType="PSCC_Setting.DepartmentHead" />
+          <EntitySet Name="DirectorTypes" EntityType="PSCC_Setting.DirectorType" />
+          <AssociationSet Name="FK_DepartmentHead_DirectorType" Association="PSCC_Setting.FK_DepartmentHead_DirectorType">
+            <End Role="DirectorType" EntitySet="DirectorTypes" />
+            <End Role="DepartmentHead" EntitySet="DepartmentHeads" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="DepartmentHead">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentHeadStaffID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentHeadUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentHeadFullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentHeadPositionCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentHeadPositionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentDeputyDirectorStaffID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentDeputyDirectorUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentDeputyDirectorFullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentDeputyDirectorPositionCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentDeputyDirectorPositionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentActingDirectorStaffID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentActingDirectorUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentActingDirectorFullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentActingDirectorPositionCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentActingDirectorPositionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DirectorTypeID" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="DirectorType" Relationship="PSCC_Setting.FK_DepartmentHead_DirectorType" FromRole="DepartmentHead" ToRole="DirectorType" />
+        </EntityType>
+        <EntityType Name="DirectorType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DepartmentHeads" Relationship="PSCC_Setting.FK_DepartmentHead_DirectorType" FromRole="DirectorType" ToRole="DepartmentHead" />
+        </EntityType>
+        <Association Name="FK_DepartmentHead_DirectorType">
+          <End Type="PSCC_Setting.DirectorType" Role="DirectorType" Multiplicity="0..1" />
+          <End Type="PSCC_Setting.DepartmentHead" Role="DepartmentHead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DirectorType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DepartmentHead">
+              <PropertyRef Name="DirectorTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PSCC_SettingStoreContainer" CdmEntityContainer="PSCCSetting">
+          <EntitySetMapping Name="DepartmentHeads">
+            <EntityTypeMapping TypeName="PSCC_Setting.DepartmentHead">
+              <MappingFragment StoreEntitySet="DepartmentHead">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="DirectorTypeID" ColumnName="DirectorTypeID" />
+                <ScalarProperty Name="DepartmentActingDirectorPositionName" ColumnName="DepartmentActingDirectorPositionName" />
+                <ScalarProperty Name="DepartmentActingDirectorPositionCode" ColumnName="DepartmentActingDirectorPositionCode" />
+                <ScalarProperty Name="DepartmentActingDirectorFullName" ColumnName="DepartmentActingDirectorFullName" />
+                <ScalarProperty Name="DepartmentActingDirectorUserName" ColumnName="DepartmentActingDirectorUserName" />
+                <ScalarProperty Name="DepartmentActingDirectorStaffID" ColumnName="DepartmentActingDirectorStaffID" />
+                <ScalarProperty Name="DepartmentDeputyDirectorPositionName" ColumnName="DepartmentDeputyDirectorPositionName" />
+                <ScalarProperty Name="DepartmentDeputyDirectorPositionCode" ColumnName="DepartmentDeputyDirectorPositionCode" />
+                <ScalarProperty Name="DepartmentDeputyDirectorFullName" ColumnName="DepartmentDeputyDirectorFullName" />
+                <ScalarProperty Name="DepartmentDeputyDirectorUserName" ColumnName="DepartmentDeputyDirectorUserName" />
+                <ScalarProperty Name="DepartmentDeputyDirectorStaffID" ColumnName="DepartmentDeputyDirectorStaffID" />
+                <ScalarProperty Name="DepartmentHeadPositionName" ColumnName="DepartmentHeadPositionName" />
+                <ScalarProperty Name="DepartmentHeadPositionCode" ColumnName="DepartmentHeadPositionCode" />
+                <ScalarProperty Name="DepartmentHeadFullName" ColumnName="DepartmentHeadFullName" />
+                <ScalarProperty Name="DepartmentHeadUserName" ColumnName="DepartmentHeadUserName" />
+                <ScalarProperty Name="DepartmentHeadStaffID" ColumnName="DepartmentHeadStaffID" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="DepartmentCode" ColumnName="DepartmentCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DirectorTypes">
+            <EntityTypeMapping TypeName="PSCC_Setting.DirectorType">
+              <MappingFragment StoreEntitySet="DirectorType">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

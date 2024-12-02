@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="13df8b1eeb324b849d5bed1baad2e16e" Name="Diagram1">
+        <EntityTypeShape EntityType="PSCC_Setting.DepartmentHead" Width="3.375" PointX="3.625" PointY="1.125" />
+        <EntityTypeShape EntityType="PSCC_Setting.DirectorType" Width="2.25" PointX="0.5" PointY="2.875" />
+        <AssociationConnector Association="PSCC_Setting.FK_DepartmentHead_DirectorType" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PSCC_Setting.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DepartmentHead">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="100" />
+    <Property Name="DepartmentHeadStaffID" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartmentHeadUserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartmentHeadFullName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartmentHeadPositionCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartmentHeadPositionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartmentDeputyDirectorStaffID" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartmentDeputyDirectorUserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartmentDeputyDirectorFullName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartmentDeputyDirectorPositionCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartmentDeputyDirectorPositionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartmentActingDirectorStaffID" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartmentActingDirectorUserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartmentActingDirectorFullName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartmentActingDirectorPositionCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartmentActingDirectorPositionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DirectorTypeID" Type="int" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DirectorType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_DepartmentHead_DirectorType">
+    <End Role="DirectorType" Type="Self.DirectorType" Multiplicity="0..1" />
+    <End Role="DepartmentHead" Type="Self.DepartmentHead" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DirectorType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DepartmentHead">
+        <PropertyRef Name="DirectorTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PSCC_SettingStoreContainer">
+    <EntitySet Name="DepartmentHead" EntityType="Self.DepartmentHead" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DirectorType" EntityType="Self.DirectorType" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_DepartmentHead_DirectorType" Association="Self.FK_DepartmentHead_DirectorType">
+      <End Role="DirectorType" EntitySet="DirectorType" />
+      <End Role="DepartmentHead" EntitySet="DepartmentHead" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

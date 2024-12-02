@@ -1,0 +1,242 @@
+﻿@using Performance.Management.UIL.Controllers;
+@using Performance.Management.UIL.Language;
+@using Performance.Management.BLL.ViewModel;
+
+@model Performance.Management.BLL.ViewModel.RequestModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section title{
+    <h1>
+        @Resource.PerformanceManagement
+        <small>@Resource.ManageRequest</small>
+    </h1>
+}
+
+@section breadcrumb{
+    <li class="active">@Resource.ManageRequest </li>
+}
+
+@{
+    string lang = Context.Request.Cookies["culture"].Value ?? "en";
+
+    string username = new Performance.Management.UIL.Controllers.BaseController().GetUserName();
+
+    bool isCurrentUserIsHR = new Performance.Management.UIL.Controllers.BaseController().CheckCurrentUserIsHR;
+}
+
+<section class="content">
+
+    <div class="" style="padding: 10px; padding-top: 30px; padding-bottom:30px;">
+        <a class="h4 callout callout-details" data-toggle="collapse" href="#requestDetailsCollapse" role="button" aria-expanded="false" aria-controls="requestDetailsCollapse"><i class="fa fa-columns"> @Resource.Preview - @Resource.EvaluationForm </i></a>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="collapse multi-collapse" id="requestDetailsCollapse">
+                @Html.Partial("Details/_EvaluationDetails", Model)
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("Evaluate/_EmployeeDetails", Model)
+
+    @Html.Partial("Details/_RequestDetails", Model)
+
+    @Html.Partial("Manage/_DeptHead_Action", Model)
+    @Html.Partial("Manage/_Employee_Action", Model)
+    @Html.Partial("Manage/_DirectManager_Action", Model)
+    @Html.Partial("Manage/_HR_PerformanceUnit_Action", Model)
+    @Html.Partial("Manage/_HR_ManagerOfPersonal_Action", Model)
+    @Html.Partial("Manage/_HR_Director_Action", Model)
+
+    @Html.Partial("Manage/_Feedback", Model)
+
+    <div class="callout callout-danger bottom-failed form-group" hidden="hidden" id="bottom-failed">
+        <b><i class="fa fa-exclamation-triangle"></i></b> <b class="msgText"></b>
+        <span></span>
+    </div>
+
+    <div class="text-center">
+        <a href="/Request/Index" class="btn btn-primary"><i class="fa fa-reply"></i> @Resource.Back</a>
+    </div>
+
+</section>
+
+@section scripts{
+    <script type="text/javascript">
+        $(function () {
+
+            //txtComment
+            $("#txtDirectManager_Comment").val('');
+            $("#txtEmployee_Comment").val('');
+            $("#txtHR_PerformanceUnit_Comment").val('');
+            $("#txtHR_ManagerOfPersonal_Comment").val('');
+
+            //lstActions
+            $("#lstDirectManager_Actions").val(null).trigger("change")
+            $("#lstEmployee_Actions").val(null).trigger("change")
+            $("#lstHR_PerformanceUnit_Actions").val(null).trigger("change")
+            $("#lstHR_ManagerOfPersonal_Actions").val(null).trigger("change")
+
+            $("#rbtnDeptHeadApprove, #rbtnDeptHeadDisApprove").change(function () {
+
+                $("#divDeptHeadReason").fadeOut(600);
+
+                var value = $("#rbtnDeptHeadDisApprove").filter(':checked').val();
+
+                if (value) {
+                    $("#divDeptHeadReason").fadeIn(600);
+                }
+
+            });
+
+            $("#btnUpdateDeptHead").click(function () {
+
+                if ($("#rbtnDeptHeadDisApprove").filter(':checked').val() && $("#txtDeptHeadReason").val() == '') {
+                    $("#bottom-failed .msgText").text("Disapproval Reason Required!");
+                    $("#bottom-failed").fadeIn(600).delay(1000).fadeOut(600);
+                    return false;
+                }
+            });
+
+            $("#rbtnHR_Director_Approve, #rbtnHR_Director_DisApprove").change(function () {
+
+                $("#divHR_Director_Reason").fadeOut(600);
+
+                var value = $("#rbtnHR_Director_DisApprove").filter(':checked').val();
+
+                if (value) {
+                    $("#divHR_Director_Reason").fadeIn(600);
+                }
+
+            });
+
+            $("#btnUpdateHR_Director").click(function () {
+
+                if ($("#rbtnHR_Director_DisApprove").filter(':checked').val() && $("#txtHR_Director_Reason").val() == '') {
+                    $("#bottom-failed .msgText").text("Disapproval Reason Required!");
+                    $("#bottom-failed").fadeIn(600).delay(1000).fadeOut(600);
+                    return false;
+                }
+            });
+
+            //lstActions
+            $("#lstDirectManager_Actions").change(function () {
+
+                $("#divDirectManager_Reason").fadeOut(600);
+                $("#divDirectManager_Group").fadeOut(600);
+
+                if ($(this).val() != '' && $(this).val() != 1 && $(this).val() != 5) {
+                    $("#divDirectManager_Reason").fadeIn(600);
+                    if ($(this).val() == 3) {
+                        $("#divDirectManager_Group").fadeIn(600);
+                    }
+                }
+            });
+
+            $("#lstEmployee_Actions").change(function () {
+
+                $("#divEmployee_Reason").fadeOut(600);
+                $("#divEmployee_Group").fadeOut(600);
+
+                if ($(this).val() != '' && $(this).val() != 1 && $(this).val() != 5) {
+                    $("#divEmployee_Reason").fadeIn(600);
+                    if ($(this).val() == 3) {
+                        $("#divEmployee_Group").fadeIn(600);
+                    }
+                }
+            });
+
+            $("#lstHR_PerformanceUnit_Actions").change(function () {
+
+                $("#div_HR_PerformanceUnit_Reason").fadeOut(600);
+                $("#divHR_PerformanceUnit_Group").fadeOut(600);
+
+                if ($(this).val() != '' && $(this).val() != 1 && $(this).val() != 5) {
+                    $("#div_HR_PerformanceUnit_Reason").fadeIn(600);
+                    if ($(this).val() == 3) {
+                        $("#divHR_PerformanceUnit_Group").fadeIn(600);
+                    }
+                }
+            });
+
+            $("#lstHR_ManagerOfPersonal_Actions").change(function () {
+
+                $("#divHR_ManagerOfPersonal_Reason").fadeOut(600);
+                $("#divHR_ManagerOfPersonal_Group").fadeOut(600);
+
+                if ($(this).val() != '' && $(this).val() != 1 && $(this).val() != 5) {
+                    $("#divHR_ManagerOfPersonal_Reason").fadeIn(600);
+                    if ($(this).val() == 3) {
+                        $("#divHR_ManagerOfPersonal_Group").fadeIn(600);
+                    }
+                }
+            });
+
+            //btnUpdate
+            $("#btnUpdateDirectManager").click(function () {
+
+                if ($("#lstDirectManager_Actions").val() == '') {
+                    $("#bottom-failed .msgText").text("Action Required!");
+                    $("#bottom-failed").fadeIn(600).delay(1000).fadeOut(600);
+                    return false;
+                }
+
+                if (($("#lstDirectManager_Actions").val() != 1 && $("#lstDirectManager_Actions").val() != 5) && $("#lstDirectManager_Reasons").val() == '') {
+                    $("#bottom-failed .msgText").text("Reason Required!");
+                    $("#bottom-failed").fadeIn(600).delay(1000).fadeOut(600);
+                    return false;
+                }
+            });
+
+            $("#btnUpdateEmployee").click(function () {
+
+                if ($("#lstEmployee_Actions").val() == '') {
+                    $("#bottom-failed .msgText").text("Action Required!");
+                    $("#bottom-failed").fadeIn(600).delay(1000).fadeOut(600);
+                    return false;
+                }
+
+                if (($("#lstEmployee_Actions").val() != 1 && $("#lstEmployee_Actions").val() != 5) && $("#lstEmployee_Reasons").val() == '') {
+                    $("#bottom-failed .msgText").text("Reason Required!");
+                    $("#bottom-failed").fadeIn(600).delay(1000).fadeOut(600);
+                    return false;
+                }
+            });
+
+            $("#btnUpdateHR_PerformanceUnit").click(function () {
+
+                if ($("#lstHR_PerformanceUnit_Actions").val() == '') {
+                    $("#bottom-failed .msgText").text("Action Required!");
+                    $("#bottom-failed").fadeIn(600).delay(1000).fadeOut(600);
+                    return false;
+                }
+
+                if (($("#lstHR_PerformanceUnit_Actions").val() != 1 && $("#lstHR_PerformanceUnit_Actions").val() != 5) && $("#lstHR_PerformanceUnit_Reasons").val() == '') {
+                    $("#bottom-failed .msgText").text("Reason Required!");
+                    $("#bottom-failed").fadeIn(600).delay(1000).fadeOut(600);
+                    return false;
+                }
+            });
+
+            $("#btnUpdateHR_ManagerOfPersonal").click(function () {
+
+                if ($("#lstHR_ManagerOfPersonal_Actions").val() == '') {
+                    $("#bottom-failed .msgText").text("Action Required!");
+                    $("#bottom-failed").fadeIn(600).delay(1000).fadeOut(600);
+                    return false;
+                }
+
+                if (($("#lstHR_ManagerOfPersonal_Actions").val() != 1 && $("#lstHR_ManagerOfPersonal_Actions").val() != 5) && $("#lstHR_ManagerOfPersonal_Reasons").val() == '') {
+                    $("#bottom-failed .msgText").text("Reason Required!");
+                    $("#bottom-failed").fadeIn(600).delay(1000).fadeOut(600);
+                    return false;
+                }
+            });
+
+        });
+
+    </script>
+}

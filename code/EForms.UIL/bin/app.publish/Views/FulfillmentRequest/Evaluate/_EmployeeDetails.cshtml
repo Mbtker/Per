@@ -1,0 +1,97 @@
+﻿@using Performance.Management.UIL.Language;
+@model Performance.Management.BLL.ViewModel.RequestModel
+
+@{
+    string lang = Context.Request.Cookies["culture"].Value ?? "en";
+
+    string username = new Performance.Management.UIL.Controllers.BaseController().GetUserName();
+}
+
+<div class="box box-primary">
+
+    <div class="box-header  with-border">
+        <h3 class="box-title">
+            <i class="fa fa-user-circle"></i>
+            @Resource.EmployeeDetails
+        </h3>
+    </div>
+
+    <div class="box-body">
+
+        <div class="row">
+            <div class="col-md-4 col-xs-12">
+                <div class="form-group">
+                    <label>@Resource.EqamaOrNationalID</label>
+                    <p class="text-muted">@Model.SelectedEmployee.DOC_NUMBER</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <div class="form-group">
+                    <label>@Resource.Name</label>
+                    <p class="text-muted">
+
+                        @if (lang == "Ar")
+                        {
+                            @Model.SelectedEmployee.ARB_STAFF_NAME
+                        }
+                        else
+                        {
+                            @Model.SelectedEmployee.ENGL_STAFF_NAME
+                        }
+
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <div class="form-group">
+                    <label>@Resource.Position_Name</label>
+                    <p class="text-muted">
+
+                        @if (lang == "Ar")
+                        {
+                            @Model.SelectedEmployee.POSITION_ARABIC
+                        }
+                        else
+                        {
+                            @Model.SelectedEmployee.POSITION_ENGLISH
+                        }
+
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-xs-12">
+                <div class="form-group">
+                    <label>@Resource.GradeCode</label>
+                    <p class="text-muted">
+                        @Model.SelectedEmployee.GRADE_STEP
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <div class="form-group">
+                    <label>@Resource.UserId</label>
+                    <p class="text-muted">
+                        @Model.SelectedEmployee.STAFF_ID
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <div class="form-group">
+                    <label>@Resource.Department_Name</label>
+                    <p class="text-muted">
+                        @if (lang == "Ar")
+                        {
+                            @Model.SelectedEmployee.DEPARTMENT_ARABIC
+                        }
+                        else
+                        {
+                            @Model.SelectedEmployee.DEPARTMENT_ENGLISH
+                        }
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

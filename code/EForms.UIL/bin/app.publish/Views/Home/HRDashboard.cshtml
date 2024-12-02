@@ -1,0 +1,512 @@
+﻿@using Performance.Management.UIL.Language;
+@model Performance.Management.BLL.ViewModel.HomeModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section title{
+    <h1>
+        @*@Resource.PerformanceManagement*@
+        <small>@Resource.Dashboard</small>
+    </h1>
+}
+
+<section class="content" id="divStats">
+
+    <div class="box box-primary">
+
+        <div class="box-body">
+
+            <h3 class="box-title">@Resource.Requests</h3>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-aqua"><i class="fa fa-th-list"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">@Resource.AllRequests</span>
+                            <span class="info-box-number">@Model.AllRequestCount</span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-green"><i class="fa fa-calendar-check-o"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">@Resource.Finished</span>
+                            <span class="info-box-number">@Model.FinishedRequestCount</span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-yellow"><i class="fa fa-cogs"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">@Resource.Pending</span>
+                            <span class="info-box-number">@Model.UnderProcessRequestCount</span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3 col-sm-6 col-xs-12" hidden>
+                    <div class="info-box">
+                        <span class="info-box-icon bg-red"><i class="fa fa-calendar-times-o"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">@Resource.Delayed</span>
+                            <span class="info-box-number">@Model.DelayRequestCount</span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+            </div>
+
+            <h3 class="box-title">@Resource.Approvals</h3>
+
+            <div class="row">
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-green">
+                        <span class="info-box-icon"><i class="fa fa-thumbs-o-up"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">@Resource.Department</span>
+                            <span class="info-box-number">@Model.DepartmentApprovalCount</span>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: @Model.DepartmentApprovalRatio%"></div>
+                            </div>
+                            <span class="progress-description">
+                                <b>@Model.DepartmentApprovalRatio</b>% @Resource.Approved
+                            </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-red">
+                        <span class="info-box-icon"><i class="fa fa-thumbs-o-down"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">@Resource.Department</span>
+                            <span class="info-box-number">@Model.DepartmentDisapprovalCount</span>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: @Model.DepartmentDisapprovalRatio%"></div>
+                            </div>
+                            <span class="progress-description">
+                                <b>@Model.DepartmentDisapprovalRatio</b>% @Resource.Disapproved
+                            </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-green">
+                        <span class="info-box-icon"><i class="fa fa-thumbs-o-up"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">@Resource.PerformanceManagement</span>
+                            <span class="info-box-number">@Model.PORApprovalCount</span>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: @Model.PORApprovalRatio%"></div>
+                            </div>
+                            <span class="progress-description">
+                                <b>@Model.PORApprovalRatio</b>% @Resource.Approved
+                            </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-red">
+                        <span class="info-box-icon"><i class="fa fa-thumbs-o-down"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">@Resource.PerformanceManagement</span>
+                            <span class="info-box-number">@Model.PRDisapprovalCount</span>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: @Model.PRDisapprovalRatio%"></div>
+                            </div>
+                            <span class="progress-description">
+                                <b>@Model.PRDisapprovalRatio</b>% @Resource.Disapproved
+                            </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+            </div>
+
+            <h3 class="box-title">@Resource.GradeEstimation </h3>
+
+            <div class="row">
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="info-box bg-green">
+                        <span class="info-box-icon"><i class="fa fa-user"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">@Resource.EmpCount</span>
+                            <span class="info-box-number">@Model.EmpCount</span>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: @Model.EmpCountRatio%"></div>
+                            </div>
+                            <span class="progress-description">
+                                @Resource.EmpCount
+                            </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="info-box bg-blue">
+                        <span class="info-box-icon"><i class="fa fa-user-plus"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">@Resource.Supervisory</span>
+                            <span class="info-box-number">@Model.EmpSupervisoryCount</span>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: @Model.EmpSupervisoryCountRatio%"></div>
+                            </div>
+                            <span class="progress-description">
+                                @Resource.EmpSupervisoryCount
+                            </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="info-box bg-green">
+                        <span class="info-box-icon"><i class="fa fa-user-circle-o"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">@Resource.NonSupervisory</span>
+                            <span class="info-box-number">@Model.EmpNonSupervisoryCount</span>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: @Model.EmpNonSupervisoryCountRatio%"></div>
+                            </div>
+                            <span class="progress-description">
+                                @Resource.EmpNonSupervisoryCount
+                            </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+
+                <div class="col-md-3 col-sm-6 col-xs-12" hidden>
+                    <div class="info-box bg-red">
+                        <span class="info-box-icon"><i class="fa fa-thumbs-o-down"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">@Resource.Unknown</span>
+                            <span class="info-box-number">@Model.EmpNonUnknownCount</span>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: @Model.PRDisapprovalRatio%"></div>
+                            </div>
+                            <span class="progress-description">
+                                @Resource.EmpNonUnknownCount
+                            </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+            </div>
+
+            <h3 class="box-title" hidden>@Resource.Employees - @Resource.JobCountTotal </h3>
+
+            <div class="row" hidden>
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="info-box bg-green">
+                        <span class="info-box-icon"><i class="fa fa-user"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">@Resource.JobCountTotal</span>
+                            <span class="info-box-number">@Model.JobCountTotal</span>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: @Model.JobCountTotalRaion%"></div>
+                            </div>
+                            <span class="progress-description">
+                                @Resource.JobCountTotal
+                            </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="info-box bg-blue">
+                        <span class="info-box-icon"><i class="fa fa-user-plus"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">@Resource.JobCountForBusy</span>
+                            <span class="info-box-number">@Model.JobCountForBusy</span>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: @Model.JobCountForBusyRatio%"></div>
+                            </div>
+                            <span class="progress-description">
+                                @Resource.JobCountForBusy
+                            </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="info-box bg-light-blue-gradient">
+                        <span class="info-box-icon"><i class="fa fa-user-circle-o"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">@Resource.JobCountForVacancy</span>
+                            <span class="info-box-number">@Model.JobCountForVacancy</span>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: @Model.JobCountForVacancyRatio%"></div>
+                            </div>
+                            <span class="progress-description">
+                                @Resource.JobCountForVacancy
+                            </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+            </div>
+
+            <h3 class="box-title">@Resource.PerformanceManagement</h3>
+
+            <div class="row">
+                <div class="col-lg-6 col-xs-12">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>@Model.FormAdminFinishedRatio<sup style="font-size: 20px">%</sup></h3>
+
+                            <p>@Resource.FinishedRatio</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-calendar-check-o"></i>
+                        </div>
+                        <p class="small-box-footer">
+                            @Resource.FinishedCount @Model.FormAdminFinishedCount
+                        </p>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-6 col-xs-12">
+                    <!-- small box -->
+                    <div class="small-box bg-yellow">
+                        <div class="inner">
+                            <h3>@Model.FormAdminUnderProcessingRatio<sup style="font-size: 20px">%</sup></h3>
+
+                            <p>@Resource.UnderProcessingRatio</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <p class="small-box-footer">
+                            @Resource.UnderProcessingCount @Model.FormAdminUnderProcessingCount
+                        </p>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-4 col-xs-12" hidden>
+                    <!-- small box -->
+                    <div class="small-box bg-red">
+                        <div class="inner">
+                            <h3>@Model.FormAdminDelaydRatio<sup style="font-size: 20px">%</sup></h3>
+
+                            <p>Delayed Ratio</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-calendar-times-o"></i>
+                        </div>
+                        <p class="small-box-footer">
+                            Delayed Count @Model.FormAdminDelaydCount
+                        </p>
+                    </div>
+                </div>
+                <!-- ./col -->
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-4 col-xs-12">
+
+                    <h3 class="box-title">@Resource.Achievement</h3>
+
+                    <div class="progress-group">
+                        <span class="progress-text">25% @Resource.Rate</span>
+                        <span class="progress-number"><b>@Model.AchievementFeedback25Count</b>/@Model.AllRequestCount</span>
+
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-red" style="width: 25%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                        <span class="progress-text">50% @Resource.Rate</span>
+                        <span class="progress-number"><b>@Model.AchievementFeedback50Count</b>/@Model.AllRequestCount</span>
+
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                        <span class="progress-text">75% @Resource.Rate</span>
+                        <span class="progress-number"><b>@Model.AchievementFeedback75Count</b>/@Model.AllRequestCount</span>
+
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-info" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                        <span class="progress-text">100% @Resource.Rate</span>
+                        <span class="progress-number"><b>@Model.AchievementFeedback100Count</b>/@Model.AllRequestCount</span>
+
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-success" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                </div>
+
+                <div class="col-md-4 col-xs-12">
+
+                    <h3 class="box-title">@Resource.TimeOfService</h3>
+
+                    <div class="progress-group">
+                        <span class="progress-text">25% @Resource.Rate</span>
+                        <span class="progress-number"><b>@Model.TimeOfServiceFeedback25Count</b>/@Model.AllRequestCount</span>
+
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-red" style="width: 25%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                        <span class="progress-text">50% @Resource.Rate</span>
+                        <span class="progress-number"><b>@Model.TimeOfServiceFeedback50Count</b>/@Model.AllRequestCount</span>
+
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                        <span class="progress-text">75% @Resource.Rate</span>
+                        <span class="progress-number"><b>@Model.TimeOfServiceFeedback75Count</b>/@Model.AllRequestCount</span>
+
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-info" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                        <span class="progress-text">100% @Resource.Rate</span>
+                        <span class="progress-number"><b>@Model.TimeOfServiceFeedback100Count</b>/@Model.AllRequestCount</span>
+
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-success" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                </div>
+
+                <div class="col-md-4 col-xs-12">
+
+                    <h3 class="box-title">@Resource.Satisfacation</h3>
+
+                    <div class="progress-group">
+                        <span class="progress-text">25% @Resource.Rate</span>
+                        <span class="progress-number"><b>@Model.SatisfacationFeedback25Count</b>/@Model.AllRequestCount</span>
+
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-red" style="width: 25%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                        <span class="progress-text">50% @Resource.Rate</span>
+                        <span class="progress-number"><b>@Model.SatisfacationFeedback50Count</b>/@Model.AllRequestCount</span>
+
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                        <span class="progress-text">75% @Resource.Rate</span>
+                        <span class="progress-number"><b>@Model.SatisfacationFeedback75Count</b>/@Model.AllRequestCount</span>
+
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-info" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                        <span class="progress-text">100% @Resource.Rate</span>
+                        <span class="progress-number"><b>@Model.SatisfacationFeedback100Count</b>/@Model.AllRequestCount</span>
+
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-success" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

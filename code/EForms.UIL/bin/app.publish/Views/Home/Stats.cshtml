@@ -1,0 +1,354 @@
+﻿@model Performance.Management.BLL.ViewModel.HomeModel
+
+@{
+    ViewBag.Title = "Stats";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+        @section title{
+            <h1>
+                @Performance.Management.UIL.Language.Resource.PerformanceManagement
+                <small>Display General Statistics </small>
+            </h1>
+        }
+
+        <section class="content" id="divStats">
+
+            <div class="box box-primary">
+                <div class="box-body">
+
+                    <h3 class="box-title">Requests</h3>
+
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-aqua"><i class="fa fa-th-list"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">All Requests</span>
+                                    <span class="info-box-number">@Model.AllRequestCount</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-green"><i class="fa fa-calendar-check-o"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Finished</span>
+                                    <span class="info-box-number">@Model.FinishedRequestCount</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-yellow"><i class="fa fa-cogs"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Under Processing</span>
+                                    <span class="info-box-number">@Model.UnderProcessRequestCount</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-red"><i class="fa fa-calendar-times-o"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Delayed</span>
+                                    <span class="info-box-number">@Model.DelayRequestCount</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+
+                    <h3 class="box-title">Approvals</h3>
+
+                    <div class="row">
+
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box bg-green">
+                                <span class="info-box-icon"><i class="fa fa-thumbs-o-up"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Department</span>
+                                    <span class="info-box-number">@Model.DepartmentApprovalCount</span>
+
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: @Model.DepartmentApprovalRatio%"></div>
+                                    </div>
+                                    <span class="progress-description">
+                                        <b>@Model.DepartmentApprovalRatio</b>% Approved
+                                    </span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box bg-red">
+                                <span class="info-box-icon"><i class="fa fa-thumbs-o-down"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Department</span>
+                                    <span class="info-box-number">@Model.DepartmentDisapprovalCount</span>
+
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: @Model.DepartmentDisapprovalRatio%"></div>
+                                    </div>
+                                    <span class="progress-description">
+                                        <b>@Model.DepartmentDisapprovalRatio</b>% Disapproved
+                                    </span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box bg-green">
+                                <span class="info-box-icon"><i class="fa fa-thumbs-o-up"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">@Performance.Management.UIL.Language.Resource.PerformanceManagement</span>
+                                    <span class="info-box-number">@Model.PORApprovalCount</span>
+
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: @Model.PORApprovalRatio%"></div>
+                                    </div>
+                                    <span class="progress-description">
+                                        <b>@Model.PORApprovalRatio</b>% Approved
+                                    </span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box bg-red">
+                                <span class="info-box-icon"><i class="fa fa-thumbs-o-down"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">@Performance.Management.UIL.Language.Resource.PerformanceManagement</span>
+                                    <span class="info-box-number">@Model.PRDisapprovalCount</span>
+
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: @Model.PRDisapprovalRatio%"></div>
+                                    </div>
+                                    <span class="progress-description">
+                                        <b>@Model.PRDisapprovalRatio</b>% Disapproved
+                                    </span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+
+                    <h3 class="box-title">Forms Admins Summary</h3>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-xs-12">
+                            <!-- small box -->
+                            <div class="small-box bg-green">
+                                <div class="inner">
+                                    <h3>@Model.FormAdminFinishedRatio<sup style="font-size: 20px">%</sup></h3>
+
+                                    <p>Finished Ratio</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-calendar-check-o"></i>
+                                </div>
+                                <p class="small-box-footer">
+                                    Finished Count @Model.FormAdminFinishedCount
+                                </p>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-lg-4 col-xs-12">
+                            <!-- small box -->
+                            <div class="small-box bg-yellow">
+                                <div class="inner">
+                                    <h3>@Model.FormAdminUnderProcessingRatio<sup style="font-size: 20px">%</sup></h3>
+
+                                    <p>Under Processing Ratio</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <p class="small-box-footer">
+                                    Under Processing Count @Model.FormAdminUnderProcessingCount
+                                </p>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-lg-4 col-xs-12" hidden>
+                            <!-- small box -->
+                            <div class="small-box bg-red">
+                                <div class="inner">
+                                    <h3>@Model.FormAdminDelaydRatio<sup style="font-size: 20px">%</sup></h3>
+
+                                    <p>Delayed Ratio</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-calendar-times-o"></i>
+                                </div>
+                                <p class="small-box-footer">
+                                    Delayed Count @Model.FormAdminDelaydCount
+                                </p>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-4 col-xs-12">
+
+                            <h3 class="box-title">Achievement</h3>
+
+                            <div class="progress-group">
+                                <span class="progress-text">25% Rate</span>
+                                <span class="progress-number"><b>@Model.AchievementFeedback25Count</b>/@Model.AllRequestCount</span>
+
+                                <div class="progress sm">
+                                    <div class="progress-bar progress-bar-red" style="width: 25%"></div>
+                                </div>
+                            </div>
+                            <!-- /.progress-group -->
+                            <div class="progress-group">
+                                <span class="progress-text">50% Rate</span>
+                                <span class="progress-number"><b>@Model.AchievementFeedback50Count</b>/@Model.AllRequestCount</span>
+
+                                <div class="progress sm">
+                                    <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+                                </div>
+                            </div>
+                            <!-- /.progress-group -->
+                            <div class="progress-group">
+                                <span class="progress-text">75% Rate</span>
+                                <span class="progress-number"><b>@Model.AchievementFeedback75Count</b>/@Model.AllRequestCount</span>
+
+                                <div class="progress sm">
+                                    <div class="progress-bar progress-bar-info" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <!-- /.progress-group -->
+                            <div class="progress-group">
+                                <span class="progress-text">100% Rate</span>
+                                <span class="progress-number"><b>@Model.AchievementFeedback100Count</b>/@Model.AllRequestCount</span>
+
+                                <div class="progress sm">
+                                    <div class="progress-bar progress-bar-success" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <!-- /.progress-group -->
+                        </div>
+
+                        <div class="col-md-4 col-xs-12">
+
+                            <h3 class="box-title">Time of Service</h3>
+
+                            <div class="progress-group">
+                                <span class="progress-text">25% Rate</span>
+                                <span class="progress-number"><b>@Model.TimeOfServiceFeedback25Count</b>/@Model.AllRequestCount</span>
+
+                                <div class="progress sm">
+                                    <div class="progress-bar progress-bar-red" style="width: 25%"></div>
+                                </div>
+                            </div>
+                            <!-- /.progress-group -->
+                            <div class="progress-group">
+                                <span class="progress-text">50% Rate</span>
+                                <span class="progress-number"><b>@Model.TimeOfServiceFeedback50Count</b>/@Model.AllRequestCount</span>
+
+                                <div class="progress sm">
+                                    <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+                                </div>
+                            </div>
+                            <!-- /.progress-group -->
+                            <div class="progress-group">
+                                <span class="progress-text">75% Rate</span>
+                                <span class="progress-number"><b>@Model.TimeOfServiceFeedback75Count</b>/@Model.AllRequestCount</span>
+
+                                <div class="progress sm">
+                                    <div class="progress-bar progress-bar-info" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <!-- /.progress-group -->
+                            <div class="progress-group">
+                                <span class="progress-text">100% Rate</span>
+                                <span class="progress-number"><b>@Model.TimeOfServiceFeedback100Count</b>/@Model.AllRequestCount</span>
+
+                                <div class="progress sm">
+                                    <div class="progress-bar progress-bar-success" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <!-- /.progress-group -->
+                        </div>
+
+                        <div class="col-md-4 col-xs-12">
+
+                            <h3 class="box-title">Satisfacation</h3>
+
+                            <div class="progress-group">
+                                <span class="progress-text">25% Rate</span>
+                                <span class="progress-number"><b>@Model.SatisfacationFeedback25Count</b>/@Model.AllRequestCount</span>
+
+                                <div class="progress sm">
+                                    <div class="progress-bar progress-bar-red" style="width: 25%"></div>
+                                </div>
+                            </div>
+                            <!-- /.progress-group -->
+                            <div class="progress-group">
+                                <span class="progress-text">50% Rate</span>
+                                <span class="progress-number"><b>@Model.SatisfacationFeedback50Count</b>/@Model.AllRequestCount</span>
+
+                                <div class="progress sm">
+                                    <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+                                </div>
+                            </div>
+                            <!-- /.progress-group -->
+                            <div class="progress-group">
+                                <span class="progress-text">75% Rate</span>
+                                <span class="progress-number"><b>@Model.SatisfacationFeedback75Count</b>/@Model.AllRequestCount</span>
+
+                                <div class="progress sm">
+                                    <div class="progress-bar progress-bar-info" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <!-- /.progress-group -->
+                            <div class="progress-group">
+                                <span class="progress-text">100% Rate</span>
+                                <span class="progress-number"><b>@Model.SatisfacationFeedback100Count</b>/@Model.AllRequestCount</span>
+
+                                <div class="progress sm">
+                                    <div class="progress-bar progress-bar-success" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <!-- /.progress-group -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+

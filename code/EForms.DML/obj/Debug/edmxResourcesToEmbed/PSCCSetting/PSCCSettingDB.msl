@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PSCC_SettingStoreContainer" CdmEntityContainer="PSCCSetting">
+    <EntitySetMapping Name="DepartmentHeads">
+      <EntityTypeMapping TypeName="PSCC_Setting.DepartmentHead">
+        <MappingFragment StoreEntitySet="DepartmentHead">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="DirectorTypeID" ColumnName="DirectorTypeID" />
+          <ScalarProperty Name="DepartmentActingDirectorPositionName" ColumnName="DepartmentActingDirectorPositionName" />
+          <ScalarProperty Name="DepartmentActingDirectorPositionCode" ColumnName="DepartmentActingDirectorPositionCode" />
+          <ScalarProperty Name="DepartmentActingDirectorFullName" ColumnName="DepartmentActingDirectorFullName" />
+          <ScalarProperty Name="DepartmentActingDirectorUserName" ColumnName="DepartmentActingDirectorUserName" />
+          <ScalarProperty Name="DepartmentActingDirectorStaffID" ColumnName="DepartmentActingDirectorStaffID" />
+          <ScalarProperty Name="DepartmentDeputyDirectorPositionName" ColumnName="DepartmentDeputyDirectorPositionName" />
+          <ScalarProperty Name="DepartmentDeputyDirectorPositionCode" ColumnName="DepartmentDeputyDirectorPositionCode" />
+          <ScalarProperty Name="DepartmentDeputyDirectorFullName" ColumnName="DepartmentDeputyDirectorFullName" />
+          <ScalarProperty Name="DepartmentDeputyDirectorUserName" ColumnName="DepartmentDeputyDirectorUserName" />
+          <ScalarProperty Name="DepartmentDeputyDirectorStaffID" ColumnName="DepartmentDeputyDirectorStaffID" />
+          <ScalarProperty Name="DepartmentHeadPositionName" ColumnName="DepartmentHeadPositionName" />
+          <ScalarProperty Name="DepartmentHeadPositionCode" ColumnName="DepartmentHeadPositionCode" />
+          <ScalarProperty Name="DepartmentHeadFullName" ColumnName="DepartmentHeadFullName" />
+          <ScalarProperty Name="DepartmentHeadUserName" ColumnName="DepartmentHeadUserName" />
+          <ScalarProperty Name="DepartmentHeadStaffID" ColumnName="DepartmentHeadStaffID" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="DepartmentCode" ColumnName="DepartmentCode" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DirectorTypes">
+      <EntityTypeMapping TypeName="PSCC_Setting.DirectorType">
+        <MappingFragment StoreEntitySet="DirectorType">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,236 @@
+@using Performance.Management.UIL.Language;
+@using Performance.Management.BLL.ViewModel;
+
+@model Performance.Management.BLL.ViewModel.RequestModel
+
+@{
+    string lang = Context.Request.Cookies["culture"].Value ?? "en";
+
+    string username = new Performance.Management.UIL.Controllers.BaseController().GetUserName();
+
+    bool isCurrentUserIsHR = new Performance.Management.UIL.Controllers.BaseController().CheckCurrentUserIsHR;
+
+    var _req = Model.Request;
+}
+
+@if (_req.RejectedBy != null)
+{
+    <div class="box box-primary">
+        <div class="box-header  with-border">
+            <h3 class="box-title">
+                <i class="fa fa-user-secret"></i>
+                @Resource.DirectManagerAction
+            </h3>
+        </div>
+
+        <div class="box-body">
+
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Resource.Name</label>
+                        <p class="text-muted">@Model.Request.DirectManager_EnglishName</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Resource.Email</label>
+                        <p class="text-muted">@Model.Request.DirectManager_Email</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                @if (!string.IsNullOrWhiteSpace(Model.Request.DirectManager_UserName))
+                {
+                    @Html.HiddenFor(m => m.Request.DirectManager_UserName, new { @id = "drpdown_DirectManager_UserName" })
+                }
+
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Resource.EqamaOrNationalID</label>
+                        <p class="text-muted">@Model.Request.DirectManager_UserName</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Resource.Position_Name</label>
+                        <p class="text-muted">@Model.Request.DirectManager_Position</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Resource.Request_Recieved</label>
+                        @if (Model.Request.DirectManager_Recieved != null && Model.Request.DirectManager_Recieved.Value)
+                        {
+                            <p><i class="fa fa-check text-success"></i></p>
+                        }
+                        else
+                        {
+                            <p><i class="fa fa-times text-danger"></i></p>
+                        }
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        @if (Model.Request.DirectManager_Recieved != null && Model.Request.DirectManager_Recieved.Value)
+                        {
+                            <label>@Resource.Recieved_DateTime</label>
+                            if (Model.Request.DirectManager_RecievedDateTime != null)
+                            {
+                                <p class="text-muted">@Model.Request.DirectManager_RecievedDateTime.Value.ToString("dd/MM/yyyy hh:mm tt")</p>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Resource.Request_Seen</label>
+                        @if (Model.Request.DirectManager_Seen != null && Model.Request.DirectManager_Seen.Value)
+                        {
+                            <p><i class="fa fa-check text-success"></i></p>
+                        }
+                        else
+                        {
+                            <p><i class="fa fa-times text-danger"></i></p>
+                        }
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        @if (Model.Request.DirectManager_Seen != null && Model.Request.DirectManager_Seen.Value)
+                        {
+                            <label>@Resource.Seen_DateTime</label>
+                            if (Model.Request.DirectManager_SeenDateTime != null)
+                            {
+                                <p class="text-muted">@Model.Request.DirectManager_SeenDateTime.Value.ToString("dd/MM/yyyy hh:mm tt")</p>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Resource.Action</label>
+                        @if (Model.Request.FK_Request_DirectManager_SAction != null)
+                        {
+                            <p class="text-muted">
+                                @{
+                                    var _a = @Model.Request.FK_Request_DirectManager_SAction;
+                                }
+
+                                @if (lang == "Ar")
+                                {
+                                    @_a.NameAr
+                                }
+                                else
+                                {
+                                    @_a.Name
+                                }
+                            </p>
+                        }
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Resource.Action @Resource.DateTime</label>
+                        @if (Model.Request.DirectManager_ActionDateTime != null)
+                        {
+                            <p class="text-muted">@Model.Request.DirectManager_ActionDateTime.Value.ToString("dd/MM/yyyy hh:mm tt")</p>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                @if (Model.Request.FK_Request_DirectManager_Reason != null)
+                {
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label>@Resource.Reason</label>
+                            <p class="text-muted">
+                                @{
+                                    var r = @Model.Request.FK_Request_DirectManager_Reason;
+                                }
+
+                                @if (lang == "Ar")
+                                {
+                                    @r.NameAr
+                                }
+                                else
+                                {
+                                    @r.Name
+                                }
+                            </p>
+                        </div>
+                    </div>
+                }
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Resource.Comments</label>
+                        <p class="text-muted">
+                            @Model.Request.DirectManager_Comment
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr align="center" class="table_break">
+
+        @if (_req.DirectManager_UserName == username && _req.PendingToUserName == username && _req.RejectedBy != null)
+        {
+            using (Html.BeginForm("DirectManager_Action", "Request", FormMethod.Post))
+            {
+                @Html.HiddenFor(m => m.Request.ID)
+                @Html.HiddenFor(m => m.Request.StatusID)
+                @Html.HiddenFor(m => m.Request.DirectManager_UserName)
+
+                @Html.HiddenFor(m => m.CurrentUserName)
+                @Html.HiddenFor(m => m.IsPerformanceUnitUser)
+                @Html.HiddenFor(m => m.FeedBackGiven)
+                @Html.HiddenFor(m => m.IsFinished)
+                @Html.HiddenFor(m => m.IsHRUser)
+
+                @Html.HiddenFor(m => m.DirectManager_UserName)
+
+                <div class="box-body">
+                    <h5 class="box-title">
+                        <i class="fa fa-user-secret"></i>
+                        @Resource.Action
+                    </h5>
+                    <br />
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label>@Resource.Comments</label>
+                                <div class="form-group">
+                                    @Html.TextAreaFor(m => m.Request.DirectManager_Comment, new { @class = "form-control", @style = "width: 100%", @rows = "3", @placeholder = @Resource.Comments, id = "txtDirectManager_Comment" })
+                                </div>
+                                <button type="submit" id="btnEditDirectManager" class="btn btn-primary btn-md"><i class="fa fa-save"></i> @Resource.Edit - @Resource.ManageRequest </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+
+    </div>
+}

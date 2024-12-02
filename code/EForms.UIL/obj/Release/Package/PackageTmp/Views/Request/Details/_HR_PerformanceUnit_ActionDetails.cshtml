@@ -1,0 +1,147 @@
+@model Performance.Management.BLL.ViewModel.RequestModel
+
+@{
+    string Name = new Performance.Management.UIL.Controllers.BaseController().GetUserName();
+}
+
+<div class="box box-primary">
+    <div class="box-header  with-border">
+        <h3 class="box-title">
+            <i class="fa fa-user-plus"></i>
+            @Performance.Management.UIL.Language.Resource.HR_PerformanceUnit_Action
+        </h3>
+    </div>
+
+    <div class="box-body">
+
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group">
+                    <label>@Performance.Management.UIL.Language.Resource.Name</label>
+                    <p class="text-muted">@Model.Request.HR_PerformanceUnit_EnglishName</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group">
+                    <label>@Performance.Management.UIL.Language.Resource.Email</label>
+                    <p class="text-muted">@Model.Request.HR_PerformanceUnit_Email</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group">
+                    <label>@Performance.Management.UIL.Language.Resource.Position_Name</label>
+                    <p class="text-muted">@Model.Request.HR_PerformanceUnit_Position</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group">
+                    <label>@Performance.Management.UIL.Language.Resource.EqamaOrNationalID</label>
+                    <p class="text-muted">@Model.Request.HR_PerformanceUnit_UserName</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group">
+                    <label>@Performance.Management.UIL.Language.Resource.Request_Recieved</label>
+                    @if (Model.Request.HR_PerformanceUnit_Recieved != null && Model.Request.HR_PerformanceUnit_Recieved.Value)
+                    {
+                        <p><i class="fa fa-check text-success"></i></p>
+                    }
+                    else
+                    {
+                        <p><i class="fa fa-times text-danger"></i></p>
+                    }
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group">
+                    @if (Model.Request.HR_PerformanceUnit_Recieved != null && Model.Request.HR_PerformanceUnit_Recieved.Value)
+                    {
+                        <label>@Performance.Management.UIL.Language.Resource.Recieved_DateTime</label>
+                        if (Model.Request.HR_PerformanceUnit_RecievedDateTime != null)
+                        {
+                            <p class="text-muted">@Model.Request.HR_PerformanceUnit_RecievedDateTime.Value.ToString("dd/MM/yyyy hh:mm tt")</p>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group">
+                    <label>@Performance.Management.UIL.Language.Resource.Request_Seen</label>
+                    @if (Model.Request.HR_PerformanceUnit_Seen != null && Model.Request.HR_PerformanceUnit_Seen.Value)
+                    {
+                        <p><i class="fa fa-check text-success"></i></p>
+                    }
+                    else
+                    {
+                        <p><i class="fa fa-times text-danger"></i></p>
+                    }
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group">
+                    @if (Model.Request.HR_PerformanceUnit_Seen != null && Model.Request.HR_PerformanceUnit_Seen.Value)
+                    {
+                        <label>@Performance.Management.UIL.Language.Resource.Seen_DateTime</label>
+                        if (Model.Request.HR_PerformanceUnit_SeenDateTime != null)
+                        {
+                            <p class="text-muted">@Model.Request.HR_PerformanceUnit_SeenDateTime.Value.ToString("dd/MM/yyyy hh:mm tt")</p>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group">
+                    <label>@Performance.Management.UIL.Language.Resource.Action</label>
+                    @if (Model.Request.HR_PerformanceUnit_Approval != null && Model.Request.HR_PerformanceUnit_Approval.Value)
+                    {
+                        <p><i class="fa fa-check text-success"></i></p>
+                    }
+                    else
+                    {
+                        <p><i class="fa fa-times text-danger"></i></p>
+                    }
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group">
+                    @if (Model.Request.HR_PerformanceUnit_ApprovalDateTime != null)
+                    {
+                        <label>@Performance.Management.UIL.Language.Resource.Action_Date</label>
+                        <p class="text-muted">@Model.Request.HR_PerformanceUnit_ApprovalDateTime.Value.ToString("dd/MM/yyyy hh:mm tt")</p>
+                    }
+                </div>
+            </div>
+        </div>
+
+        @if (Model.Request.HR_PerformanceUnit_Approval != null && !Model.Request.HR_PerformanceUnit_Approval.Value)
+        {
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label>@Performance.Management.UIL.Language.Resource.Disapproval_Reason</label>
+                        <p class="text-muted">@Model.Request.HR_PerformanceUnit_Reason</p>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+
+</div>

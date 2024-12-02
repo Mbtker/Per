@@ -1,0 +1,1645 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AcceptedRequests" xml:space="preserve">
+    <value>Accepted Requests</value>
+  </data>
+  <data name="AccountDetails" xml:space="preserve">
+    <value>Account details</value>
+  </data>
+  <data name="AccountStatus" xml:space="preserve">
+    <value>Account Status</value>
+  </data>
+  <data name="Achievement" xml:space="preserve">
+    <value>Achievement</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="Action Date" xml:space="preserve">
+    <value>Action Date &amp; Time</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Administrator Comment" xml:space="preserve">
+    <value>Administrator Comment</value>
+  </data>
+  <data name="Administrator Position" xml:space="preserve">
+    <value>Administrator Position</value>
+  </data>
+  <data name="Administrator Reason" xml:space="preserve">
+    <value>Administrator Reason</value>
+  </data>
+  <data name="AdministratorAction" xml:space="preserve">
+    <value>Administrator Action</value>
+  </data>
+  <data name="AdministratorName" xml:space="preserve">
+    <value>Administrator Name</value>
+  </data>
+  <data name="Admission" xml:space="preserve">
+    <value>Admission</value>
+  </data>
+  <data name="AdmissionView" xml:space="preserve">
+    <value>Admission View</value>
+  </data>
+  <data name="AdmitDate" xml:space="preserve">
+    <value>Admit Date</value>
+  </data>
+  <data name="Age" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="AllAppointments" xml:space="preserve">
+    <value>All appointments</value>
+  </data>
+  <data name="AllComplaints" xml:space="preserve">
+    <value>All Complaints</value>
+  </data>
+  <data name="AllRefillRequests" xml:space="preserve">
+    <value>All Refill Requests</value>
+  </data>
+  <data name="AllRequests" xml:space="preserve">
+    <value>All Requests</value>
+  </data>
+  <data name="AnnouncementsAndAlerts" xml:space="preserve">
+    <value>Announcements</value>
+  </data>
+  <data name="AnticoagulantRefillRequests" xml:space="preserve">
+    <value>Anticoagulant &amp; Refill</value>
+  </data>
+  <data name="AnticoagulantVirtualClinicRequest" xml:space="preserve">
+    <value>Anticoagulant</value>
+  </data>
+  <data name="ApplicationSlogan" xml:space="preserve">
+    <value>Beta Version</value>
+  </data>
+  <data name="ApplicationTittle" xml:space="preserve">
+    <value>Performance Management System - </value>
+  </data>
+  <data name="AppointmentDate" xml:space="preserve">
+    <value>Appointment date</value>
+  </data>
+  <data name="AppointmentInformation" xml:space="preserve">
+    <value>Appointment Information</value>
+  </data>
+  <data name="AppointmentTime" xml:space="preserve">
+    <value>Appointment time</value>
+  </data>
+  <data name="Approval" xml:space="preserve">
+    <value>Approval</value>
+  </data>
+  <data name="Approvals" xml:space="preserve">
+    <value>Approvals</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="ArabicName" xml:space="preserve">
+    <value>Arabic Name</value>
+  </data>
+  <data name="Attachment" xml:space="preserve">
+    <value>Attachment</value>
+  </data>
+  <data name="Attachments" xml:space="preserve">
+    <value>Attachments</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="BackToList" xml:space="preserve">
+    <value>Back To List</value>
+  </data>
+  <data name="BMI" xml:space="preserve">
+    <value>BMI</value>
+  </data>
+  <data name="Bulletin Contact No." xml:space="preserve">
+    <value>Bulletin Contact No</value>
+  </data>
+  <data name="Bulletin Date" xml:space="preserve">
+    <value>Bulletin Date</value>
+  </data>
+  <data name="Calculate" xml:space="preserve">
+    <value>Calculate</value>
+  </data>
+  <data name="Calculator" xml:space="preserve">
+    <value>Calculator</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>Change Language</value>
+  </data>
+  <data name="CheckFile" xml:space="preserve">
+    <value>Check for a file</value>
+  </data>
+  <data name="checkIfThereIIsAnAccountOnThePortal" xml:space="preserve">
+    <value>Check if there is an account on the portal</value>
+  </data>
+  <data name="ChooseReportType" xml:space="preserve">
+    <value>Choose report type</value>
+  </data>
+  <data name="ChooseTheDeliveryMethod" xml:space="preserve">
+    <value>Choose the delivery method</value>
+  </data>
+  <data name="ChooseThePickUpLocation" xml:space="preserve">
+    <value>Choose the pick-up location</value>
+  </data>
+  <data name="Clinic" xml:space="preserve">
+    <value>Clinic</value>
+  </data>
+  <data name="ClinicalVisits" xml:space="preserve">
+    <value>Clinical Visits</value>
+  </data>
+  <data name="ClinicalVisitsView" xml:space="preserve">
+    <value>Clinical Visits View</value>
+  </data>
+  <data name="ClinicName" xml:space="preserve">
+    <value>Clinic name</value>
+  </data>
+  <data name="CoagulationCheck" xml:space="preserve">
+    <value>Coagulation Check</value>
+  </data>
+  <data name="CoagulationWasCheckedByHomeCare" xml:space="preserve">
+    <value>Coagulation was checked by home care</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="ComplaintDate" xml:space="preserve">
+    <value>Complaint date</value>
+  </data>
+  <data name="ComplaintDetails" xml:space="preserve">
+    <value>Complaint details</value>
+  </data>
+  <data name="ComplaintNumber" xml:space="preserve">
+    <value>Complaint number</value>
+  </data>
+  <data name="Complaints" xml:space="preserve">
+    <value>Complaints</value>
+  </data>
+  <data name="ComplaintStatus" xml:space="preserve">
+    <value>Complaint Status</value>
+  </data>
+  <data name="ContactNumber" xml:space="preserve">
+    <value>Contact Number</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="CreateNewComplaint" xml:space="preserve">
+    <value>Create a new complaint</value>
+  </data>
+  <data name="CreateRequest" xml:space="preserve">
+    <value>Create Request</value>
+  </data>
+  <data name="CurrentJob" xml:space="preserve">
+    <value>Current job</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="DateFrom" xml:space="preserve">
+    <value>Date From</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>Date of Birth</value>
+  </data>
+  <data name="DateOfVisit" xml:space="preserve">
+    <value>Date of visit</value>
+  </data>
+  <data name="DateTime" xml:space="preserve">
+    <value>Date &amp; Time</value>
+  </data>
+  <data name="DateTo" xml:space="preserve">
+    <value>Date To</value>
+  </data>
+  <data name="Date_From_Should_Be_After" xml:space="preserve">
+    <value>Date From Should Be After</value>
+  </data>
+  <data name="Date_From_Should_Be_Less_Than_Date_To" xml:space="preserve">
+    <value>Date From Should Be Less Than Date To
+</value>
+  </data>
+  <data name="Delayed" xml:space="preserve">
+    <value>Delayed</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeleteConfirmation" xml:space="preserve">
+    <value>Are you sure you want to permanently delete?</value>
+  </data>
+  <data name="DeliveryData" xml:space="preserve">
+    <value>Delivery data</value>
+  </data>
+  <data name="DeliveryMethod" xml:space="preserve">
+    <value>Delivery method</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="Department Head Name" xml:space="preserve">
+    <value>Department Head Name</value>
+  </data>
+  <data name="Department Name" xml:space="preserve">
+    <value>Department Name</value>
+  </data>
+  <data name="DepartmentHeadAction" xml:space="preserve">
+    <value>Department Head Action</value>
+  </data>
+  <data name="DepartmentHeadName" xml:space="preserve">
+    <value>Department Head Name</value>
+  </data>
+  <data name="description" xml:space="preserve">
+    <value>description</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Disapproval Reason" xml:space="preserve">
+    <value>Disapproval Reason</value>
+  </data>
+  <data name="Disapproved" xml:space="preserve">
+    <value>Disapproved</value>
+  </data>
+  <data name="DischargeDate" xml:space="preserve">
+    <value>Discharge Date</value>
+  </data>
+  <data name="DisplayInformation" xml:space="preserve">
+    <value>Display Information</value>
+  </data>
+  <data name="DoctorCode" xml:space="preserve">
+    <value>Doctor Code</value>
+  </data>
+  <data name="DoctorName" xml:space="preserve">
+    <value>Doctor Name</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="DownloadFile" xml:space="preserve">
+    <value>download file</value>
+  </data>
+  <data name="DropDownSelect" xml:space="preserve">
+    <value>- Select </value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="EchoCardiacReport" xml:space="preserve">
+    <value>Echo Cardiac Report</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmployeesLogin" xml:space="preserve">
+    <value>Employees Login</value>
+  </data>
+  <data name="End Time" xml:space="preserve">
+    <value>End Time</value>
+  </data>
+  <data name="EnglishName" xml:space="preserve">
+    <value>English Name</value>
+  </data>
+  <data name="EnterComplaintDetails" xml:space="preserve">
+    <value>Enter complaint details</value>
+  </data>
+  <data name="EnterEmail" xml:space="preserve">
+    <value>Enter email</value>
+  </data>
+  <data name="EnterIDNumber" xml:space="preserve">
+    <value>Enter ID Number</value>
+  </data>
+  <data name="EnterMobileNumber" xml:space="preserve">
+    <value>Enter mobile number</value>
+  </data>
+  <data name="EnterNotesIfAny" xml:space="preserve">
+    <value>Enter notes, if any</value>
+  </data>
+  <data name="EnterPassword" xml:space="preserve">
+    <value>Enter Password</value>
+  </data>
+  <data name="EnterPatientNumberOrIDNumber" xml:space="preserve">
+    <value>Enter Patient Number Or ID Number</value>
+  </data>
+  <data name="EnterTheComplaintDetails" xml:space="preserve">
+    <value>Enter the complaint details</value>
+  </data>
+  <data name="EnterTheMobileNumber" xml:space="preserve">
+    <value>Enter the mobile number</value>
+  </data>
+  <data name="EnterThenameInArabic" xml:space="preserve">
+    <value>Enter the name in arabic</value>
+  </data>
+  <data name="EnterTheNeighborhoodName" xml:space="preserve">
+    <value>Enter the neighborhood name</value>
+  </data>
+  <data name="EnterTheRegisteredMobileNumber" xml:space="preserve">
+    <value>Enter The Registered Mobile Number</value>
+  </data>
+  <data name="EnterYourInquiryOrSuggestionDetails" xml:space="preserve">
+    <value>Enter your inquiry or suggestion details</value>
+  </data>
+  <data name="Evaluation taken into consideration." xml:space="preserve">
+    <value>Evaluation taken into consideration.</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="ExpiryDate" xml:space="preserve">
+    <value>Expiry date</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="Feedback Sender Department" xml:space="preserve">
+    <value>Feedback Sender Department</value>
+  </data>
+  <data name="Feedback Sender Name" xml:space="preserve">
+    <value>Feedback Sender Name</value>
+  </data>
+  <data name="Feedback Sent" xml:space="preserve">
+    <value>Feedback Sent</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>File Name</value>
+  </data>
+  <data name="Files" xml:space="preserve">
+    <value>Files</value>
+  </data>
+  <data name="Finished" xml:space="preserve">
+    <value>Finished</value>
+  </data>
+  <data name="FinishedComplaint" xml:space="preserve">
+    <value>Finished Complaint</value>
+  </data>
+  <data name="FinishedComplaintRatio" xml:space="preserve">
+    <value>Finished Complaint Ratio</value>
+  </data>
+  <data name="FinishedCount" xml:space="preserve">
+    <value>Finished Count</value>
+  </data>
+  <data name="FinishedRatio" xml:space="preserve">
+    <value>Finished Ratio</value>
+  </data>
+  <data name="FinishedSuggestionRatio" xml:space="preserve">
+    <value>Finished Suggestion Ratio</value>
+  </data>
+  <data name="ForgotYourPassword" xml:space="preserve">
+    <value>Forgot your password?</value>
+  </data>
+  <data name="FormAdmin" xml:space="preserve">
+    <value>FormAdmin</value>
+  </data>
+  <data name="FormAdmins" xml:space="preserve">
+    <value>Form Admins Summary</value>
+  </data>
+  <data name="FormType" xml:space="preserve">
+    <value>Form Type</value>
+  </data>
+  <data name="FutureAppointment" xml:space="preserve">
+    <value>Future appointment</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="Give us Feedback" xml:space="preserve">
+    <value>Give us Feedback</value>
+  </data>
+  <data name="Group" xml:space="preserve">
+    <value>Group</value>
+  </data>
+  <data name="HealthCenter" xml:space="preserve">
+    <value>Health Center</value>
+  </data>
+  <data name="HeightInCentimeters" xml:space="preserve">
+    <value>Height In Centimeters</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>Home Page</value>
+  </data>
+  <data name="Hospital" xml:space="preserve">
+    <value>Hospital</value>
+  </data>
+  <data name="HowToOrder" xml:space="preserve">
+    <value>How to order</value>
+  </data>
+  <data name="HowToReceiveMedicines" xml:space="preserve">
+    <value>How to receive medicines</value>
+  </data>
+  <data name="IdentificationNumber" xml:space="preserve">
+    <value>Identification Number</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="InformationUpdate" xml:space="preserve">
+    <value>Information update</value>
+  </data>
+  <data name="InquiriesAndSuggestions" xml:space="preserve">
+    <value>Inquiries and suggestions</value>
+  </data>
+  <data name="InquiryOrSuggestionDate" xml:space="preserve">
+    <value>Inquiry or suggestion date</value>
+  </data>
+  <data name="InquiryOrSuggestionDetails" xml:space="preserve">
+    <value> Inquiry or suggestion details</value>
+  </data>
+  <data name="InquiryOrSuggestionNumber" xml:space="preserve">
+    <value>Inquiry or suggestion number</value>
+  </data>
+  <data name="JobTitle" xml:space="preserve">
+    <value>Job title</value>
+  </data>
+  <data name="LabResults" xml:space="preserve">
+    <value>Lab Results</value>
+  </data>
+  <data name="LabResultsInDetail" xml:space="preserve">
+    <value>Lab results in detail</value>
+  </data>
+  <data name="LabResultsView" xml:space="preserve">
+    <value>Lab Results View</value>
+  </data>
+  <data name="LastLocation" xml:space="preserve">
+    <value>Last Location</value>
+  </data>
+  <data name="LastUpdate" xml:space="preserve">
+    <value>Last modified</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="ManageMyRequests" xml:space="preserve">
+    <value>Manage My Requests</value>
+  </data>
+  <data name="ManageRequest" xml:space="preserve">
+    <value>Manage Request</value>
+  </data>
+  <data name="ManageRequests" xml:space="preserve">
+    <value>Manage Requests</value>
+  </data>
+  <data name="Member Action" xml:space="preserve">
+    <value>Member Action</value>
+  </data>
+  <data name="MilitaryNumber" xml:space="preserve">
+    <value>military number</value>
+  </data>
+  <data name="MissionConent" xml:space="preserve">
+    <value>We promote healthy lifestyle for the personnel of Ministry of Defense and their families and adopt best practices in digitalization and knowledge management and collaborate with the kingdom's healthcare sector to provide integrated preventive and medical services in a professional manner and in line with the international standards of quality and safety at times of war and peace</value>
+  </data>
+  <data name="MissionTitle" xml:space="preserve">
+    <value>Mission</value>
+  </data>
+  <data name="MyAccount" xml:space="preserve">
+    <value>My Account</value>
+  </data>
+  <data name="MyAppointment" xml:space="preserve">
+    <value>My appointment</value>
+  </data>
+  <data name="MyAppointments" xml:space="preserve">
+    <value>My appointments</value>
+  </data>
+  <data name="MyReports" xml:space="preserve">
+    <value>My Reports</value>
+  </data>
+  <data name="MySickLeave" xml:space="preserve">
+    <value>Sick leave</value>
+  </data>
+  <data name="MyStatistics" xml:space="preserve">
+    <value>My Statistics</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NameofEvent" xml:space="preserve">
+    <value>Name of Event AR</value>
+  </data>
+  <data name="NameofEventEN" xml:space="preserve">
+    <value>Name of Event EN</value>
+  </data>
+  <data name="Nationality" xml:space="preserve">
+    <value>Nationality</value>
+  </data>
+  <data name="Neighborhood" xml:space="preserve">
+    <value>Neighborhood</value>
+  </data>
+  <data name="NewComplaint" xml:space="preserve">
+    <value>new complaint</value>
+  </data>
+  <data name="NewInquiryOrSuggestion" xml:space="preserve">
+    <value>New inquiry or suggestion</value>
+  </data>
+  <data name="NewRequest" xml:space="preserve">
+    <value>New request</value>
+  </data>
+  <data name="News Contact No." xml:space="preserve">
+    <value>News Contact No</value>
+  </data>
+  <data name="News Date" xml:space="preserve">
+    <value>News Date</value>
+  </data>
+  <data name="No. of Attendees" xml:space="preserve">
+    <value>No. of Attendees</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="Notification" xml:space="preserve">
+    <value>notification</value>
+  </data>
+  <data name="NumberOfApplicationsAccepted" xml:space="preserve">
+    <value>Number Of Accepted Applications </value>
+  </data>
+  <data name="NumberOfDays" xml:space="preserve">
+    <value>The number of days</value>
+  </data>
+  <data name="NumberOfPendingApplications" xml:space="preserve">
+    <value>Number Of Pending Applications</value>
+  </data>
+  <data name="NumberOfRejectedApplications" xml:space="preserve">
+    <value>Number Of Rejected Applications</value>
+  </data>
+  <data name="Occupation" xml:space="preserve">
+    <value>Occupation</value>
+  </data>
+  <data name="OnlyRequesterDelete" xml:space="preserve">
+    <value>Only Requester Can Delete</value>
+  </data>
+  <data name="OnlyRequesterDelete2" xml:space="preserve">
+    <value>Only requests with no action can be deleted</value>
+  </data>
+  <data name="Options" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="PatientAffairsUpdates" xml:space="preserve">
+    <value>Patient Affairs Updates</value>
+  </data>
+  <data name="PatientBillOfRightsAndResponsibilities" xml:space="preserve">
+    <value>Patient's Bill of Rights and Responsibilities</value>
+  </data>
+  <data name="PatientHasTheRightTo" xml:space="preserve">
+    <value>Patient's has the right to:</value>
+  </data>
+  <data name="PatientInformation" xml:space="preserve">
+    <value>Patient information</value>
+  </data>
+  <data name="PatientName" xml:space="preserve">
+    <value>Patient Name</value>
+  </data>
+  <data name="PatientNumber" xml:space="preserve">
+    <value>patient number</value>
+  </data>
+  <data name="PatientResponsible1" xml:space="preserve">
+    <value>1. Policies.</value>
+  </data>
+  <data name="PatientResponsible2" xml:space="preserve">
+    <value>2. Give correct historical information about his/her old diseases to the doctor.</value>
+  </data>
+  <data name="PatientResponsible3" xml:space="preserve">
+    <value>3. Inform the responible medical staff if he/she can't Adhere to the medical instructions.</value>
+  </data>
+  <data name="PatientResponsible4" xml:space="preserve">
+    <value>4. Adherence to his/ her appointments and call if want to cancel or not attend.</value>
+  </data>
+  <data name="PatientResponsible5" xml:space="preserve">
+    <value>5. Adherence to the hospital's smoke-free policy.</value>
+  </data>
+  <data name="PatientRight1" xml:space="preserve">
+    <value>1. Be informed about their rights and responsibilities.</value>
+  </data>
+  <data name="PatientRight10" xml:space="preserve">
+    <value>10. Be protected from physical and verbal assault.</value>
+  </data>
+  <data name="PatientRight11" xml:space="preserve">
+    <value>11. Appropriate assessment and management of pain.</value>
+  </data>
+  <data name="PatientRight12" xml:space="preserve">
+    <value>12. Participate in their care including making decisions or asking questions about care and seeking a second opinion without fear or compromising care.</value>
+  </data>
+  <data name="PatientRight13" xml:space="preserve">
+    <value>13. Be educated about their conditions</value>
+  </data>
+  <data name="PatientRight14" xml:space="preserve">
+    <value>14. Consent to surgery, high risk treatments and procedures anesthesia, and use of blood and blood products, after receiving adequate information.</value>
+  </data>
+  <data name="PatientRight15" xml:space="preserve">
+    <value>15. Refuse or discontinue treatment and be informed of the consequences if the decision, responsibilities related to such decision and available care and treatment alternatives.</value>
+  </data>
+  <data name="PatientRight16" xml:space="preserve">
+    <value>16. Respectful and compassionate care at the end of life.</value>
+  </data>
+  <data name="PatientRight17" xml:space="preserve">
+    <value>17. Be fully informed about clinical research which they agree to participate in, and the right to refuse or withdraw consent without affecting the care provided.</value>
+  </data>
+  <data name="PatientRight18" xml:space="preserve">
+    <value>18. Be informed about donation and transplantation of organs and other tissues as per hospital policy.</value>
+  </data>
+  <data name="PatientRight19" xml:space="preserve">
+    <value>19. Voice a complaint about care or hospital services and have the complaint investigated and resolved whenever is possible.</value>
+  </data>
+  <data name="PatientRight2" xml:space="preserve">
+    <value>2. Be informed of the services provided in the hospital.</value>
+  </data>
+  <data name="PatientRight20" xml:space="preserve">
+    <value>20. Have their possessions protected once the hospital assumes responsibilities for protecting possessions or when the patient cannot resume responsibility.</value>
+  </data>
+  <data name="PatientRight21" xml:space="preserve">
+    <value>21. Receive a report on their medical condition according to hospital regulations.</value>
+  </data>
+  <data name="PatientRight3" xml:space="preserve">
+    <value>3. Providing a safe environment for him in all hospital facilities</value>
+  </data>
+  <data name="PatientRight4" xml:space="preserve">
+    <value>4. Know the identities of the physicians and the other practitioners responsible for his/ her care.</value>
+  </data>
+  <data name="PatientRight5" xml:space="preserve">
+    <value>5. Be treated with respect and dignity at all times and under all circumstances.</value>
+  </data>
+  <data name="PatientRight6" xml:space="preserve">
+    <value>6. Receive care that is respectful of their values and beliefs (provided that they don’t conflict with Islamic rules).</value>
+  </data>
+  <data name="PatientRight7" xml:space="preserve">
+    <value>7. Respect and maintain their privacy during care and according to their needs.</value>
+  </data>
+  <data name="PatientRight8" xml:space="preserve">
+    <value>8. Have a significant other. Chaperon or a staff member from the same gender be present during physical examination, treatment or procedure.</value>
+  </data>
+  <data name="PatientRight9" xml:space="preserve">
+    <value>9. Maintain confidentiality of all information, communication and records related to the care.</value>
+  </data>
+  <data name="PatientRights" xml:space="preserve">
+    <value>Patient Rights</value>
+  </data>
+  <data name="PatientServicesPortal" xml:space="preserve">
+    <value>Patient Services Portal</value>
+  </data>
+  <data name="PatientsLogin" xml:space="preserve">
+    <value>Patients Login</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="PendingComplaintCount" xml:space="preserve">
+    <value>Pending Complaint</value>
+  </data>
+  <data name="PendingComplaintRatio" xml:space="preserve">
+    <value>Pending Complaint Ratio</value>
+  </data>
+  <data name="PendingRequests" xml:space="preserve">
+    <value>Pending Requests</value>
+  </data>
+  <data name="PercentageOfApplicationsAccepted" xml:space="preserve">
+    <value>Percentage of accepted applications </value>
+  </data>
+  <data name="PercentageOfApplicationsPending" xml:space="preserve">
+    <value>Percentage Of Pending Applications </value>
+  </data>
+  <data name="PercentageOfPendingInquiriesAndSuggestions" xml:space="preserve">
+    <value>Percentage of pending inquiries and suggestions</value>
+  </data>
+  <data name="PercentageOfRejectedApplications" xml:space="preserve">
+    <value> Percentage Of Rejected Applications</value>
+  </data>
+  <data name="Permissions" xml:space="preserve">
+    <value>Permissions</value>
+  </data>
+  <data name="PharmaceuticalConsulting" xml:space="preserve">
+    <value>Pharmaceutical consulting</value>
+  </data>
+  <data name="Pharmacy" xml:space="preserve">
+    <value>Pharmacy</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="PlaceOfPickUp" xml:space="preserve">
+    <value>Place of pick-up</value>
+  </data>
+  <data name="Please Insert the Contact No!" xml:space="preserve">
+    <value>Please Insert the Contact No!</value>
+  </data>
+  <data name="Please Insert the Subject EN!" xml:space="preserve">
+    <value>Please Insert the Subject EN!</value>
+  </data>
+  <data name="Please Insert the Trip Contact No!" xml:space="preserve">
+    <value>Please Insert the Trip Contact No!</value>
+  </data>
+  <data name="Please Select the Bulletin Date!" xml:space="preserve">
+    <value>Please Select the Bulletin Date!</value>
+  </data>
+  <data name="Please Select the Date From!" xml:space="preserve">
+    <value>Please Select the Date From!</value>
+  </data>
+  <data name="Please Select the Date To!" xml:space="preserve">
+    <value>Please Select the Date To!</value>
+  </data>
+  <data name="Please Select the End Time!" xml:space="preserve">
+    <value>Please Select the End Time!</value>
+  </data>
+  <data name="Please Select the News Date!" xml:space="preserve">
+    <value>Please Select the News Date!</value>
+  </data>
+  <data name="Please Select the Start Time!" xml:space="preserve">
+    <value>Please Select the Start Time!</value>
+  </data>
+  <data name="Please Select the Trip Date!" xml:space="preserve">
+    <value>Please Select the Trip Date!</value>
+  </data>
+  <data name="Please Select the Trip Time!" xml:space="preserve">
+    <value>Please Select the Trip Time!</value>
+  </data>
+  <data name="PleaseAttachTheCoagulationTestResult" xml:space="preserve">
+    <value>Please attach the coagulation test result, and if the test is through home care, please ignore this field</value>
+  </data>
+  <data name="PleaseConfirmTheAppointmentNumber" xml:space="preserve">
+    <value>Please confirm the appointment number</value>
+  </data>
+  <data name="PleaseConfirmTheDataEntered" xml:space="preserve">
+    <value>Please confirm the data entered</value>
+  </data>
+  <data name="PleaseEnterAllInformationToEnsureFastAccess" xml:space="preserve">
+    <value>Please enter all data to ensure fast delivery</value>
+  </data>
+  <data name="PleaseEnterYourComplaintDetails" xml:space="preserve">
+    <value>Please enter your complaint details</value>
+  </data>
+  <data name="Position Code" xml:space="preserve">
+    <value>Position Code</value>
+  </data>
+  <data name="Position_Name" xml:space="preserve">
+    <value>Position Name</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="PrintMyAppointment" xml:space="preserve">
+    <value>Print My Appointments</value>
+  </data>
+  <data name="PrintSickLeave" xml:space="preserve">
+    <value>print sick leave</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Priority</value>
+  </data>
+  <data name="PSCC" xml:space="preserve">
+    <value>PSCC © 2022</value>
+  </data>
+  <data name="POR Approval" xml:space="preserve">
+    <value>POR Approval</value>
+  </data>
+  <data name="POR Approver Comment" xml:space="preserve">
+    <value>POR Approver Comment</value>
+  </data>
+  <data name="POR Approver Name" xml:space="preserve">
+    <value>POR Approver Name</value>
+  </data>
+  <data name="POR Approver Position" xml:space="preserve">
+    <value>POR Approver Position</value>
+  </data>
+  <data name="Publication Contact No." xml:space="preserve">
+    <value>Publication Contact No</value>
+  </data>
+  <data name="POR" xml:space="preserve">
+    <value>POR</value>
+  </data>
+  <data name="PublicRelationDepartmentHeadAction" xml:space="preserve">
+    <value>Performance Management Head Action - Final Approval</value>
+  </data>
+  <data name="Rank" xml:space="preserve">
+    <value>Rank</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Reason</value>
+  </data>
+  <data name="ReasonsForRejection" xml:space="preserve">
+    <value>Reasons for rejection</value>
+  </data>
+  <data name="Recieved DateTime" xml:space="preserve">
+    <value>Recieved DateTime</value>
+  </data>
+  <data name="RefillRequest" xml:space="preserve">
+    <value>Refill Request</value>
+  </data>
+  <data name="RefillWay" xml:space="preserve">
+    <value>Refill Way</value>
+  </data>
+  <data name="RegisterNewUser" xml:space="preserve">
+    <value>Register a new user</value>
+  </data>
+  <data name="RejectedByAdmin" xml:space="preserve">
+    <value>Rejected By Admin</value>
+  </data>
+  <data name="RejectedByDepartmentHead" xml:space="preserve">
+    <value>Rejected By Department Head</value>
+  </data>
+  <data name="RejectedByPR" xml:space="preserve">
+    <value>Rejected By POR</value>
+  </data>
+  <data name="RejectedRequests" xml:space="preserve">
+    <value>Rejected Requests</value>
+  </data>
+  <data name="RemoteCoagulationClinic" xml:space="preserve">
+    <value>Remote coagulation clinic</value>
+  </data>
+  <data name="ReportRequestView" xml:space="preserve">
+    <value>Report Request View</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="ReportType" xml:space="preserve">
+    <value>Report Type</value>
+  </data>
+  <data name="Request DateTime" xml:space="preserve">
+    <value>Request DateTime</value>
+  </data>
+  <data name="Request Event Details" xml:space="preserve">
+    <value>Request Event Details</value>
+  </data>
+  <data name="Request for Publications Details" xml:space="preserve">
+    <value>Request for Publications Details</value>
+  </data>
+  <data name="Request Periodic Bulletins Details" xml:space="preserve">
+    <value>Request Periodic Bulletins Details</value>
+  </data>
+  <data name="Request Publish News Details" xml:space="preserve">
+    <value>Request Publish News Details</value>
+  </data>
+  <data name="Request Recieved" xml:space="preserve">
+    <value>Request Recieved</value>
+  </data>
+  <data name="Request Recreational Trip Details" xml:space="preserve">
+    <value>Request Recreational Trip Details</value>
+  </data>
+  <data name="Request Seen" xml:space="preserve">
+    <value>Request Seen</value>
+  </data>
+  <data name="RequestDate" xml:space="preserve">
+    <value>Request Date</value>
+  </data>
+  <data name="RequestDetails" xml:space="preserve">
+    <value>Request Details</value>
+  </data>
+  <data name="Requester" xml:space="preserve">
+    <value>Requester</value>
+  </data>
+  <data name="RequesterDetails" xml:space="preserve">
+    <value>Requester Details</value>
+  </data>
+  <data name="RequestForms" xml:space="preserve">
+    <value>Request Forms</value>
+  </data>
+  <data name="RequestInformation" xml:space="preserve">
+    <value>Request Information</value>
+  </data>
+  <data name="RequestNumber" xml:space="preserve">
+    <value>Request Number</value>
+  </data>
+  <data name="RequestReport" xml:space="preserve">
+    <value>Request a report</value>
+  </data>
+  <data name="Requests" xml:space="preserve">
+    <value>Requests</value>
+  </data>
+  <data name="RequestStatus" xml:space="preserve">
+    <value>Request Status</value>
+  </data>
+  <data name="RequestToDispenseMedication" xml:space="preserve">
+    <value>Request to dispense medication</value>
+  </data>
+  <data name="RequestType" xml:space="preserve">
+    <value>Request Type</value>
+  </data>
+  <data name="ResolvedRequests" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="ResponseDate" xml:space="preserve">
+    <value>Response data</value>
+  </data>
+  <data name="Satisfacation" xml:space="preserve">
+    <value>Satisfacation</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchForSickLeave" xml:space="preserve">
+    <value>Search for sick leave</value>
+  </data>
+  <data name="Seen DateTime" xml:space="preserve">
+    <value>Seen DateTime</value>
+  </data>
+  <data name="Select Priority" xml:space="preserve">
+    <value>Select Priority</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="SendRequest" xml:space="preserve">
+    <value>Send request</value>
+  </data>
+  <data name="Sent DateTime" xml:space="preserve">
+    <value>Sent DateTime</value>
+  </data>
+  <data name="ServiceName" xml:space="preserve">
+    <value>Service Name</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="ShipmentNumber" xml:space="preserve">
+    <value>Shipment number</value>
+  </data>
+  <data name="ShippingInformation" xml:space="preserve">
+    <value>Shipping Information</value>
+  </data>
+  <data name="SickLeave" xml:space="preserve">
+    <value>sick leave</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>Sign out</value>
+  </data>
+  <data name="Start Time" xml:space="preserve">
+    <value>Start Time</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="Start_Time_Should_Be_Less_Than_or_Equal_End_Time" xml:space="preserve">
+    <value>Start Time Should Be Less Than End Time</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Statuses" xml:space="preserve">
+    <value>Statuses</value>
+  </data>
+  <data name="StayDuration" xml:space="preserve">
+    <value>Stay Duration</value>
+  </data>
+  <data name="Subject AR" xml:space="preserve">
+    <value>Subject AR</value>
+  </data>
+  <data name="Subject EN" xml:space="preserve">
+    <value>Subject EN</value>
+  </data>
+  <data name="SubjectAR" xml:space="preserve">
+    <value>Subject AR</value>
+  </data>
+  <data name="SubjectEN" xml:space="preserve">
+    <value>Subject EN</value>
+  </data>
+  <data name="SubmitComplaint" xml:space="preserve">
+    <value>Submit Complaint</value>
+  </data>
+  <data name="SystemSetting" xml:space="preserve">
+    <value>System Setting</value>
+  </data>
+  <data name="TheHospital" xml:space="preserve">
+    <value>The Hospital</value>
+  </data>
+  <data name="ThePatientIsResponsibleFor" xml:space="preserve">
+    <value>The patient is responsible for:</value>
+  </data>
+  <data name="TheReport" xml:space="preserve">
+    <value>The Report</value>
+  </data>
+  <data name="TheReports" xml:space="preserve">
+    <value>The Reports</value>
+  </data>
+  <data name="ThisPatientHasPreviousAccount" xml:space="preserve">
+    <value>This patient has a previous account</value>
+  </data>
+  <data name="TimeOfService" xml:space="preserve">
+    <value>Time of Service</value>
+  </data>
+  <data name="TrackTheShipment" xml:space="preserve">
+    <value>Track the shipment</value>
+  </data>
+  <data name="Trip Contact No." xml:space="preserve">
+    <value>Trip Contact No</value>
+  </data>
+  <data name="Trip Date" xml:space="preserve">
+    <value>Trip Date</value>
+  </data>
+  <data name="Trip Time" xml:space="preserve">
+    <value>Trip Time</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="TypeOfLeave" xml:space="preserve">
+    <value>Type of leave</value>
+  </data>
+  <data name="UnderProcessingCount" xml:space="preserve">
+    <value>Under Processing Count</value>
+  </data>
+  <data name="UnderProcessingRatio" xml:space="preserve">
+    <value>Under Processing Ratio</value>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="UpdateInformation" xml:space="preserve">
+    <value>Update information</value>
+  </data>
+  <data name="Urgent" xml:space="preserve">
+    <value>Urgent</value>
+  </data>
+  <data name="Validation" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="ValuesCreativity" xml:space="preserve">
+    <value>Creativity</value>
+  </data>
+  <data name="ValuesHuman" xml:space="preserve">
+    <value>Human Centric</value>
+  </data>
+  <data name="ValuesLearning" xml:space="preserve">
+    <value>Continuous Learning</value>
+  </data>
+  <data name="ValuesPatientFirst" xml:space="preserve">
+    <value>Patient First</value>
+  </data>
+  <data name="ValuesProff" xml:space="preserve">
+    <value>Professionalism</value>
+  </data>
+  <data name="ValuesTeam" xml:space="preserve">
+    <value>Team Work</value>
+  </data>
+  <data name="ValuesTitle" xml:space="preserve">
+    <value>Values</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="ViewAllComplaints" xml:space="preserve">
+    <value>View all complaints</value>
+  </data>
+  <data name="ViewAllInquiriesAndSuggestions" xml:space="preserve">
+    <value>View all suggestions</value>
+  </data>
+  <data name="ViewAllReports" xml:space="preserve">
+    <value>View All Reports</value>
+  </data>
+  <data name="ViewAppointment" xml:space="preserve">
+    <value>View appointment</value>
+  </data>
+  <data name="ViewComplaint" xml:space="preserve">
+    <value>View Complaint</value>
+  </data>
+  <data name="ViewFutureAppointment" xml:space="preserve">
+    <value>View Future appointment</value>
+  </data>
+  <data name="ViewMedicineDispensingRequest" xml:space="preserve">
+    <value>View medicine dispensing request</value>
+  </data>
+  <data name="ViewMyAppointments" xml:space="preserve">
+    <value>View my appointments</value>
+  </data>
+  <data name="ViewSickLeave" xml:space="preserve">
+    <value>View sick leave</value>
+  </data>
+  <data name="ViewSickLeaves" xml:space="preserve">
+    <value>View Sick Leaves</value>
+  </data>
+  <data name="VisionAndMission" xml:space="preserve">
+    <value>Vision and Mission</value>
+  </data>
+  <data name="VisionContent" xml:space="preserve">
+    <value>Sustainable healthy community for the associates of the Ministry of Defense and their families.</value>
+  </data>
+  <data name="VisionTitle" xml:space="preserve">
+    <value>Vision</value>
+  </data>
+  <data name="WarfarinDrug" xml:space="preserve">
+    <value>Please be inform you that the shape and packaging of the warfarin drug has been changed to another company. Details will be sent with the shipment</value>
+  </data>
+  <data name="WeightInKilograms" xml:space="preserve">
+    <value>Weight In Kilograms</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="You forget the Attachments!, Please add minimum 1 attachment..." xml:space="preserve">
+    <value>You forget the Attachments!, Please add minimum 1 attachment...</value>
+  </data>
+  <data name="You have to select Form!" xml:space="preserve">
+    <value>You have to select Form!</value>
+  </data>
+  <data name="YouHaveAPreviousRequestThatHasNotBeenCompleted" xml:space="preserve">
+    <value>You have a previous request that has not been completed</value>
+  </data>
+  <data name="SelectRequestNo" xml:space="preserve">
+    <value>Select Request No Type</value>
+  </data>
+  <data name="CreateJustification" xml:space="preserve">
+    <value>Justification</value>
+  </data>
+  <data name="CreateReason" xml:space="preserve">
+    <value>Reason</value>
+  </data>
+  <data name="ItemName" xml:space="preserve">
+    <value>Item Name</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="Request" xml:space="preserve">
+    <value>Request</value>
+  </data>
+  <data name="CUSNNSValidation" xml:space="preserve">
+    <value>Please select CUSNNS Field</value>
+  </data>
+  <data name="Validation_ItemName" xml:space="preserve">
+    <value>Please enter the Item Name</value>
+  </data>
+  <data name="Validation_ItemReqNO" xml:space="preserve">
+    <value>Please enter the Request Number</value>
+  </data>
+  <data name="Validation_Justification" xml:space="preserve">
+    <value>Please enter the Justification</value>
+  </data>
+  <data name="Validation_Price" xml:space="preserve">
+    <value>Please enter the price</value>
+  </data>
+  <data name="Validation_Quantity" xml:space="preserve">
+    <value>Please enter the Quantity</value>
+  </data>
+  <data name="Validation_Reason" xml:space="preserve">
+    <value>Please enter the Reason</value>
+  </data>
+  <data name="RequestNumberCUSNNS" xml:space="preserve">
+    <value>Reference Number</value>
+  </data>
+  <data name="CUS" xml:space="preserve">
+    <value>Stock Item</value>
+  </data>
+  <data name="ItemReqNO" xml:space="preserve">
+    <value>Item Request NO</value>
+  </data>
+  <data name="NNS" xml:space="preserve">
+    <value>Non-Stock Item</value>
+  </data>
+  <data name="SelectRequestItem" xml:space="preserve">
+    <value>Firstly, Please select Request Item Name</value>
+  </data>
+  <data name="ItemDetails" xml:space="preserve">
+    <value>Item Details</value>
+  </data>
+  <data name="PleaseBePatientCreateRequest" xml:space="preserve">
+    <value>Please Be a Patient Create Request in the progress ...</value>
+  </data>
+  <data name="AssociateDeptAction" xml:space="preserve">
+    <value>Associate Deptartment Action</value>
+  </data>
+  <data name="AssociateDeptName" xml:space="preserve">
+    <value>Associate Deptartment Name</value>
+  </data>
+  <data name="EqamaOrNationalID" xml:space="preserve">
+    <value>Eqama Or National ID</value>
+  </data>
+  <data name="FinancialAction" xml:space="preserve">
+    <value>Financial Representative Action</value>
+  </data>
+  <data name="POR_Action" xml:space="preserve">
+    <value>Purchasing Representative Action</value>
+  </data>
+  <data name="PSCCSuppliesAssistantDirectorAction" xml:space="preserve">
+    <value>Assistant director of PSCC Supply Affairs Action</value>
+  </data>
+  <data name="DirectorOfSuppliesAction" xml:space="preserve">
+    <value>Director of Supplies Action</value>
+  </data>
+  <data name="ManagerOfPlanningAction" xml:space="preserve">
+    <value>Manager Of Planning Action</value>
+  </data>
+  <data name="Bulletin  Date" xml:space="preserve">
+    <value>Bulletin  Date</value>
+  </data>
+  <data name="ViewAllReport" xml:space="preserve">
+    <value>ViewAllReport</value>
+  </data>
+  <data name="OrganizationalRelationshipsValidation" xml:space="preserve">
+    <value>Please Enter Organizational Relationships Filed</value>
+  </data>
+  <data name="JobSummaryValidation" xml:space="preserve">
+    <value>Please Enter Job Summary Field</value>
+  </data>
+  <data name="DutiesAndResponsibilitiesValidation" xml:space="preserve">
+    <value>Please Enter Duties And Responsibilities Filed</value>
+  </data>
+  <data name="EducationValidation" xml:space="preserve">
+    <value>Please Enter Education Filed</value>
+  </data>
+  <data name="ExperienceValidation" xml:space="preserve">
+    <value>Please Enter Experience Filed</value>
+  </data>
+  <data name="PersonalSkillsValidation" xml:space="preserve">
+    <value>Please Enter Personal Skills Filed</value>
+  </data>
+  <data name="JobNameAr" xml:space="preserve">
+    <value>Job Name Ar</value>
+  </data>
+  <data name="JobNameEn" xml:space="preserve">
+    <value>Job Name En</value>
+  </data>
+  <data name="OrganizationalRelationships" xml:space="preserve">
+    <value>Organizational Relationships</value>
+  </data>
+  <data name="JobSummary" xml:space="preserve">
+    <value>Job Summary</value>
+  </data>
+  <data name="DutiesAndResponsibilities" xml:space="preserve">
+    <value>Duties And Responsibilities</value>
+  </data>
+  <data name="Education" xml:space="preserve">
+    <value>Education</value>
+  </data>
+  <data name="Experience" xml:space="preserve">
+    <value>Experience</value>
+  </data>
+  <data name="PersonalSkills" xml:space="preserve">
+    <value>Personal Skills</value>
+  </data>
+  <data name="PerformanceManagement" xml:space="preserve">
+    <value>Performance Management</value>
+  </data>
+  <data name="Evaluate" xml:space="preserve">
+    <value>Evaluate the Performance</value>
+  </data>
+  <data name="Evaluation" xml:space="preserve">
+    <value>Evaluation</value>
+  </data>
+  <data name="EmployeeDetails" xml:space="preserve">
+    <value>Employee Details</value>
+  </data>
+  <data name="GradeCode" xml:space="preserve">
+    <value>Grade Code</value>
+  </data>
+  <data name="GradeEstimation" xml:space="preserve">
+    <value>Grade Estimation</value>
+  </data>
+  <data name="GoalName" xml:space="preserve">
+    <value>Goal</value>
+  </data>
+  <data name="GoalsValidation_InsertThreeAtLeast" xml:space="preserve">
+    <value>Please Insert three minimum at least</value>
+  </data>
+  <data name="MeasurementStandard" xml:space="preserve">
+    <value>Measurement Standard</value>
+  </data>
+  <data name="RelativeWeight" xml:space="preserve">
+    <value>Relative Weight %</value>
+  </data>
+  <data name="TargetOutput" xml:space="preserve">
+    <value>Target Output</value>
+  </data>
+  <data name="FirstlyGoals" xml:space="preserve">
+    <value>Firstly: Goals</value>
+  </data>
+  <data name="SecondlyCompetencies" xml:space="preserve">
+    <value>Secondly: Competencies</value>
+  </data>
+  <data name="Competency" xml:space="preserve">
+    <value>Competency</value>
+  </data>
+  <data name="CompetencyThemes" xml:space="preserve">
+    <value>Competency Themes</value>
+  </data>
+  <data name="Behavioral description of the Competencies" xml:space="preserve">
+    <value>Behavioral description of the Competencies    </value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>Index</value>
+  </data>
+  <data name="CompetencyThemesAndBehavioral" xml:space="preserve">
+    <value>Competency Themes - Behavioral</value>
+  </data>
+  <data name="RelativeWeightSum" xml:space="preserve">
+    <value>Relative Weight Summation: </value>
+  </data>
+  <data name="RelativeWeightSumValidation" xml:space="preserve">
+    <value>Summation of Relative Weight should equal 100%</value>
+  </data>
+  <data name="GoalsName" xml:space="preserve">
+    <value>Goals</value>
+  </data>
+  <data name="PleaseInsert" xml:space="preserve">
+    <value>Please Insert </value>
+  </data>
+  <data name="RowNumber" xml:space="preserve">
+    <value>Row index</value>
+  </data>
+  <data name="HR_Action" xml:space="preserve">
+    <value>HR Action</value>
+  </data>
+  <data name="EmployeeAction" xml:space="preserve">
+    <value>Employee Action</value>
+  </data>
+  <data name="UserId" xml:space="preserve">
+    <value>UserId</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="DeadlineDate" xml:space="preserve">
+    <value>Evaluation Deadline Date</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="TargetOutputValidationOfPercentage" xml:space="preserve">
+    <value>The weighted percentage of the target must not be less than 10% and not more than 40%.</value>
+  </data>
+  <data name="EmpNonUnknownCount" xml:space="preserve">
+    <value>Employees Non Unknown Grade Count</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="Supervisory" xml:space="preserve">
+    <value>Supervisory</value>
+  </data>
+  <data name="NonSupervisory" xml:space="preserve">
+    <value>Non-Supervisory</value>
+  </data>
+  <data name="NonSupervisoryCompetenciesOnly" xml:space="preserve">
+    <value>Non-Supervisory (Competencies Only)</value>
+  </data>
+  <data name="EmpCount" xml:space="preserve">
+    <value>All PSCC Employees Count</value>
+  </data>
+  <data name="Employees" xml:space="preserve">
+    <value>Employees</value>
+  </data>
+  <data name="EmpSupervisoryCount" xml:space="preserve">
+    <value>Supervisory Employees Count</value>
+  </data>
+  <data name="EmpNonSupervisoryCount" xml:space="preserve">
+    <value>Non-Supervisory Employees Count</value>
+  </data>
+  <data name="HR_Director_Action" xml:space="preserve">
+    <value>HR Director Action</value>
+  </data>
+  <data name="UserGuide" xml:space="preserve">
+    <value>User Guide</value>
+  </data>
+  <data name="Performance charter" xml:space="preserve">
+    <value>Performance charter</value>
+  </data>
+  <data name="HomeIndexContactText" xml:space="preserve">
+    <value>Contact addresses for the Performance Charter Unit in Human Resources</value>
+  </data>
+  <data name="ContactInformation" xml:space="preserve">
+    <value>Contact Informations</value>
+  </data>
+  <data name="HR_PerformanceUnit_Action" xml:space="preserve">
+    <value>HR Performance Unit Employee's Action</value>
+  </data>
+  <data name="HR_ManagerOfPersonal_Action" xml:space="preserve">
+    <value>HR Manager Of Personal Action</value>
+  </data>
+  <data name="RequestActions" xml:space="preserve">
+    <value>Request Actions</value>
+  </data>
+  <data name="Form" xml:space="preserve">
+    <value>Form</value>
+  </data>
+  <data name="EvaluationForm" xml:space="preserve">
+    <value>Evaluation Form</value>
+  </data>
+  <data name="DirectManagerAction" xml:space="preserve">
+    <value>Direct Manager Action</value>
+  </data>
+  <data name="AccessPermissionToThisAction" xml:space="preserve">
+    <value>You don't have access permission to this action.</value>
+  </data>
+  <data name="Employee" xml:space="preserve">
+    <value>Employee</value>
+  </data>
+  <data name="SubmitYear" xml:space="preserve">
+    <value>Submit Year - Grade</value>
+  </data>
+  <data name="NextStep" xml:space="preserve">
+    <value>Next Step</value>
+  </data>
+  <data name="JobCountForVacancy" xml:space="preserve">
+    <value>Jobs Count For Vacancy</value>
+  </data>
+  <data name="JobCountForBusy" xml:space="preserve">
+    <value>Jobs Count For Busy</value>
+  </data>
+  <data name="JobCountTotal" xml:space="preserve">
+    <value>Jobs Count Total</value>
+  </data>
+  <data name="PendingTo" xml:space="preserve">
+    <value>Pending To</value>
+  </data>
+  <data name="IdOrStaffId" xml:space="preserve">
+    <value>Eqama - National ID or Staff ID</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Results</value>
+  </data>
+  <data name="Departments" xml:space="preserve">
+    <value>Departments</value>
+  </data>
+  <data name="PerformanceNotApplied" xml:space="preserve">
+    <value>Application Not Applied</value>
+  </data>
+  <data name="EmployeesByDepartment" xml:space="preserve">
+    <value>Administration employee statistics</value>
+  </data>
+  <data name="AllEmpStat" xml:space="preserve">
+    <value>Statistics of all effective center employees</value>
+  </data>
+  <data name="EmpSearch" xml:space="preserve">
+    <value>Employee Search</value>
+  </data>
+  <data name="DirectManager" xml:space="preserve">
+    <value>Direct Manager</value>
+  </data>
+  <data name="PerformanceApplied" xml:space="preserve">
+    <value>Performance Applied</value>
+  </data>
+  <data name="PleaseNote" xml:space="preserve">
+    <value>Please Note</value>
+  </data>
+  <data name="DepartmentEmployeesNote" xml:space="preserve">
+    <value>If you select the status, employees who are not registered in the administration are not displayed</value>
+  </data>
+  <data name="StaffId" xml:space="preserve">
+    <value>Staff Id</value>
+  </data>
+  <data name="DepartmentHeadNotFoundedPleaseContactWithHRTeam" xml:space="preserve">
+    <value>Department Head Not Found Please Contact With HR Team, Work Entity {0}, DeptCode {1}</value>
+  </data>
+  <data name="Fulfillment" xml:space="preserve">
+    <value>Fulfillment</value>
+  </data>
+</root>

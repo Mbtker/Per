@@ -1,0 +1,913 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="HRService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://server01/WCF/HR/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://server01/WCF/HR/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://server01/WCF/HR/Service.svc?xsd=xsd2" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IHR_GetEmployeeInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeInfo" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmployeeInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetAllEmployees_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmployees" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetAllEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetAllEmployeesDept_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmployeesDept" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetAllEmployeesDept_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmployeesDeptResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetDept_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDept" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetDept_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeptResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetAllAuthorities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAuthorities" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetAllAuthorities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAuthoritiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetAllCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCompany" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetAllCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetAllCities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCities" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetAllCities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetAllCitiescode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCitiescode" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetAllCitiescode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCitiescodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_Getallporter_InputMessage">
+    <wsdl:part name="parameters" element="tns:Getallporter" />
+  </wsdl:message>
+  <wsdl:message name="IHR_Getallporter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetallporterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_Getallporterdept_InputMessage">
+    <wsdl:part name="parameters" element="tns:Getallporterdept" />
+  </wsdl:message>
+  <wsdl:message name="IHR_Getallporterdept_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetallporterdeptResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_Getallporterempno_InputMessage">
+    <wsdl:part name="parameters" element="tns:Getallporterempno" />
+  </wsdl:message>
+  <wsdl:message name="IHR_Getallporterempno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetallporterempnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_Getsalaryemp_InputMessage">
+    <wsdl:part name="parameters" element="tns:Getsalaryemp" />
+  </wsdl:message>
+  <wsdl:message name="IHR_Getsalaryemp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetsalaryempResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmployeeVactionDays_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeVactionDays" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmployeeVactionDays_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeVactionDaysResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmployeeGrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeGrade" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmployeeGrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeGradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetCertificateEmp_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificateEmp" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetCertificateEmp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificateEmpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetSalaryFor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalaryFor" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetSalaryFor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalaryForResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetSeqNo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSeqNo" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetSeqNo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSeqNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmpLastVaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpLastVaction" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmpLastVaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpLastVactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmpContractInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpContractInfo" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmpContractInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpContractInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmpIdwithAD_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpIdwithAD" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmpIdwithAD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpIdwithADResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetCertList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertList" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetCertList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetReportTofromEmpID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportTofromEmpID" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetReportTofromEmpID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportTofromEmpIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmployeeIqamainfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeIqamainfo" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmployeeIqamainfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeIqamainfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmployeePassportinfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeePassportinfo" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmployeePassportinfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeePassportinfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetSaudiNumberinfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSaudiNumberinfo" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetSaudiNumberinfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSaudiNumberinfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmployeeDescription_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeDescription" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmployeeDescription_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmpSaudiCouncil_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpSaudiCouncil" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmpSaudiCouncil_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpSaudiCouncilResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmpHeadDept_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpHeadDept" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmpHeadDept_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpHeadDeptResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetIqamaSaudiPassportNo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIqamaSaudiPassportNo" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetIqamaSaudiPassportNo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIqamaSaudiPassportNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmpDependant_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpDependant" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmpDependant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpDependantResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmployeeLangInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeLangInfo" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmployeeLangInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeLangInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetCertificateRefno_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificateRefno" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetCertificateRefno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificateRefnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_Authentication_ActiveDirectory_InputMessage">
+    <wsdl:part name="parameters" element="tns:Authentication_ActiveDirectory" />
+  </wsdl:message>
+  <wsdl:message name="IHR_Authentication_ActiveDirectory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Authentication_ActiveDirectoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetCertPurpose_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertPurpose" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetCertPurpose_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertPurposeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetCertType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertType" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetCertType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_InsertVactionRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertVactionRequest" />
+  </wsdl:message>
+  <wsdl:message name="IHR_InsertVactionRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertVactionRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_ReturnLeaveRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnLeaveRequest" />
+  </wsdl:message>
+  <wsdl:message name="IHR_ReturnLeaveRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnLeaveRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_DeleteLeaveRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLeaveRequest" />
+  </wsdl:message>
+  <wsdl:message name="IHR_DeleteLeaveRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLeaveRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmpLeaves_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpLeaves" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmpLeaves_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpLeavesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmployeeInfoRMH_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeInfoRMH" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmployeeInfoRMH_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeInfoRMHResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmployeePointofHire_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeePointofHire" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmployeePointofHire_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeePointofHireResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_InsertCertificate_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCertificate" />
+  </wsdl:message>
+  <wsdl:message name="IHR_InsertCertificate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCertificateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmployeeDeptCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeDeptCode" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmployeeDeptCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeDeptCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmpLeaveRequestDays_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpLeaveRequestDays" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmpLeaveRequestDays_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpLeaveRequestDaysResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetallDeptList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetallDeptList" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetallDeptList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetallDeptListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmpVacations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpVacations" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetEmpVacations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpVacationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetVacationDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVacationDate" />
+  </wsdl:message>
+  <wsdl:message name="IHR_GetVacationDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVacationDateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IHR">
+    <wsdl:operation name="GetEmployeeInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetEmployeeInfo" message="tns:IHR_GetEmployeeInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetEmployeeInfoResponse" message="tns:IHR_GetEmployeeInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployees">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetAllEmployees" message="tns:IHR_GetAllEmployees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetAllEmployeesResponse" message="tns:IHR_GetAllEmployees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployeesDept">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetAllEmployeesDept" message="tns:IHR_GetAllEmployeesDept_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetAllEmployeesDeptResponse" message="tns:IHR_GetAllEmployeesDept_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDept">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetDept" message="tns:IHR_GetDept_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetDeptResponse" message="tns:IHR_GetDept_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAuthorities">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetAllAuthorities" message="tns:IHR_GetAllAuthorities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetAllAuthoritiesResponse" message="tns:IHR_GetAllAuthorities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetAllCompany" message="tns:IHR_GetAllCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetAllCompanyResponse" message="tns:IHR_GetAllCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCities">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetAllCities" message="tns:IHR_GetAllCities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetAllCitiesResponse" message="tns:IHR_GetAllCities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCitiescode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetAllCitiescode" message="tns:IHR_GetAllCitiescode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetAllCitiescodeResponse" message="tns:IHR_GetAllCitiescode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Getallporter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/Getallporter" message="tns:IHR_Getallporter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetallporterResponse" message="tns:IHR_Getallporter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Getallporterdept">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/Getallporterdept" message="tns:IHR_Getallporterdept_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetallporterdeptResponse" message="tns:IHR_Getallporterdept_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Getallporterempno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/Getallporterempno" message="tns:IHR_Getallporterempno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetallporterempnoResponse" message="tns:IHR_Getallporterempno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Getsalaryemp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/Getsalaryemp" message="tns:IHR_Getsalaryemp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetsalaryempResponse" message="tns:IHR_Getsalaryemp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeVactionDays">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetEmployeeVactionDays" message="tns:IHR_GetEmployeeVactionDays_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetEmployeeVactionDaysResponse" message="tns:IHR_GetEmployeeVactionDays_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeGrade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetEmployeeGrade" message="tns:IHR_GetEmployeeGrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetEmployeeGradeResponse" message="tns:IHR_GetEmployeeGrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateEmp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetCertificateEmp" message="tns:IHR_GetCertificateEmp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetCertificateEmpResponse" message="tns:IHR_GetCertificateEmp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryFor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetSalaryFor" message="tns:IHR_GetSalaryFor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetSalaryForResponse" message="tns:IHR_GetSalaryFor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSeqNo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetSeqNo" message="tns:IHR_GetSeqNo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetSeqNoResponse" message="tns:IHR_GetSeqNo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpLastVaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetEmpLastVaction" message="tns:IHR_GetEmpLastVaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetEmpLastVactionResponse" message="tns:IHR_GetEmpLastVaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpContractInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetEmpContractInfo" message="tns:IHR_GetEmpContractInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetEmpContractInfoResponse" message="tns:IHR_GetEmpContractInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpIdwithAD">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetEmpIdwithAD" message="tns:IHR_GetEmpIdwithAD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetEmpIdwithADResponse" message="tns:IHR_GetEmpIdwithAD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetCertList" message="tns:IHR_GetCertList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetCertListResponse" message="tns:IHR_GetCertList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportTofromEmpID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetReportTofromEmpID" message="tns:IHR_GetReportTofromEmpID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetReportTofromEmpIDResponse" message="tns:IHR_GetReportTofromEmpID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeIqamainfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetEmployeeIqamainfo" message="tns:IHR_GetEmployeeIqamainfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetEmployeeIqamainfoResponse" message="tns:IHR_GetEmployeeIqamainfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeePassportinfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetEmployeePassportinfo" message="tns:IHR_GetEmployeePassportinfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetEmployeePassportinfoResponse" message="tns:IHR_GetEmployeePassportinfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSaudiNumberinfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetSaudiNumberinfo" message="tns:IHR_GetSaudiNumberinfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetSaudiNumberinfoResponse" message="tns:IHR_GetSaudiNumberinfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeDescription">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetEmployeeDescription" message="tns:IHR_GetEmployeeDescription_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetEmployeeDescriptionResponse" message="tns:IHR_GetEmployeeDescription_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpSaudiCouncil">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetEmpSaudiCouncil" message="tns:IHR_GetEmpSaudiCouncil_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetEmpSaudiCouncilResponse" message="tns:IHR_GetEmpSaudiCouncil_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpHeadDept">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetEmpHeadDept" message="tns:IHR_GetEmpHeadDept_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetEmpHeadDeptResponse" message="tns:IHR_GetEmpHeadDept_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIqamaSaudiPassportNo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetIqamaSaudiPassportNo" message="tns:IHR_GetIqamaSaudiPassportNo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetIqamaSaudiPassportNoResponse" message="tns:IHR_GetIqamaSaudiPassportNo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpDependant">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetEmpDependant" message="tns:IHR_GetEmpDependant_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetEmpDependantResponse" message="tns:IHR_GetEmpDependant_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeLangInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetEmployeeLangInfo" message="tns:IHR_GetEmployeeLangInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetEmployeeLangInfoResponse" message="tns:IHR_GetEmployeeLangInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateRefno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetCertificateRefno" message="tns:IHR_GetCertificateRefno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetCertificateRefnoResponse" message="tns:IHR_GetCertificateRefno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Authentication_ActiveDirectory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/Authentication_ActiveDirectory" message="tns:IHR_Authentication_ActiveDirectory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/Authentication_ActiveDirectoryResponse" message="tns:IHR_Authentication_ActiveDirectory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertPurpose">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetCertPurpose" message="tns:IHR_GetCertPurpose_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetCertPurposeResponse" message="tns:IHR_GetCertPurpose_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetCertType" message="tns:IHR_GetCertType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetCertTypeResponse" message="tns:IHR_GetCertType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertVactionRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/InsertVactionRequest" message="tns:IHR_InsertVactionRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/InsertVactionRequestResponse" message="tns:IHR_InsertVactionRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnLeaveRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/ReturnLeaveRequest" message="tns:IHR_ReturnLeaveRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/ReturnLeaveRequestResponse" message="tns:IHR_ReturnLeaveRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLeaveRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/DeleteLeaveRequest" message="tns:IHR_DeleteLeaveRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/DeleteLeaveRequestResponse" message="tns:IHR_DeleteLeaveRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpLeaves">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetEmpLeaves" message="tns:IHR_GetEmpLeaves_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetEmpLeavesResponse" message="tns:IHR_GetEmpLeaves_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeInfoRMH">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetEmployeeInfoRMH" message="tns:IHR_GetEmployeeInfoRMH_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetEmployeeInfoRMHResponse" message="tns:IHR_GetEmployeeInfoRMH_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeePointofHire">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetEmployeePointofHire" message="tns:IHR_GetEmployeePointofHire_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetEmployeePointofHireResponse" message="tns:IHR_GetEmployeePointofHire_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCertificate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/InsertCertificate" message="tns:IHR_InsertCertificate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/InsertCertificateResponse" message="tns:IHR_InsertCertificate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeDeptCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetEmployeeDeptCode" message="tns:IHR_GetEmployeeDeptCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetEmployeeDeptCodeResponse" message="tns:IHR_GetEmployeeDeptCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpLeaveRequestDays">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetEmpLeaveRequestDays" message="tns:IHR_GetEmpLeaveRequestDays_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetEmpLeaveRequestDaysResponse" message="tns:IHR_GetEmpLeaveRequestDays_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetallDeptList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetallDeptList" message="tns:IHR_GetallDeptList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetallDeptListResponse" message="tns:IHR_GetallDeptList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpVacations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetEmpVacations" message="tns:IHR_GetEmpVacations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetEmpVacationsResponse" message="tns:IHR_GetEmpVacations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVacationDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHR/GetVacationDate" message="tns:IHR_GetVacationDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHR/GetVacationDateResponse" message="tns:IHR_GetVacationDate_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IHR" type="tns:IHR">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetEmployeeInfo">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetEmployeeInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployees">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetAllEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployeesDept">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetAllEmployeesDept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDept">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetDept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAuthorities">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetAllAuthorities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCompany">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetAllCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCities">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetAllCities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCitiescode">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetAllCitiescode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Getallporter">
+      <soap:operation soapAction="http://tempuri.org/IHR/Getallporter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Getallporterdept">
+      <soap:operation soapAction="http://tempuri.org/IHR/Getallporterdept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Getallporterempno">
+      <soap:operation soapAction="http://tempuri.org/IHR/Getallporterempno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Getsalaryemp">
+      <soap:operation soapAction="http://tempuri.org/IHR/Getsalaryemp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeVactionDays">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetEmployeeVactionDays" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeGrade">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetEmployeeGrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateEmp">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetCertificateEmp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryFor">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetSalaryFor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeqNo">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetSeqNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpLastVaction">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetEmpLastVaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpContractInfo">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetEmpContractInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpIdwithAD">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetEmpIdwithAD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertList">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetCertList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportTofromEmpID">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetReportTofromEmpID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeIqamainfo">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetEmployeeIqamainfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeePassportinfo">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetEmployeePassportinfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSaudiNumberinfo">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetSaudiNumberinfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeDescription">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetEmployeeDescription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpSaudiCouncil">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetEmpSaudiCouncil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpHeadDept">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetEmpHeadDept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIqamaSaudiPassportNo">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetIqamaSaudiPassportNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpDependant">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetEmpDependant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeLangInfo">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetEmployeeLangInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateRefno">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetCertificateRefno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authentication_ActiveDirectory">
+      <soap:operation soapAction="http://tempuri.org/IHR/Authentication_ActiveDirectory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertPurpose">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetCertPurpose" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertType">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetCertType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertVactionRequest">
+      <soap:operation soapAction="http://tempuri.org/IHR/InsertVactionRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnLeaveRequest">
+      <soap:operation soapAction="http://tempuri.org/IHR/ReturnLeaveRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLeaveRequest">
+      <soap:operation soapAction="http://tempuri.org/IHR/DeleteLeaveRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpLeaves">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetEmpLeaves" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeInfoRMH">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetEmployeeInfoRMH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeePointofHire">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetEmployeePointofHire" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCertificate">
+      <soap:operation soapAction="http://tempuri.org/IHR/InsertCertificate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeDeptCode">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetEmployeeDeptCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpLeaveRequestDays">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetEmpLeaveRequestDays" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetallDeptList">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetallDeptList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpVacations">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetEmpVacations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVacationDate">
+      <soap:operation soapAction="http://tempuri.org/IHR/GetVacationDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HRService">
+    <wsdl:port name="BasicHttpBinding_IHR" binding="tns:BasicHttpBinding_IHR">
+      <soap:address location="http://server01/WCF/HR/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

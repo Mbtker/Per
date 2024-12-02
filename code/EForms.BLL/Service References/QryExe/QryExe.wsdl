@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="QryExe" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://server01/WCF/Common/QuryExecute/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://server01/WCF/Common/QuryExecute/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://server01/WCF/Common/QuryExecute/Service.svc?xsd=xsd2" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IQryExe_ExecuteSelectSQL_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteSelectSQL" />
+  </wsdl:message>
+  <wsdl:message name="IQryExe_ExecuteSelectSQL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteSelectSQLResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQryExe_ExecuteNonQuerySQL_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteNonQuerySQL" />
+  </wsdl:message>
+  <wsdl:message name="IQryExe_ExecuteNonQuerySQL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteNonQuerySQLResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQryExe_ExecuteScalarSQL_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteScalarSQL" />
+  </wsdl:message>
+  <wsdl:message name="IQryExe_ExecuteScalarSQL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteScalarSQLResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQryExe_ExecuteGetValueSQL_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteGetValueSQL" />
+  </wsdl:message>
+  <wsdl:message name="IQryExe_ExecuteGetValueSQL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteGetValueSQLResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IQryExe">
+    <wsdl:operation name="ExecuteSelectSQL">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQryExe/ExecuteSelectSQL" message="tns:IQryExe_ExecuteSelectSQL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQryExe/ExecuteSelectSQLResponse" message="tns:IQryExe_ExecuteSelectSQL_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteNonQuerySQL">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQryExe/ExecuteNonQuerySQL" message="tns:IQryExe_ExecuteNonQuerySQL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQryExe/ExecuteNonQuerySQLResponse" message="tns:IQryExe_ExecuteNonQuerySQL_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScalarSQL">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQryExe/ExecuteScalarSQL" message="tns:IQryExe_ExecuteScalarSQL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQryExe/ExecuteScalarSQLResponse" message="tns:IQryExe_ExecuteScalarSQL_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteGetValueSQL">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQryExe/ExecuteGetValueSQL" message="tns:IQryExe_ExecuteGetValueSQL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQryExe/ExecuteGetValueSQLResponse" message="tns:IQryExe_ExecuteGetValueSQL_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IQryExe" type="tns:IQryExe">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExecuteSelectSQL">
+      <soap:operation soapAction="http://tempuri.org/IQryExe/ExecuteSelectSQL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteNonQuerySQL">
+      <soap:operation soapAction="http://tempuri.org/IQryExe/ExecuteNonQuerySQL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScalarSQL">
+      <soap:operation soapAction="http://tempuri.org/IQryExe/ExecuteScalarSQL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteGetValueSQL">
+      <soap:operation soapAction="http://tempuri.org/IQryExe/ExecuteGetValueSQL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="QryExe">
+    <wsdl:port name="BasicHttpBinding_IQryExe" binding="tns:BasicHttpBinding_IQryExe">
+      <soap:address location="http://server01/WCF/Common/QuryExecute/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

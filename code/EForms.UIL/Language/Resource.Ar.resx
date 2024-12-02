@@ -1,0 +1,1644 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AcceptedRequests" xml:space="preserve">
+    <value>الطلبات المقبولة</value>
+  </data>
+  <data name="AccountDetails" xml:space="preserve">
+    <value>بيانات الحساب</value>
+  </data>
+  <data name="AccountStatus" xml:space="preserve">
+    <value>حالة الحساب</value>
+  </data>
+  <data name="Achievement" xml:space="preserve">
+    <value>إنجاز</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>اجراء</value>
+  </data>
+  <data name="Action Date" xml:space="preserve">
+    <value>تاريخ ووقت الاجراء</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>مفعل</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>اضافة</value>
+  </data>
+  <data name="Administrator Comment" xml:space="preserve">
+    <value>تعليق مسؤول تقييم الأداء</value>
+  </data>
+  <data name="Administrator Position" xml:space="preserve">
+    <value>درجة المسؤول</value>
+  </data>
+  <data name="Administrator Reason" xml:space="preserve">
+    <value>اسباب مسؤول تقييم الأداء</value>
+  </data>
+  <data name="AdministratorAction" xml:space="preserve">
+    <value>إجراء المسؤول</value>
+  </data>
+  <data name="AdministratorName" xml:space="preserve">
+    <value>اسم المسؤول</value>
+  </data>
+  <data name="Admission" xml:space="preserve">
+    <value>التنويم</value>
+  </data>
+  <data name="AdmissionView" xml:space="preserve">
+    <value>عرض اشعارات التنويم</value>
+  </data>
+  <data name="AdmitDate" xml:space="preserve">
+    <value>تاريخ التنويم</value>
+  </data>
+  <data name="Age" xml:space="preserve">
+    <value>العمر</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>الجميع</value>
+  </data>
+  <data name="AllAppointments" xml:space="preserve">
+    <value>جميع المواعيد</value>
+  </data>
+  <data name="AllComplaints" xml:space="preserve">
+    <value>جميع الشكاوى</value>
+  </data>
+  <data name="AllRefillRequests" xml:space="preserve">
+    <value>عرض طلبات صرف الأدوية</value>
+  </data>
+  <data name="AllRequests" xml:space="preserve">
+    <value>جميع الطلبات</value>
+  </data>
+  <data name="AnnouncementsAndAlerts" xml:space="preserve">
+    <value>الاعلانات والتنبيهات</value>
+  </data>
+  <data name="AnticoagulantRefillRequests" xml:space="preserve">
+    <value>طلبات الادوية والتخثر</value>
+  </data>
+  <data name="AnticoagulantVirtualClinicRequest" xml:space="preserve">
+    <value>طلب عيادة التخثر</value>
+  </data>
+  <data name="ApplicationSlogan" xml:space="preserve">
+    <value>نسخة تجريبية</value>
+  </data>
+  <data name="ApplicationTittle" xml:space="preserve">
+    <value>نظام تقييم الأداء - </value>
+  </data>
+  <data name="AppointmentDate" xml:space="preserve">
+    <value>تاريخ الموعد</value>
+  </data>
+  <data name="AppointmentInformation" xml:space="preserve">
+    <value>بيانات الموعد</value>
+  </data>
+  <data name="AppointmentTime" xml:space="preserve">
+    <value>وقت الموعد</value>
+  </data>
+  <data name="Approval" xml:space="preserve">
+    <value>الموافقة</value>
+  </data>
+  <data name="Approvals" xml:space="preserve">
+    <value>الموافقات</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>موافقة</value>
+  </data>
+  <data name="ArabicName" xml:space="preserve">
+    <value>الاسم باللغة العربية</value>
+  </data>
+  <data name="Attachment" xml:space="preserve">
+    <value>مرفق</value>
+  </data>
+  <data name="Attachments" xml:space="preserve">
+    <value>المرفقات</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>رجوع</value>
+  </data>
+  <data name="BackToList" xml:space="preserve">
+    <value>عودة للقائمة</value>
+  </data>
+  <data name="BMI" xml:space="preserve">
+    <value>مؤشر كتلة الجسم</value>
+  </data>
+  <data name="Bulletin  Date" xml:space="preserve">
+    <value>تاريخ النشرة</value>
+  </data>
+  <data name="Bulletin Contact No." xml:space="preserve">
+    <value>رقم الاتصال بالمسؤول</value>
+  </data>
+  <data name="Calculate" xml:space="preserve">
+    <value>حساب</value>
+  </data>
+  <data name="Calculator" xml:space="preserve">
+    <value>الحاسبة الصحية</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>الغاء</value>
+  </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>تغيير اللغة</value>
+  </data>
+  <data name="CheckFile" xml:space="preserve">
+    <value>التحقق من وجود ملف</value>
+  </data>
+  <data name="checkIfThereIIsAnAccountOnThePortal" xml:space="preserve">
+    <value>التحقق من وجود حساب بالبوابة</value>
+  </data>
+  <data name="ChooseReportType" xml:space="preserve">
+    <value>اختر نوع التقرير</value>
+  </data>
+  <data name="ChooseTheDeliveryMethod" xml:space="preserve">
+    <value>اختر طريقة التوصيل</value>
+  </data>
+  <data name="ChooseThePickUpLocation" xml:space="preserve">
+    <value>اختر مكان الاستلام</value>
+  </data>
+  <data name="Clinic" xml:space="preserve">
+    <value>العيادة</value>
+  </data>
+  <data name="ClinicalVisits" xml:space="preserve">
+    <value>اشعارات المراجعة</value>
+  </data>
+  <data name="ClinicName" xml:space="preserve">
+    <value>اسم العيادة</value>
+  </data>
+  <data name="CoagulationCheck" xml:space="preserve">
+    <value>فحص التخثر</value>
+  </data>
+  <data name="CoagulationWasCheckedByHomeCare" xml:space="preserve">
+    <value>تم فحص التخثر من خلال الرعاية المنزلية</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>الكود</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>التعليق</value>
+  </data>
+  <data name="ComplaintDate" xml:space="preserve">
+    <value>تاريخ الشكوى</value>
+  </data>
+  <data name="ComplaintDetails" xml:space="preserve">
+    <value>تفاصيل الشكوى</value>
+  </data>
+  <data name="ComplaintNumber" xml:space="preserve">
+    <value>رقم الشكوى</value>
+  </data>
+  <data name="Complaints" xml:space="preserve">
+    <value>الشكاوى</value>
+  </data>
+  <data name="ComplaintStatus" xml:space="preserve">
+    <value>حالة الشكوى</value>
+  </data>
+  <data name="ContactNumber" xml:space="preserve">
+    <value>رقم التواصل</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>انشاء</value>
+  </data>
+  <data name="CreateNewComplaint" xml:space="preserve">
+    <value>تقديم شكوى جديدة</value>
+  </data>
+  <data name="CreateRequest" xml:space="preserve">
+    <value>انشاء طلب جديد</value>
+  </data>
+  <data name="CurrentJob" xml:space="preserve">
+    <value>الوظيفة الحالية</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>لوحة البيانات</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>تاريخ</value>
+  </data>
+  <data name="DateFrom" xml:space="preserve">
+    <value>من تاريخ</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="DateOfVisit" xml:space="preserve">
+    <value>تاريخ الزيارة</value>
+  </data>
+  <data name="DateTime" xml:space="preserve">
+    <value>التاريخ</value>
+  </data>
+  <data name="DateTo" xml:space="preserve">
+    <value>الى تاريخ</value>
+  </data>
+  <data name="Date_From_Should_Be_After" xml:space="preserve">
+    <value>تاريخ البدأ لابد ان يبدأ من تاريخه </value>
+  </data>
+  <data name="Date_From_Should_Be_Less_Than_Date_To" xml:space="preserve">
+    <value>تاريخ البداية لابد ان يكون اقل من تاريخ النهاية</value>
+  </data>
+  <data name="Delayed" xml:space="preserve">
+    <value>متأخرة</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="DeleteConfirmation" xml:space="preserve">
+    <value>هل متأكد من عملية الحذف؟</value>
+  </data>
+  <data name="DeliveryData" xml:space="preserve">
+    <value>بيانات التوصيل</value>
+  </data>
+  <data name="DeliveryMethod" xml:space="preserve">
+    <value>طريقة التوصيل</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>ادارة</value>
+  </data>
+  <data name="Department Head Name" xml:space="preserve">
+    <value>اسم مدير الادارة</value>
+  </data>
+  <data name="Department Name" xml:space="preserve">
+    <value>اسم الادارة</value>
+  </data>
+  <data name="DepartmentHeadAction" xml:space="preserve">
+    <value>إجراء مدير الادارة</value>
+  </data>
+  <data name="DepartmentHeadName" xml:space="preserve">
+    <value>اسم مدير الادارة</value>
+  </data>
+  <data name="description" xml:space="preserve">
+    <value>الوصف</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>تفاصيل</value>
+  </data>
+  <data name="Disapproval Reason" xml:space="preserve">
+    <value>سبب الرفض</value>
+  </data>
+  <data name="Disapproved" xml:space="preserve">
+    <value>رفض</value>
+  </data>
+  <data name="DischargeDate" xml:space="preserve">
+    <value>وقت الخروج</value>
+  </data>
+  <data name="DisplayInformation" xml:space="preserve">
+    <value>عرض البيانات</value>
+  </data>
+  <data name="DoctorCode" xml:space="preserve">
+    <value>رمز الطبيب</value>
+  </data>
+  <data name="DoctorName" xml:space="preserve">
+    <value>اسم الطبيب</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>تحميل</value>
+  </data>
+  <data name="DownloadFile" xml:space="preserve">
+    <value>تحميل الملف</value>
+  </data>
+  <data name="DropDownSelect" xml:space="preserve">
+    <value>- اختر </value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>مدة</value>
+  </data>
+  <data name="EchoCardiacReport" xml:space="preserve">
+    <value>نتائج الفحوصات التشخيصية للقلب</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تحرير</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>البريد الالكتروني</value>
+  </data>
+  <data name="EmployeesLogin" xml:space="preserve">
+    <value>دخول الموظفين</value>
+  </data>
+  <data name="End Time" xml:space="preserve">
+    <value>وقت النهاية</value>
+  </data>
+  <data name="EnglishName" xml:space="preserve">
+    <value>الاسم باللغة الإنجليزية</value>
+  </data>
+  <data name="EnterComplaintDetails" xml:space="preserve">
+    <value>أدخل تفاصيل الشكوى</value>
+  </data>
+  <data name="EnterEmail" xml:space="preserve">
+    <value>أدخل البريد الإلكتروني</value>
+  </data>
+  <data name="EnterIDNumber" xml:space="preserve">
+    <value>أدخل رقم الهوية</value>
+  </data>
+  <data name="EnterMobileNumber" xml:space="preserve">
+    <value>أدخل رقم الجوال</value>
+  </data>
+  <data name="EnterNotesIfAny" xml:space="preserve">
+    <value>أدخل الملاحظات إن وجدت</value>
+  </data>
+  <data name="EnterPassword" xml:space="preserve">
+    <value>أدخل كلمة المرور</value>
+  </data>
+  <data name="EnterPatientNumberOrIDNumber" xml:space="preserve">
+    <value>أدخل رقم المريض أو الهوية</value>
+  </data>
+  <data name="EnterTheComplaintDetails" xml:space="preserve">
+    <value>ادخل  تفاصيل الشكوى</value>
+  </data>
+  <data name="EnterTheMobileNumber" xml:space="preserve">
+    <value>أدخل رقم الجوال</value>
+  </data>
+  <data name="EnterThenameInArabic" xml:space="preserve">
+    <value>أدخل الاسم باللغة العربية</value>
+  </data>
+  <data name="EnterTheNeighborhoodName" xml:space="preserve">
+    <value>أدخل اسم الحي</value>
+  </data>
+  <data name="EnterTheRegisteredMobileNumber" xml:space="preserve">
+    <value>أدخل رقم الجوال المسجل في المدينة</value>
+  </data>
+  <data name="EnterYourInquiryOrSuggestionDetails" xml:space="preserve">
+    <value>أدخل  تفاصيل الاستفسار أو المقترح</value>
+  </data>
+  <data name="Evaluation taken into consideration." xml:space="preserve">
+    <value>التقييم مأخوذ في الاعتبار.</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="ExpiryDate" xml:space="preserve">
+    <value>تاريخ الانتهاء</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>تعليق</value>
+  </data>
+  <data name="Feedback Sender Department" xml:space="preserve">
+    <value>ادارة مرسل الملاحظات</value>
+  </data>
+  <data name="Feedback Sender Name" xml:space="preserve">
+    <value>اسم مرسل التعليقات</value>
+  </data>
+  <data name="Feedback Sent" xml:space="preserve">
+    <value>تم إرسال التعليقات</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>أنثى</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>الملف</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>اسم الملف</value>
+  </data>
+  <data name="Files" xml:space="preserve">
+    <value>الملفات</value>
+  </data>
+  <data name="Finished" xml:space="preserve">
+    <value>المنجزة</value>
+  </data>
+  <data name="FinishedComplaint" xml:space="preserve">
+    <value>الشكاوى المنجزة</value>
+  </data>
+  <data name="FinishedComplaintRatio" xml:space="preserve">
+    <value>نسبة الشكاوى المنجزة</value>
+  </data>
+  <data name="FinishedCount" xml:space="preserve">
+    <value>عدد الانتهاء</value>
+  </data>
+  <data name="FinishedRatio" xml:space="preserve">
+    <value>نسبة الانتهاء</value>
+  </data>
+  <data name="FinishedSuggestionRatio" xml:space="preserve">
+    <value>نسبة الاستفسارات والمقترحات المنجزة</value>
+  </data>
+  <data name="ForgotYourPassword" xml:space="preserve">
+    <value>نسيت كلمة المرور؟</value>
+  </data>
+  <data name="FormAdmin" xml:space="preserve">
+    <value>المسؤول</value>
+  </data>
+  <data name="FormAdmins" xml:space="preserve">
+    <value>نتائج موظفي ادارة تقييم الأداء</value>
+  </data>
+  <data name="FormType" xml:space="preserve">
+    <value>نوع النموذج</value>
+  </data>
+  <data name="FutureAppointment" xml:space="preserve">
+    <value>مواعيد مستقبلية</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>الجنس</value>
+  </data>
+  <data name="Give us Feedback" xml:space="preserve">
+    <value>اعطنا راييك</value>
+  </data>
+  <data name="Group" xml:space="preserve">
+    <value>مجموعه</value>
+  </data>
+  <data name="HealthCenter" xml:space="preserve">
+    <value>المركز الصحي</value>
+  </data>
+  <data name="HeightInCentimeters" xml:space="preserve">
+    <value>الطول بالسنتيمتر</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>الرئيسية</value>
+  </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>الصفحة الرئيسية</value>
+  </data>
+  <data name="Hospital" xml:space="preserve">
+    <value>المستشفى</value>
+  </data>
+  <data name="HowToOrder" xml:space="preserve">
+    <value>طريقة الطلب</value>
+  </data>
+  <data name="HowToReceiveMedicines" xml:space="preserve">
+    <value>طريقة استلام الأدوية</value>
+  </data>
+  <data name="IdentificationNumber" xml:space="preserve">
+    <value>رقم الهوية</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>غير مفعل</value>
+  </data>
+  <data name="InformationUpdate" xml:space="preserve">
+    <value>تحديث البيانات</value>
+  </data>
+  <data name="InquiriesAndSuggestions" xml:space="preserve">
+    <value>استفسارات ومقترحات</value>
+  </data>
+  <data name="InquiryOrSuggestionDate" xml:space="preserve">
+    <value>تاريخ الاستفسار أو المقترح</value>
+  </data>
+  <data name="InquiryOrSuggestionDetails" xml:space="preserve">
+    <value>تفاصيل الاستفسار أو المقترح</value>
+  </data>
+  <data name="InquiryOrSuggestionNumber" xml:space="preserve">
+    <value>رقم الاستفسار أو المقترح</value>
+  </data>
+  <data name="JobTitle" xml:space="preserve">
+    <value>المسمى الوظيفي</value>
+  </data>
+  <data name="LabResults" xml:space="preserve">
+    <value>نتائج المختبر</value>
+  </data>
+  <data name="LabResultsInDetail" xml:space="preserve">
+    <value>نتائج المعامل بالتفاصيل</value>
+  </data>
+  <data name="LabResultsView" xml:space="preserve">
+    <value>عرض نتائج المختبر</value>
+  </data>
+  <data name="LastLocation" xml:space="preserve">
+    <value>مكان التنويم</value>
+  </data>
+  <data name="LastUpdate" xml:space="preserve">
+    <value>آخر تحديث</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>ذكر</value>
+  </data>
+  <data name="ManageMyRequests" xml:space="preserve">
+    <value>ادارة طلباتي</value>
+  </data>
+  <data name="ManageRequest" xml:space="preserve">
+    <value>ادارة الطلب</value>
+  </data>
+  <data name="ManageRequests" xml:space="preserve">
+    <value>ادارة الطلبات</value>
+  </data>
+  <data name="Member Action" xml:space="preserve">
+    <value>Member Action</value>
+  </data>
+  <data name="MilitaryNumber" xml:space="preserve">
+    <value>الرقم العسكري</value>
+  </data>
+  <data name="MissionConent" xml:space="preserve">
+    <value>ﺗﻌﺰﻳﺰ ﻧﻤﻂ ﺍﻟﺤﻴﺎﺓ ﺍﻟﺼﺤﻴﺔ ﻟﻤﻨﺴﻮﺑﻲ ﻭﺯﺍﺭﺓ ﺍﻟﺪﻓﺎﻉ ﻭﺫﻭﻳﻬﻢ ﻭﺗﺒﻨﻲ ﺃﻓﻀﻞ ﺍﻟﻤﻤﺎﺭﺳﺎﺕ ﻓﻲ ﺍﻟﻤﻌﻠﻮﻣﺎﺗﻴﺔ ﺍﻟﺮﻗﻤﻴﺔ ﻭﺇﺩﺍﺭﺓ ﺍﻟﻤﻌﺮﻓﺔ ﻭﺍﻟﺘﻜﺎﻣﻞ ﺍﻟﻔﻌﺎﻝ ﻣﻊ ﻣﻨﻈﻮﻣﺔ ﺍﻟﻘﻄﺎﻉ ﺍﻟﺼﺤﻲ ﻓﻲ ﺍﻟﻤﻤﻠﻜﺔ ﻟﺘﻘﺪﻳﻢ ﺧﺪﻣﺎﺕ ﻭﻗﺎﺋﻴﺔ ﻭ ﻋﻼﺟﻴﺔ ﻣﺘﻜﺎﻣﻠﺔ ﻓﻲ ﺍﻟﺴﻠﻢ ﻭﺍﻟﺤﺮﺏ ﺑﻤﻬﻨﻴﺔ ﻭﻣﻌﺎﻳﻴﺮ ﺟﻮﺩﺓ ﻭﺳﻼﻣﺔ ﻋﺎﻟﻤﻴﺔ</value>
+  </data>
+  <data name="MissionTitle" xml:space="preserve">
+    <value>المهمة</value>
+  </data>
+  <data name="MyAccount" xml:space="preserve">
+    <value>حسابي</value>
+  </data>
+  <data name="MyAppointment" xml:space="preserve">
+    <value>مواعيدي</value>
+  </data>
+  <data name="MyAppointments" xml:space="preserve">
+    <value>مواعيدي</value>
+  </data>
+  <data name="MyReports" xml:space="preserve">
+    <value>تقاريري</value>
+  </data>
+  <data name="MySickLeave" xml:space="preserve">
+    <value>إجازاتي المرضية</value>
+  </data>
+  <data name="MyStatistics" xml:space="preserve">
+    <value>إحصائياتي</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
+  <data name="NameofEvent" xml:space="preserve">
+    <value>اسم الحدث</value>
+  </data>
+  <data name="NameofEventEN" xml:space="preserve">
+    <value>اسم الحدث انجليزي</value>
+  </data>
+  <data name="Nationality" xml:space="preserve">
+    <value>الجنسية</value>
+  </data>
+  <data name="Neighborhood" xml:space="preserve">
+    <value>الحي السكني</value>
+  </data>
+  <data name="NewComplaint" xml:space="preserve">
+    <value>شكوى جديدة</value>
+  </data>
+  <data name="NewInquiryOrSuggestion" xml:space="preserve">
+    <value>استفسار أو مقترح جديد</value>
+  </data>
+  <data name="NewRequest" xml:space="preserve">
+    <value>طلب جديد</value>
+  </data>
+  <data name="News Contact No." xml:space="preserve">
+    <value>رقم الاتصال بالمسؤول</value>
+  </data>
+  <data name="News Date" xml:space="preserve">
+    <value>تاريخ الأخبر</value>
+  </data>
+  <data name="No. of Attendees" xml:space="preserve">
+    <value>عدد الحضور</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>عادي</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>الملاحظات</value>
+  </data>
+  <data name="Notification" xml:space="preserve">
+    <value>تنبيه</value>
+  </data>
+  <data name="NumberOfApplicationsAccepted" xml:space="preserve">
+    <value>عدد الطلبات المقبولة</value>
+  </data>
+  <data name="NumberOfDays" xml:space="preserve">
+    <value>عدد الأيام</value>
+  </data>
+  <data name="NumberOfRejectedApplications" xml:space="preserve">
+    <value>عدد الطلبات المرفوضة</value>
+  </data>
+  <data name="Occupation" xml:space="preserve">
+    <value>المهنة</value>
+  </data>
+  <data name="OnlyRequesterDelete" xml:space="preserve">
+    <value>فقط الطالب يقدر يحذف</value>
+  </data>
+  <data name="OnlyRequesterDelete2" xml:space="preserve">
+    <value>يمكن فقط حذف الطلبات التي ليس لها أي إجراء</value>
+  </data>
+  <data name="Options" xml:space="preserve">
+    <value>خيارات</value>
+  </data>
+  <data name="PatientAffairsUpdates" xml:space="preserve">
+    <value>تحديثات شؤون المرضى</value>
+  </data>
+  <data name="PatientBillOfRightsAndResponsibilities" xml:space="preserve">
+    <value>وثيقة حقوق ومسؤوليات المرضى</value>
+  </data>
+  <data name="PatientHasTheRightTo" xml:space="preserve">
+    <value>للمريض الحق في:</value>
+  </data>
+  <data name="PatientInformation" xml:space="preserve">
+    <value>بيانات المريض</value>
+  </data>
+  <data name="PatientName" xml:space="preserve">
+    <value>اسم المريض</value>
+  </data>
+  <data name="PatientNumber" xml:space="preserve">
+    <value>رقم المريض</value>
+  </data>
+  <data name="PatientResponsible1" xml:space="preserve">
+    <value>1. اتباع قوانين ولوائح المستشفى.</value>
+  </data>
+  <data name="PatientResponsible2" xml:space="preserve">
+    <value>2. تقديم المعلومات الدقيقة والكاملة للفريق الطبي فيما يتعلق بتاريخه المرضي السابق.</value>
+  </data>
+  <data name="PatientResponsible3" xml:space="preserve">
+    <value>3. تبليغ الفريق الطبي المسؤول عن رعايته في حالة عدم فهم المعلومات المقدمة له لرعايته أو عدم قدرته على الالتزام بالتعليمات الطبية.</value>
+  </data>
+  <data name="PatientResponsible4" xml:space="preserve">
+    <value>4. الالتزام بالمواعيد أو الاتصال لإلغائها عندما لا يستطيع الحضور الى العيادات الخارجية أو التنويم.</value>
+  </data>
+  <data name="PatientResponsible5" xml:space="preserve">
+    <value>5. الالتزام بسياسة حظر التدخين في مرافق المستشفى.</value>
+  </data>
+  <data name="PatientRight1" xml:space="preserve">
+    <value>1.  أن يكون على علم بحقوقه ومسؤولياته.</value>
+  </data>
+  <data name="PatientRight10" xml:space="preserve">
+    <value>10. حمايته من الاعتداء الجسدي واللفظي.</value>
+  </data>
+  <data name="PatientRight11" xml:space="preserve">
+    <value>11. التقييم والمعالجة المناسبة للألم الناتج عن حالته الصحية.</value>
+  </data>
+  <data name="PatientRight12" xml:space="preserve">
+    <value>12. مشاركته فيما يتعلق برعايته الصحية. متمثلا بالمشاركة في اتخاذ القرارات الخاصة بالرعاية. والسؤال عن كل ما يتعلق برعايته للحصول على رأي أخر من دون خوف من التأثير السلبي على الرعاية المقدمة له.</value>
+  </data>
+  <data name="PatientRight13" xml:space="preserve">
+    <value>13. توعيته بكل ما يتعلق بحالته الصحية..</value>
+  </data>
+  <data name="PatientRight14" xml:space="preserve">
+    <value>14. أخذ موافقته الخطية بعد حصوله على المعلومات الكافية: قبل الجراحة او التخدير أو نقل الدم ومشتقاته أو إجراء عالي الخطورة.</value>
+  </data>
+  <data name="PatientRight15" xml:space="preserve">
+    <value>15. رفض أو وقف العلاج وتزويده بالمعلومات الكافية عن العواقب المترتبة على قراره والمسؤوليات المتعلقة بهذا القرار والعلاج البديل.</value>
+  </data>
+  <data name="PatientRight16" xml:space="preserve">
+    <value>16. حصوله على الرعاية الكريمة والاحترام في حالة الاحتضار والوفاة.</value>
+  </data>
+  <data name="PatientRight17" xml:space="preserve">
+    <value>17. أخذ موافقته الخطية قبل المشاركة بالأبحاث العلمية والتجارب الطبية وله الحق برفض المشاركة أو الانسحاب في أي وقت دون الخوف من تأثير هذا القرار على رعايته في المستشفى.</value>
+  </data>
+  <data name="PatientRight18" xml:space="preserve">
+    <value>18. الحصول على معلومات عن كيفية التبرع أو زراعة الأعضاء والأنسجة الأخرى وفقا لسياسة المستشفى.</value>
+  </data>
+  <data name="PatientRight19" xml:space="preserve">
+    <value>19. تقديم الشكوى فيما يتعلق بحالته الصحية أو الخدمات المقدمة والتحقيق فيها وحلها حسب امكانيات المستشفى..</value>
+  </data>
+  <data name="PatientRight2" xml:space="preserve">
+    <value>2. الحصول على معلومات عن الخدمة المقدمة في المستشفى.</value>
+  </data>
+  <data name="PatientRight20" xml:space="preserve">
+    <value>20. حماية ممتلكاته عندما لا يكون قادرا على ذلك أو عندما يتعهد المستشفى بتحمل مسؤولية حمايتها.</value>
+  </data>
+  <data name="PatientRight21" xml:space="preserve">
+    <value>21. حصوله على تقرير طبي عن حالته الصحية وفقا للقواعد والأنظمة المعمول بها في المستشفى.</value>
+  </data>
+  <data name="PatientRight3" xml:space="preserve">
+    <value>3. توفير بيئة آمنة له في جميع مرافق المستشفى.</value>
+  </data>
+  <data name="PatientRight4" xml:space="preserve">
+    <value>4. معرفته بهوية الأطباء أو غيرهم من الممارسين أو الأخصائيين المسؤولين عن رعايته.</value>
+  </data>
+  <data name="PatientRight5" xml:space="preserve">
+    <value>5. معاملته باحترام وكرامة في جميع الأوقات وتحت كل الظروف.</value>
+  </data>
+  <data name="PatientRight6" xml:space="preserve">
+    <value>6. احترام عاداته وتقاليده وقيمه ومعتقداته الدينية (شريطة أن لا تتعارض مع الشريعة الإسلامية).</value>
+  </data>
+  <data name="PatientRight7" xml:space="preserve">
+    <value>7. احترام خصوصياته عند تقديم الرعاية الطبية حسب احتياجاته.</value>
+  </data>
+  <data name="PatientRight8" xml:space="preserve">
+    <value>8. طلب وجود محرم أو من يرغب من معارفه أو أحد افراد الفريق الصحي من نفس الجنس أثناء الفحص الطبي أو العلاج.</value>
+  </data>
+  <data name="PatientRight9" xml:space="preserve">
+    <value>9. الحفاظ على سرية جميع المعلومات والسجلات المتعلقة برعايته في المستشفى.</value>
+  </data>
+  <data name="PatientRights" xml:space="preserve">
+    <value>حقوق المرضى</value>
+  </data>
+  <data name="PatientServicesPortal" xml:space="preserve">
+    <value>بوابة خدمات المرضى</value>
+  </data>
+  <data name="PatientsLogin" xml:space="preserve">
+    <value>دخول المرضى</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>المعلقة</value>
+  </data>
+  <data name="PendingComplaintCount" xml:space="preserve">
+    <value>الشكاوى المعلقة</value>
+  </data>
+  <data name="PendingComplaintRatio" xml:space="preserve">
+    <value>نسبة الشكاوى المعلقة</value>
+  </data>
+  <data name="PendingRequests" xml:space="preserve">
+    <value>الطلبات المعلقة</value>
+  </data>
+  <data name="PercentageOfApplicationsAccepted" xml:space="preserve">
+    <value>نسبة الطلبات المقبولة</value>
+  </data>
+  <data name="PercentageOfApplicationsPending" xml:space="preserve">
+    <value>نسبة الطلبات المعلقة</value>
+  </data>
+  <data name="PercentageOfPendingInquiriesAndSuggestions" xml:space="preserve">
+    <value>نسبة الاستفسارات والمقترحات المعلقة</value>
+  </data>
+  <data name="PercentageOfRejectedApplications" xml:space="preserve">
+    <value>نسبة الطلبات المرفوضة</value>
+  </data>
+  <data name="Permissions" xml:space="preserve">
+    <value>الصلاحيات</value>
+  </data>
+  <data name="PharmaceuticalConsulting" xml:space="preserve">
+    <value>الاستشارات الدوائية</value>
+  </data>
+  <data name="Pharmacy" xml:space="preserve">
+    <value>الصيدلية</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>رقم الجوال</value>
+  </data>
+  <data name="PlaceOfPickUp" xml:space="preserve">
+    <value>مكان الاستلام</value>
+  </data>
+  <data name="Please Insert the Contact No!" xml:space="preserve">
+    <value>الرجاء إدخال رقم الاتصال!</value>
+  </data>
+  <data name="Please Insert the Subject EN!" xml:space="preserve">
+    <value>الرجاء إدخال الموضوع!</value>
+  </data>
+  <data name="Please Insert the Trip Contact No!" xml:space="preserve">
+    <value>الرجاء إدخال رقم الاتصال!</value>
+  </data>
+  <data name="Please Select the Bulletin Date!" xml:space="preserve">
+    <value>الرجاء إدخال رقم جهة اتصال النشرة!</value>
+  </data>
+  <data name="Please Select the Date From!" xml:space="preserve">
+    <value>الرجاء تحديد التاريخ من!</value>
+  </data>
+  <data name="Please Select the Date To!" xml:space="preserve">
+    <value>الرجاء تحديد التاريخ إلى!</value>
+  </data>
+  <data name="Please Select the End Time!" xml:space="preserve">
+    <value>الرجاء تحديد وقت الانتهاء!</value>
+  </data>
+  <data name="Please Select the News Date!" xml:space="preserve">
+    <value>برجاء تحديد تاريخ الخبر!</value>
+  </data>
+  <data name="Please Select the Start Time!" xml:space="preserve">
+    <value>الرجاء تحديد وقت البدء!</value>
+  </data>
+  <data name="Please Select the Trip Date!" xml:space="preserve">
+    <value>برجاء تحديد تاريخ الرحلة!</value>
+  </data>
+  <data name="Please Select the Trip Time!" xml:space="preserve">
+    <value>الرجاء تحديد وقت الرحلة!</value>
+  </data>
+  <data name="PleaseAttachTheCoagulationTestResult" xml:space="preserve">
+    <value>(الرجاء ارفاق نتيجة فحص التخثر(INR)، و في حال كان الفحص من خلال الرعاية المنزلية يرجى تجاهل هذا الحقل )</value>
+  </data>
+  <data name="PleaseConfirmTheAppointmentNumber" xml:space="preserve">
+    <value>فضلًا تأكيد من رقم الموعد</value>
+  </data>
+  <data name="PleaseConfirmTheDataEntered" xml:space="preserve">
+    <value>فضلًا تأكد من البيانات المدخلة</value>
+  </data>
+  <data name="PleaseEnterAllInformationToEnsureFastAccess" xml:space="preserve">
+    <value>الرجاء ادخال جميع البيانات لضمان الوصول بسرعة</value>
+  </data>
+  <data name="PleaseEnterYourComplaintDetails" xml:space="preserve">
+    <value>فضلًا أدخل تفاصيل الشكوى</value>
+  </data>
+  <data name="Position Code" xml:space="preserve">
+    <value>كود المسمى الوظيفي</value>
+  </data>
+  <data name="Position_Name" xml:space="preserve">
+    <value>المسمى الوظيفي</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>عرض</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>طباعة</value>
+  </data>
+  <data name="PrintMyAppointment" xml:space="preserve">
+    <value>برنت المواعيد</value>
+  </data>
+  <data name="PrintSickLeave" xml:space="preserve">
+    <value>طباعة إجازة مرضية</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>أولوية</value>
+  </data>
+  <data name="PSCC" xml:space="preserve">
+    <value>مركز الأمير سلطان لمعالجة أمراض وجراحة القلب للقوات المسلحة © 2022.</value>
+  </data>
+  <data name="POR Approval" xml:space="preserve">
+    <value>موافقة مدير تقييم الأداء</value>
+  </data>
+  <data name="POR Approver Comment" xml:space="preserve">
+    <value>تعليق مدير تقييم الأداء</value>
+  </data>
+  <data name="POR Approver Name" xml:space="preserve">
+    <value>اسم مدير تقييم الأداء</value>
+  </data>
+  <data name="POR Approver Position" xml:space="preserve">
+    <value>درجة مدير تقييم الأداء</value>
+  </data>
+  <data name="Publication Contact No." xml:space="preserve">
+    <value>رقم الاتصال بالمسؤول</value>
+  </data>
+  <data name="POR" xml:space="preserve">
+    <value>تقييم الأداء</value>
+  </data>
+  <data name="PublicRelationDepartmentHeadAction" xml:space="preserve">
+    <value>اجراء مدير ادارة تقييم الأداء - الموافقة النهائية</value>
+  </data>
+  <data name="Rank" xml:space="preserve">
+    <value>الرتبة</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>معدل</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>السبب</value>
+  </data>
+  <data name="ReasonsForRejection" xml:space="preserve">
+    <value>أسباب الرفض</value>
+  </data>
+  <data name="Recieved DateTime" xml:space="preserve">
+    <value>تاريخ استقبال الطلب</value>
+  </data>
+  <data name="RefillRequest" xml:space="preserve">
+    <value>طلب صرف أدوية</value>
+  </data>
+  <data name="RefillWay" xml:space="preserve">
+    <value>طريقة التوصيل</value>
+  </data>
+  <data name="RegisterNewUser" xml:space="preserve">
+    <value>تسجيل مستخدم جديد</value>
+  </data>
+  <data name="RejectedByAdmin" xml:space="preserve">
+    <value>مرفوضة من موظف تقييم الأداء</value>
+  </data>
+  <data name="RejectedByDepartmentHead" xml:space="preserve">
+    <value>مرفوضة من مدير الادارة</value>
+  </data>
+  <data name="RejectedByPR" xml:space="preserve">
+    <value>مرفوظة من مدير ادارة العلاقات</value>
+  </data>
+  <data name="RejectedRequests" xml:space="preserve">
+    <value>الطلبات المرفوضة</value>
+  </data>
+  <data name="RemoteCoagulationClinic" xml:space="preserve">
+    <value>عيادة التخثر عن بعد</value>
+  </data>
+  <data name="ReportRequestView" xml:space="preserve">
+    <value>عرض طلب تقرير</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>التقارير</value>
+  </data>
+  <data name="ReportType" xml:space="preserve">
+    <value>نوع التقرير</value>
+  </data>
+  <data name="Request DateTime" xml:space="preserve">
+    <value>تاريخ ووقت الطلب</value>
+  </data>
+  <data name="Request Event Details" xml:space="preserve">
+    <value>طلب تفاصيل الحدث</value>
+  </data>
+  <data name="Request for Publications Details" xml:space="preserve">
+    <value>طلب تفاصيل المطبوعات</value>
+  </data>
+  <data name="Request Periodic Bulletins Details" xml:space="preserve">
+    <value>طلب تفاصيل النشرات الدورية</value>
+  </data>
+  <data name="Request Publish News Details" xml:space="preserve">
+    <value>طلب نشر تفاصيل الأخبار</value>
+  </data>
+  <data name="Request Recieved" xml:space="preserve">
+    <value>استقبال الطلب</value>
+  </data>
+  <data name="Request Recreational Trip Details" xml:space="preserve">
+    <value>طلب تفاصيل الرحلة الترفيهية</value>
+  </data>
+  <data name="Request Seen" xml:space="preserve">
+    <value>مشاهدة الطلب</value>
+  </data>
+  <data name="RequestDate" xml:space="preserve">
+    <value>تاريخ الطلب</value>
+  </data>
+  <data name="RequestDetails" xml:space="preserve">
+    <value>تفاصيل الطلب</value>
+  </data>
+  <data name="Requester" xml:space="preserve">
+    <value>الطالب</value>
+  </data>
+  <data name="RequesterDetails" xml:space="preserve">
+    <value>تفاصيل الطالب</value>
+  </data>
+  <data name="RequestForms" xml:space="preserve">
+    <value>نموذج الطلب</value>
+  </data>
+  <data name="RequestInformation" xml:space="preserve">
+    <value>بيانات الطلب</value>
+  </data>
+  <data name="RequestNumber" xml:space="preserve">
+    <value>رقم الطلب</value>
+  </data>
+  <data name="RequestReport" xml:space="preserve">
+    <value>طلب تقرير</value>
+  </data>
+  <data name="Requests" xml:space="preserve">
+    <value>الطلبات</value>
+  </data>
+  <data name="RequestStatus" xml:space="preserve">
+    <value>حالة الطلب</value>
+  </data>
+  <data name="RequestToDispenseMedication" xml:space="preserve">
+    <value>طلب صرف أدوية</value>
+  </data>
+  <data name="RequestType" xml:space="preserve">
+    <value>نوع الطلب</value>
+  </data>
+  <data name="ResolvedRequests" xml:space="preserve">
+    <value>مكتملة</value>
+  </data>
+  <data name="ResponseDate" xml:space="preserve">
+    <value>تاريخ الرد</value>
+  </data>
+  <data name="Satisfacation" xml:space="preserve">
+    <value>الرضا</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="SearchForSickLeave" xml:space="preserve">
+    <value>بحث عن إجازة مرضية</value>
+  </data>
+  <data name="Seen DateTime" xml:space="preserve">
+    <value>تاريخ المشاهدة</value>
+  </data>
+  <data name="Select Priority" xml:space="preserve">
+    <value>حدد الأولوية</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>ارسال</value>
+  </data>
+  <data name="SendRequest" xml:space="preserve">
+    <value>إرسال الطلب</value>
+  </data>
+  <data name="Sent DateTime" xml:space="preserve">
+    <value>تاريخ الإرسال</value>
+  </data>
+  <data name="ServiceName" xml:space="preserve">
+    <value>اسم الخدمة</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>الخدمات</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>الاعدادات</value>
+  </data>
+  <data name="ShipmentNumber" xml:space="preserve">
+    <value>رقم الشحنة</value>
+  </data>
+  <data name="ShippingInformation" xml:space="preserve">
+    <value>بيانات الشحن</value>
+  </data>
+  <data name="SickLeave" xml:space="preserve">
+    <value>الإجازات المرضية</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>تسجيل الخروج</value>
+  </data>
+  <data name="Start Time" xml:space="preserve">
+    <value>وقت البدء</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>تاريخ البدء</value>
+  </data>
+  <data name="Start_Time_Should_Be_Less_Than_or_Equal_End_Time" xml:space="preserve">
+    <value>وقت البداية لابد ان يكون اقل من النهاية</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>حالة</value>
+  </data>
+  <data name="Statuses" xml:space="preserve">
+    <value>الحالات</value>
+  </data>
+  <data name="StayDuration" xml:space="preserve">
+    <value>مدة التنويم</value>
+  </data>
+  <data name="Subject AR" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="Subject EN" xml:space="preserve">
+    <value>عنوان انجليزي</value>
+  </data>
+  <data name="SubjectAR" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="SubjectEN" xml:space="preserve">
+    <value>العنوان انجليزي</value>
+  </data>
+  <data name="SubmitComplaint" xml:space="preserve">
+    <value>إرسال الشكوى</value>
+  </data>
+  <data name="SystemSetting" xml:space="preserve">
+    <value>ادارة النظام</value>
+  </data>
+  <data name="TheHospital" xml:space="preserve">
+    <value>المستشفى</value>
+  </data>
+  <data name="ThePatientIsResponsibleFor" xml:space="preserve">
+    <value>المريض مسؤول عن:</value>
+  </data>
+  <data name="TheReport" xml:space="preserve">
+    <value>التقرير</value>
+  </data>
+  <data name="TheReports" xml:space="preserve">
+    <value>التقارير</value>
+  </data>
+  <data name="ThisPatientHasPreviousAccount" xml:space="preserve">
+    <value>هذا المريض لديه حساب سابق</value>
+  </data>
+  <data name="TimeOfService" xml:space="preserve">
+    <value>وقت الخدمة</value>
+  </data>
+  <data name="TrackTheShipment" xml:space="preserve">
+    <value>تتبع الشحنة</value>
+  </data>
+  <data name="Trip Contact No." xml:space="preserve">
+    <value>رقم المسؤول الترفيهي</value>
+  </data>
+  <data name="Trip Date" xml:space="preserve">
+    <value>تاريخ الرحلة</value>
+  </data>
+  <data name="Trip Time" xml:space="preserve">
+    <value>وقت الرحلة</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>نوع</value>
+  </data>
+  <data name="TypeOfLeave" xml:space="preserve">
+    <value>نوع الإجازة</value>
+  </data>
+  <data name="UnderProcessingCount" xml:space="preserve">
+    <value>عدد المعالجة</value>
+  </data>
+  <data name="UnderProcessingRatio" xml:space="preserve">
+    <value>نسبة المعالجة</value>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>الوحدة</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>تحديث</value>
+  </data>
+  <data name="UpdateInformation" xml:space="preserve">
+    <value>تحديث المعلومات</value>
+  </data>
+  <data name="Urgent" xml:space="preserve">
+    <value>عاجل</value>
+  </data>
+  <data name="Validation" xml:space="preserve">
+    <value>التحقق من المدخلات</value>
+  </data>
+  <data name="ValuesCreativity" xml:space="preserve">
+    <value>ﺍﻹﺑﺪﺍﻉ</value>
+  </data>
+  <data name="ValuesHuman" xml:space="preserve">
+    <value>ﺭﻋﺎﻳﺔ ﻣﺤﻮﺭﻫﺎ ﺍﻹﻧﺴﺎﻥ</value>
+  </data>
+  <data name="ValuesLearning" xml:space="preserve">
+    <value>ﺍﻟﺘﻌﻠﻢ ﺍﻟﻤﺴﺘﻤﺮ</value>
+  </data>
+  <data name="ValuesPatientFirst" xml:space="preserve">
+    <value>المريض اولا</value>
+  </data>
+  <data name="ValuesProff" xml:space="preserve">
+    <value>ﺍﻟﻤﻬﻨﻴﺔ</value>
+  </data>
+  <data name="ValuesTeam" xml:space="preserve">
+    <value>ﺍﻟﻌﻤﻞ ﺑﺮﻭﺡ ﺍﻟﻔﺮﻳﻖ</value>
+  </data>
+  <data name="ValuesTitle" xml:space="preserve">
+    <value>القييم</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>عرض</value>
+  </data>
+  <data name="ViewAllComplaints" xml:space="preserve">
+    <value>الشكاوى</value>
+  </data>
+  <data name="ViewAllInquiriesAndSuggestions" xml:space="preserve">
+    <value>الاستفسارات</value>
+  </data>
+  <data name="ViewAllReport" xml:space="preserve">
+    <value>عرض كل التقارير</value>
+  </data>
+  <data name="ViewAllReports" xml:space="preserve">
+    <value>عرض طلبات التقارير</value>
+  </data>
+  <data name="ViewAppointment" xml:space="preserve">
+    <value>عرض موعد</value>
+  </data>
+  <data name="ViewComplaint" xml:space="preserve">
+    <value>عرض شكوى</value>
+  </data>
+  <data name="ViewFutureAppointment" xml:space="preserve">
+    <value>عرض مواعيد مستقبلية</value>
+  </data>
+  <data name="ViewMedicineDispensingRequest" xml:space="preserve">
+    <value>عرض طلب صرف أدوية</value>
+  </data>
+  <data name="ViewMyAppointments" xml:space="preserve">
+    <value>مواعيدي</value>
+  </data>
+  <data name="ViewSickLeave" xml:space="preserve">
+    <value>عرض إجازة مرضية</value>
+  </data>
+  <data name="ViewSickLeaves" xml:space="preserve">
+    <value>عرض الإجازات المرضية</value>
+  </data>
+  <data name="VisionAndMission" xml:space="preserve">
+    <value>الرؤية و الرسالة</value>
+  </data>
+  <data name="VisionContent" xml:space="preserve">
+    <value>ﻣﺠﺘﻤﻊ ﺻﺤﻲ ﻣﺴﺘﺪﺍﻡ ﻟﻤﻨﺴﻮﺑﻲ ﻭﺯﺍﺭﺓ ﺍﻟﺪﻓﺎﻉ ﻭﺫﻭﻳﻬﻢ .</value>
+  </data>
+  <data name="VisionTitle" xml:space="preserve">
+    <value>الرؤية</value>
+  </data>
+  <data name="WarfarinDrug" xml:space="preserve">
+    <value>نحطيكم علما بانه تم تغيير شكل و عبوات دواء الوارفارين لشركة اخرى. وسيتم ارسال التفاصيل مع الشحنة</value>
+  </data>
+  <data name="WeightInKilograms" xml:space="preserve">
+    <value>الوزن بالكيلو جرام</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>نعم</value>
+  </data>
+  <data name="You forget the Attachments!, Please add minimum 1 attachment..." xml:space="preserve">
+    <value>لقد نسيت المرفقات!، يرجى إضافة مرفق واحد على الأقل...</value>
+  </data>
+  <data name="You have to select Form!" xml:space="preserve">
+    <value>يجب عليك تحديد النموذج!</value>
+  </data>
+  <data name="YouHaveAPreviousRequestThatHasNotBeenCompleted" xml:space="preserve">
+    <value>لديك طلب سابق لم يتم الانتهاء منه</value>
+  </data>
+  <data name="SelectRequestNo" xml:space="preserve">
+    <value>اختر نوع البند</value>
+  </data>
+  <data name="CreateJustification" xml:space="preserve">
+    <value>أسباب عدم طرحة في منافسة عامة</value>
+  </data>
+  <data name="CreateReason" xml:space="preserve">
+    <value>أسباب تأمينة عن طريق الشراء المباشر</value>
+  </data>
+  <data name="ItemName" xml:space="preserve">
+    <value>البند</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>التكلفة التقديرية</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>الكمية</value>
+  </data>
+  <data name="Request" xml:space="preserve">
+    <value>اختر الطلب</value>
+  </data>
+  <data name="CUSNNSValidation" xml:space="preserve">
+    <value>من فضل اختار نوع البند</value>
+  </data>
+  <data name="Validation_ItemName" xml:space="preserve">
+    <value>من فضلك ادخل اسم البند</value>
+  </data>
+  <data name="Validation_ItemReqNO" xml:space="preserve">
+    <value>من فضلك ادخل رقم البند</value>
+  </data>
+  <data name="Validation_Justification" xml:space="preserve">
+    <value>الأسباب تأمينة عن طريق الشراء المباشر</value>
+  </data>
+  <data name="Validation_Price" xml:space="preserve">
+    <value>من فضلك ادخل السعر</value>
+  </data>
+  <data name="Validation_Quantity" xml:space="preserve">
+    <value>من فضلك ادخل الكمية</value>
+  </data>
+  <data name="Validation_Reason" xml:space="preserve">
+    <value>الأسباب عدم طرحة في منافسة عامة</value>
+  </data>
+  <data name="RequestNumberCUSNNS" xml:space="preserve">
+    <value>الرقم المرجعي للطلب</value>
+  </data>
+  <data name="CUS" xml:space="preserve">
+    <value>البنود مخزنة</value>
+  </data>
+  <data name="ItemReqNO" xml:space="preserve">
+    <value>رقم البند</value>
+  </data>
+  <data name="NNS" xml:space="preserve">
+    <value>البنود الغير المخزنة</value>
+  </data>
+  <data name="SelectRequestItem" xml:space="preserve">
+    <value>برجاء اختيار اسم البند اولا</value>
+  </data>
+  <data name="ItemDetails" xml:space="preserve">
+    <value>بيانات البند (اجباري)</value>
+  </data>
+  <data name="PleaseBePatientCreateRequest" xml:space="preserve">
+    <value>يرجى الانتظار يتم معالجة طلبك ...</value>
+  </data>
+  <data name="AssociateDeptAction" xml:space="preserve">
+    <value>اجراء الادارة الفنية المسؤولة</value>
+  </data>
+  <data name="AssociateDeptName" xml:space="preserve">
+    <value>اسم الفني المسؤول</value>
+  </data>
+  <data name="EqamaOrNationalID" xml:space="preserve">
+    <value>رقم الهوية</value>
+  </data>
+  <data name="FinancialAction" xml:space="preserve">
+    <value>اجراء ممثل الماليات</value>
+  </data>
+  <data name="POR_Action" xml:space="preserve">
+    <value>إجراء ممثل تقييم الأداء</value>
+  </data>
+  <data name="PSCCSuppliesAssistantDirectorAction" xml:space="preserve">
+    <value>اجراء مساعد مدير المركز</value>
+  </data>
+  <data name="DirectorOfSuppliesAction" xml:space="preserve">
+    <value>اجراء ممثل مدير ادارة التموين</value>
+  </data>
+  <data name="ManagerOfPlanningAction" xml:space="preserve">
+    <value>اجراء مدير قسم التخطيط</value>
+  </data>
+  <data name="Bulletin Date" xml:space="preserve">
+    <value>تاريخ الاتصال</value>
+  </data>
+  <data name="ClinicalVisitsView" xml:space="preserve">
+    <value>اشعار المراجعة</value>
+  </data>
+  <data name="NumberOfPendingApplications" xml:space="preserve">
+    <value>عدد الطلبات المعلقة</value>
+  </data>
+  <data name="OrganizationalRelationshipsValidation" xml:space="preserve">
+    <value>من فضلك قم بادخال بيانات Organizational Relationships</value>
+  </data>
+  <data name="JobSummaryValidation" xml:space="preserve">
+    <value>من فضلك قم بادخال بيانات Job Summary</value>
+  </data>
+  <data name="DutiesAndResponsibilitiesValidation" xml:space="preserve">
+    <value>من فضلك قم بادخال بيانات Duties And Responsibilities </value>
+  </data>
+  <data name="EducationValidation" xml:space="preserve">
+    <value>من فضلك قم بادخال بيانات التعليم</value>
+  </data>
+  <data name="ExperienceValidation" xml:space="preserve">
+    <value>من فضلك قم بادخال بيانات الخبرات</value>
+  </data>
+  <data name="PersonalSkillsValidation" xml:space="preserve">
+    <value>من فضلك قم بادخال بيانات المهارات الشخصية</value>
+  </data>
+  <data name="JobNameAr" xml:space="preserve">
+    <value>الاسم الوظيفي عربي</value>
+  </data>
+  <data name="JobNameEn" xml:space="preserve">
+    <value>الاسم الوظيفي انجليزي</value>
+  </data>
+  <data name="OrganizationalRelationships" xml:space="preserve">
+    <value>العلاقات التنظيمية</value>
+  </data>
+  <data name="JobSummary" xml:space="preserve">
+    <value>ملخص العمل</value>
+  </data>
+  <data name="DutiesAndResponsibilities" xml:space="preserve">
+    <value>الواجبات والمسؤوليات</value>
+  </data>
+  <data name="Education" xml:space="preserve">
+    <value>التعليم</value>
+  </data>
+  <data name="Experience" xml:space="preserve">
+    <value>الخبرات</value>
+  </data>
+  <data name="PersonalSkills" xml:space="preserve">
+    <value>المهارات شخصية</value>
+  </data>
+  <data name="PerformanceManagement" xml:space="preserve">
+    <value>تقييم الاداء</value>
+  </data>
+  <data name="Evaluation" xml:space="preserve">
+    <value>التقييم</value>
+  </data>
+  <data name="Evaluate" xml:space="preserve">
+    <value>تقييم الاداء</value>
+  </data>
+  <data name="EmployeeDetails" xml:space="preserve">
+    <value>بيانات الموظف</value>
+  </data>
+  <data name="GradeCode" xml:space="preserve">
+    <value>كود الدرجة</value>
+  </data>
+  <data name="GradeEstimation" xml:space="preserve">
+    <value>تقدير الدرجة</value>
+  </data>
+  <data name="GoalName" xml:space="preserve">
+    <value>هدف</value>
+  </data>
+  <data name="GoalsValidation_InsertThreeAtLeast" xml:space="preserve">
+    <value>من فضلك ادخل 3 اهداف كحد أدني</value>
+  </data>
+  <data name="MeasurementStandard" xml:space="preserve">
+    <value>معيار القياس</value>
+  </data>
+  <data name="RelativeWeight" xml:space="preserve">
+    <value>الوزن النسبي %</value>
+  </data>
+  <data name="TargetOutput" xml:space="preserve">
+    <value>الناتج المستهدف</value>
+  </data>
+  <data name="FirstlyGoals" xml:space="preserve">
+    <value>اولاً : الأهداف</value>
+  </data>
+  <data name="SecondlyCompetencies" xml:space="preserve">
+    <value>ثانياً : الجدارات</value>
+  </data>
+  <data name="Competency" xml:space="preserve">
+    <value>الجدارة</value>
+  </data>
+  <data name="CompetencyThemes" xml:space="preserve">
+    <value>محاور الجدارة</value>
+  </data>
+  <data name="Behavioral description of the Competencies" xml:space="preserve">
+    <value>الوصف السلوكي للجدارات</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>مسلسل</value>
+  </data>
+  <data name="CompetencyThemesAndBehavioral" xml:space="preserve">
+    <value>محاور الجدارة - الوصف السلوكي للجدارات</value>
+  </data>
+  <data name="RelativeWeightSum" xml:space="preserve">
+    <value>مجموع الوزن النسبي</value>
+  </data>
+  <data name="RelativeWeightSumValidation" xml:space="preserve">
+    <value>يجب ان يكون مجموع الوزن النسبي 100%</value>
+  </data>
+  <data name="GoalsName" xml:space="preserve">
+    <value>الأهداف</value>
+  </data>
+  <data name="PleaseInsert" xml:space="preserve">
+    <value>من فضلك ادخل </value>
+  </data>
+  <data name="RowNumber" xml:space="preserve">
+    <value>للهدف مسلسل:</value>
+  </data>
+  <data name="HR_Action" xml:space="preserve">
+    <value>اجراء ممثل الموارد البشرية</value>
+  </data>
+  <data name="EmployeeAction" xml:space="preserve">
+    <value>اجراء الموظف</value>
+  </data>
+  <data name="UserId" xml:space="preserve">
+    <value>رقم الموظف</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>الاصدار</value>
+  </data>
+  <data name="DeadlineDate" xml:space="preserve">
+    <value>تاريخ صلاحية التقييم</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>السنة</value>
+  </data>
+  <data name="TargetOutputValidationOfPercentage" xml:space="preserve">
+    <value>النسبة الموزونه للهدف يجب ان لا تقل عن 10% ولا تزيد عن 40%</value>
+  </data>
+  <data name="EmpNonUnknownCount" xml:space="preserve">
+    <value>عدد الموظفين الغير معروف لهم درجة</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>غير معروف</value>
+  </data>
+  <data name="Supervisory" xml:space="preserve">
+    <value>اشرافية</value>
+  </data>
+  <data name="NonSupervisory" xml:space="preserve">
+    <value>غير اشرافية</value>
+  </data>
+  <data name="NonSupervisoryCompetenciesOnly" xml:space="preserve">
+    <value>غير اشرافية (الجدارات)</value>
+  </data>
+  <data name="EmpCount" xml:space="preserve">
+    <value>عدد موظفين المركز الفعالين</value>
+  </data>
+  <data name="Employees" xml:space="preserve">
+    <value>الموظفين</value>
+  </data>
+  <data name="EmpSupervisoryCount" xml:space="preserve">
+    <value>عدد الاشرافيين</value>
+  </data>
+  <data name="EmpNonSupervisoryCount" xml:space="preserve">
+    <value>عدد  الغير الاشرافيين</value>
+  </data>
+  <data name="HR_Director_Action" xml:space="preserve">
+    <value>اجراء مدير ادارة الموارد البشرية</value>
+  </data>
+  <data name="UserGuide" xml:space="preserve">
+    <value>دليل </value>
+  </data>
+  <data name="Performance charter" xml:space="preserve">
+    <value>ميثاق الاداء </value>
+  </data>
+  <data name="HomeIndexContactText" xml:space="preserve">
+    <value>عناوين التواصل مع وحدة ميثاق الاداء في الموارد البشرية </value>
+  </data>
+  <data name="ContactInformation" xml:space="preserve">
+    <value>بيانات التواصل</value>
+  </data>
+  <data name="HR_PerformanceUnit_Action" xml:space="preserve">
+    <value>اجراء موظف وحدة الأداء</value>
+  </data>
+  <data name="HR_ManagerOfPersonal_Action" xml:space="preserve">
+    <value>اجراء مدير قسم شؤون الموظفين</value>
+  </data>
+  <data name="RequestActions" xml:space="preserve">
+    <value>الاجراءات</value>
+  </data>
+  <data name="Form" xml:space="preserve">
+    <value>نموذج</value>
+  </data>
+  <data name="EvaluationForm" xml:space="preserve">
+    <value>ملف التقييم</value>
+  </data>
+  <data name="DirectManagerAction" xml:space="preserve">
+    <value>اجراء المدير المباشر</value>
+  </data>
+  <data name="AccessPermissionToThisAction" xml:space="preserve">
+    <value>ليس ليدك صلاحية لاستخدام هذا الاجراء</value>
+  </data>
+  <data name="Employee" xml:space="preserve">
+    <value>الموظف</value>
+  </data>
+  <data name="SubmitYear" xml:space="preserve">
+    <value>اعتماد السنة - الدرجة</value>
+  </data>
+  <data name="NextStep" xml:space="preserve">
+    <value>الخطوة التالية</value>
+  </data>
+  <data name="JobCountForVacancy" xml:space="preserve">
+    <value>عدد الوظائف الشاغرة</value>
+  </data>
+  <data name="JobCountForBusy" xml:space="preserve">
+    <value>عدد الوظائف المشغولة</value>
+  </data>
+  <data name="JobCountTotal" xml:space="preserve">
+    <value>مجموع عدد الوظائف</value>
+  </data>
+  <data name="PendingTo" xml:space="preserve">
+    <value>معلقة عند</value>
+  </data>
+  <data name="IdOrStaffId" xml:space="preserve">
+    <value>رقم الموظف  او رقم الهوية</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>نتائج</value>
+  </data>
+  <data name="Departments" xml:space="preserve">
+    <value>الأقسام</value>
+  </data>
+  <data name="PerformanceNotApplied" xml:space="preserve">
+    <value>لا يوجد ملف مسجل لهذا الموظف</value>
+  </data>
+  <data name="EmployeesByDepartment" xml:space="preserve">
+    <value>احصائيات الموظفين بالادارة</value>
+  </data>
+  <data name="AllEmpStat" xml:space="preserve">
+    <value>احصائيات جميع موظفي المركز الفعالين</value>
+  </data>
+  <data name="EmpSearch" xml:space="preserve">
+    <value>شاشة بحث الموظفين</value>
+  </data>
+  <data name="DirectManager" xml:space="preserve">
+    <value>المدير المباشر</value>
+  </data>
+  <data name="PerformanceApplied" xml:space="preserve">
+    <value>مسجل ملف للموظف</value>
+  </data>
+  <data name="PleaseNote" xml:space="preserve">
+    <value>ملحوظة</value>
+  </data>
+  <data name="DepartmentEmployeesNote" xml:space="preserve">
+    <value>في حالة اختيار الحالة , لا يتم عرض الموظفين الغير مسجلين فى الادارة - برجاء فى الحالة الجميع لعرض بيانات الموظفين الغير مسجلين</value>
+  </data>
+  <data name="StaffId" xml:space="preserve">
+    <value>رقم الموظف</value>
+  </data>
+  <data name="DepartmentHeadNotFoundedPleaseContactWithHRTeam" xml:space="preserve">
+    <value>لم يتم العثور على رئيس القسم، يرجى الاتصال بفريق الموارد البشرية، كيان العمل {0}، رمز القسم {1}</value>
+  </data>
+  <data name="Fulfillment" xml:space="preserve">
+    <value>الانجاز</value>
+  </data>
+</root>

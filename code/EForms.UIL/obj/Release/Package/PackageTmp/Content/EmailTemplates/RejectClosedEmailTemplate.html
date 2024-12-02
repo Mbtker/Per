@@ -1,0 +1,259 @@
+﻿<style>
+    body,
+    table,
+    td,
+    p,
+    a,
+    li,
+    blockquote {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+    }
+
+    table,
+    td {
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+    }
+
+    img {
+        -ms-interpolation-mode: bicubic;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        border: 0;
+        height: auto;
+        line-height: 100%;
+        outline: none;
+        text-decoration: none;
+    }
+
+    table {
+        border-collapse: collapse !important;
+    }
+
+    body,
+    #bodyTable,
+    #bodyCell {
+        height: 100% !important;
+        margin: 0;
+        padding: 0;
+        width: 100% !important;
+    }
+
+    #bodyCell {
+        padding: 10px;
+    }
+
+    #templateContainer {
+        width: 100%;
+    }
+
+    body,
+    #bodyTable {
+        /*@editable*/
+        background-color: #ffffff;
+    }
+
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .RequestDetails {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100% !important;
+    }
+
+        .RequestDetails td,
+        .RequestDetails th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .RequestDetails tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .RequestDetails tr:hover {
+            background-color: #ddd;
+        }
+
+        .RequestDetails th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #f2f2f2;
+            color: black;
+        }
+
+    .HeaderTable td,
+    .HeaderTable th {
+        padding: 8px;
+    }
+
+    .HeaderTable th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        /* background-color: #f2f2f2; */
+        color: black;
+    }
+</style>
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" id="bodyTable" width="100%" style="width:95% !important;">
+    <tbody>
+        <tr>
+            <td align="center" id="bodyCell" valign="top">
+                <!-- BEGIN TEMPLATE // -->
+                <div class="__ma__postal_address">&nbsp;</div>
+                <table border="0" cellpadding="0" cellspacing="0" id="templateContainer">
+                    <tbody>
+                        <tr>
+                            <td align="center" valign="top">
+                                <!-- BEGIN Header // -->
+                                <div mc:edit="footertext"
+                                     style="text-align: center; font-size: 23px; font-weight: bold;">
+                                    <p style="font-family:Trebuchet MS, Arial, Helvetica, sans-serif; border-collapse: collapse; width: 100%;">
+                                        نظام تقييم الأداء
+                                        <br />
+                                        Performance Management
+                                        <br />
+                                    </p>
+                                </div>
+                                <!-- // END Header -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="height:20px">
+                        </tr>
+                        <tr>
+                            <td align="center" valign="top">
+                                <div mc:edit="footertext"
+                                     style="text-align: center; font-size: 18px; font-weight: bold;">
+                                    <p style="font-family:Trebuchet MS, Arial, Helvetica, sans-serif; border-collapse: collapse; width: 100%;">
+                                        عزيزي
+                                        <br />
+                                        فيما يتعلق بطلبكم رقم ({1}) ، نفيدكم بأنه تم ({3}) الطلب
+                                        <br />
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="height:20px">
+                        </tr>
+                        <tr>
+                            <td align="center" valign="top">
+                                <div mc:edit="footertext"
+                                     style="text-align: center; font-size: 18px; font-weight: bold;">
+                                    <p style="font-family:Trebuchet MS, Arial, Helvetica, sans-serif; border-collapse: collapse; width: 100%;">
+                                        Dear {0},
+                                        <br />
+                                        Your request ({1}) has been ({2}).
+                                        <br />
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="height:20px">
+                        </tr>
+                        <tr>
+
+                            <td align="center" valign="top" style="padding-bottom: 20px;padding-top: 5px;">
+                                <!-- BEGIN BODY // -->
+                                <table style="text-align: center; width: 100% !important;" class="HeaderTable">
+                                    <tr>
+                                        <td style="height:15px">
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <!-- BEGIN CONTENT // -->
+
+                                    <tr>
+                                        <td style="text-align:left; font-weight:bold">
+                                            <span>Your request details: </span>
+                                        </td>
+                                        <td></td>
+                                        <td style="text-align:right; font-weight:bold">
+                                            <span>:تفاصيل الطلب </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="text-align:center !important; padding-bottom: 10px;padding-top: 10px;padding-left:2px;padding-right:2px;">
+                                            <table style="text-align: center; width: 100%;" class="RequestDetails">
+                                                <tr>
+                                                    <td style="text-align:left">Number</td>
+                                                    <td style="text-align: center">
+                                                        <a href="http://PerformanceManagement.intranet.pscc.local/Request/Details/{1}"
+                                                           target="_blank">{1}</a>
+                                                    </td>
+                                                    <td style="text-align: right">الرقم</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:left">Title</td>
+                                                    <td style="text-align: center">{4}</td>
+                                                    <td style="text-align: right">العنوان</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:left">Status</td>
+                                                    <td style="text-align: center">{5}</td>
+                                                    <td style="text-align: right">الحالة</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:left">Date</td>
+                                                    <td style="text-align: center">{6}</td>
+                                                    <td style="text-align: right">التاريخ</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:left">Note</td>
+                                                    <td style="text-align: center">{7}</td>
+                                                    <td style="text-align: right">ملاحظات</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <!-- END CONTENT // -->
+
+                                </table>
+                                <!-- // END BODY -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" valign="top">
+                                <!-- BEGIN FOOTER // -->
+                                <div mc:edit="footertext"
+                                     style="text-align: center;font-size:15px;">
+                                    <p style="font-family:Trebuchet MS, Arial, Helvetica, sans-serif;">
+                                        <br />
+                                        Your feedback is appreciated and helpful.<br />
+                                        رأيكم يهمنا
+                                        <br />
+                                        <br />
+                                        Best Regards,<br />
+                                        مع أطيب التمنيات
+                                        <br />
+                                        <br />
+                                        &copy; PSCC. All rights reserved.<br />
+                                        &nbsp;
+                                    </p>
+
+                                </div>
+                                <!-- // END FOOTER -->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- // END TEMPLATE -->
+            </td>
+        </tr>
+    </tbody>
+</table>

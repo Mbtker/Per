@@ -1,0 +1,106 @@
+﻿@using Performance.Management.UIL.Language;
+@using Performance.Management.BLL.ViewModel;
+
+@model Performance.Management.BLL.ViewModel.RequestModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section title{
+    <h1>
+        @Resource.PerformanceManagement
+        <small>@Resource.Search</small>
+    </h1>
+}
+
+@section breadcrumb{
+    <li class="active">@Resource.Search </li>
+}
+
+@{
+    string lang = Context.Request.Cookies["culture"].Value ?? "en";
+
+    string username = new Performance.Management.UIL.Controllers.BaseController().GetUserName();
+}
+
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-body">
+            <div>
+                <table class="table table-bordered table-striped" id="tblData">
+                    <thead>
+                        <tr role="row">
+                            <th>@Resource.EqamaOrNationalID</th>
+                            <th>@Resource.IdentificationNumber</th>
+                            <th>@Resource.Name</th>
+                            <th>@Resource.Position_Name</th>
+                            <th>@Resource.Gender</th>
+                            <th>@Resource.Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var b in Model.MyEmployees)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(m => b.USER_NAME)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => b.STAFF_ID)
+                                </td>
+                                <td>
+                                    @if (lang == "Ar")
+                                    {
+                                        @Html.DisplayFor(modelItem => b.ARB_STAFF_NAME)
+                                    }
+                                    else
+                                    {
+                                        @Html.DisplayFor(modelItem => b.ENGL_STAFF_NAME)
+                                    }
+                                </td>
+                                <td>
+                                    @if (lang == "Ar")
+                                    {
+                                        @Html.DisplayFor(modelItem => b.POSITION_ARABIC)
+                                    }
+                                    else
+                                    {
+                                        @Html.DisplayFor(modelItem => b.POSITION_ENGLISH)
+                                    }
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => b.SEX)
+                                </td>
+                                <td>
+                                    <a href="/Request/Draft/@b.DOC_NUMBER" class="btn btn-primary btn-xs" target="_blank"><i class="fa fa-gear"></i> @Performance.Management.UIL.Language.Resource.Evaluate</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr role="row">
+                            <th>@Resource.EqamaOrNationalID</th>
+                            <th>@Resource.IdentificationNumber</th>
+                            <th>@Resource.Name</th>
+                            <th>@Resource.Position_Name</th>
+                            <th>@Resource.Gender</th>
+                            <th>@Resource.Action</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    @*<button>Click to redirect</button>*@
+</section>
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tblData').DataTable();
+        });
+    </script>
+}

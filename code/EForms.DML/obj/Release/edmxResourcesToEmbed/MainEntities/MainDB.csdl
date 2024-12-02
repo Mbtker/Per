@@ -1,0 +1,542 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CompetencyDetailsLookups" EntityType="Model.CompetencyDetailsLookup" />
+    <EntitySet Name="CompetencyLookups" EntityType="Model.CompetencyLookup" />
+    <EntitySet Name="Goals" EntityType="Model.Goal" />
+    <EntitySet Name="HRSAllowedUsers" EntityType="Model.HRSAllowedUser" />
+    <EntitySet Name="Reasons" EntityType="Model.Reason" />
+    <EntitySet Name="Requests" EntityType="Model.Request" />
+    <EntitySet Name="RequestTypes" EntityType="Model.RequestType" />
+    <EntitySet Name="SActions" EntityType="Model.SAction" />
+    <EntitySet Name="Status" EntityType="Model.Status" />
+    <AssociationSet Name="FK_CompetencyDetailsLookup_CompetencyLookup" Association="Model.FK_CompetencyDetailsLookup_CompetencyLookup">
+      <End Role="CompetencyLookup" EntitySet="CompetencyLookups" />
+      <End Role="CompetencyDetailsLookup" EntitySet="CompetencyDetailsLookups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Goal_CompetencyLookup" Association="Model.FK_Goal_CompetencyLookup">
+      <End Role="CompetencyLookup" EntitySet="CompetencyLookups" />
+      <End Role="Goal" EntitySet="Goals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Goal_Request" Association="Model.FK_Goal_Request">
+      <End Role="Request" EntitySet="Requests" />
+      <End Role="Goal" EntitySet="Goals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_DirectManager_Reason" Association="Model.FK_Request_DirectManager_Reason">
+      <End Role="Reason" EntitySet="Reasons" />
+      <End Role="Request" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_Employee_Reason" Association="Model.FK_Request_Employee_Reason">
+      <End Role="Reason" EntitySet="Reasons" />
+      <End Role="Request" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_HR_Director_ReasonID" Association="Model.FK_Request_HR_Director_ReasonID">
+      <End Role="Reason" EntitySet="Reasons" />
+      <End Role="Request" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_HR_ManagerOfPersonal_ReasonID" Association="Model.FK_Request_HR_ManagerOfPersonal_ReasonID">
+      <End Role="Reason" EntitySet="Reasons" />
+      <End Role="Request" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_HR_PerformanceUnit_ReasonID" Association="Model.FK_Request_HR_PerformanceUnit_ReasonID">
+      <End Role="Reason" EntitySet="Reasons" />
+      <End Role="Request" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_DirectManager_SAction" Association="Model.FK_Request_DirectManager_SAction">
+      <End Role="SAction" EntitySet="SActions" />
+      <End Role="Request" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_Employee_SAction" Association="Model.FK_Request_Employee_SAction">
+      <End Role="SAction" EntitySet="SActions" />
+      <End Role="Request" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_HR_Director_ActionID" Association="Model.FK_Request_HR_Director_ActionID">
+      <End Role="SAction" EntitySet="SActions" />
+      <End Role="Request" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_HR_ManagerOfPersonal_ActionID" Association="Model.FK_Request_HR_ManagerOfPersonal_ActionID">
+      <End Role="SAction" EntitySet="SActions" />
+      <End Role="Request" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_HR_PerformanceUnit_ActionID" Association="Model.FK_Request_HR_PerformanceUnit_ActionID">
+      <End Role="SAction" EntitySet="SActions" />
+      <End Role="Request" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_Refrence_Request" Association="Model.FK_Request_Refrence_Request">
+      <End Role="Request" EntitySet="Requests" />
+      <End Role="Request1" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_RequestType" Association="Model.FK_Request_RequestType">
+      <End Role="RequestType" EntitySet="RequestTypes" />
+      <End Role="Request" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_Status" Association="Model.FK_Request_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Request" EntitySet="Requests" />
+    </AssociationSet>
+    <EntitySet Name="SupervisorUsers" EntityType="Model.SupervisorUser" />
+  </EntityContainer>
+  <EntityType Name="CompetencyDetailsLookup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompetencyLookupID" Type="Int32" Nullable="false" />
+    <Property Name="CompetencyThemesEn" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CompetencyThemesAr" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="BehavioralDescriptionEn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BehavioralDescriptionAr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CompetencyLookup" Relationship="Model.FK_CompetencyDetailsLookup_CompetencyLookup" FromRole="CompetencyDetailsLookup" ToRole="CompetencyLookup" />
+  </EntityType>
+  <EntityType Name="CompetencyLookup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameEn" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="NameAr" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CompetencyDetailsLookups" Relationship="Model.FK_CompetencyDetailsLookup_CompetencyLookup" FromRole="CompetencyLookup" ToRole="CompetencyDetailsLookup" />
+    <NavigationProperty Name="Goals" Relationship="Model.FK_Goal_CompetencyLookup" FromRole="CompetencyLookup" ToRole="Goal" />
+  </EntityType>
+  <EntityType Name="Goal">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RequestID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="NameEn" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="NameAr" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="MeasurementStandard" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="RelativeWeight" Type="Int32" Nullable="false" />
+    <Property Name="TargetOutput" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Fulfillment" Type="Int32" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CompetencyLookupID" Type="Int32" />
+    <NavigationProperty Name="CompetencyLookup" Relationship="Model.FK_Goal_CompetencyLookup" FromRole="Goal" ToRole="CompetencyLookup" />
+    <NavigationProperty Name="Request" Relationship="Model.FK_Goal_Request" FromRole="Goal" ToRole="Request" />
+  </EntityType>
+  <EntityType Name="HRSAllowedUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PositionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DelegateToUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DelegateStartDate" Type="DateTime" Precision="0" />
+    <Property Name="DelegateEndDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Reason">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="NameAr" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Precision="3" />
+    <Property Name="Modified" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="FK_Request_DirectManager_Reason" Relationship="Model.FK_Request_DirectManager_Reason" FromRole="Reason" ToRole="Request" />
+    <NavigationProperty Name="FK_Request_Employee_Reason" Relationship="Model.FK_Request_Employee_Reason" FromRole="Reason" ToRole="Request" />
+    <NavigationProperty Name="FK_Request_HR_Director_ReasonID" Relationship="Model.FK_Request_HR_Director_ReasonID" FromRole="Reason" ToRole="Request" />
+    <NavigationProperty Name="FK_Request_HR_ManagerOfPersonal_ReasonID" Relationship="Model.FK_Request_HR_ManagerOfPersonal_ReasonID" FromRole="Reason" ToRole="Request" />
+    <NavigationProperty Name="FK_Request_HR_PerformanceUnit_ReasonID" Relationship="Model.FK_Request_HR_PerformanceUnit_ReasonID" FromRole="Reason" ToRole="Request" />
+  </EntityType>
+  <EntityType Name="Request">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StatusID" Type="Int32" Nullable="false" />
+    <Property Name="RequestTypeID" Type="Int32" Nullable="false" />
+    <Property Name="DeadlineDate" Type="DateTime" Precision="3" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Attachment" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="RequesterUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RequesterUserEnglishName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RequesterUserEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RequesterPositionCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RequesterPositionName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="RequesterDeptCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RequesterDeptEnglishName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DeptHead_Approval" Type="Boolean" />
+    <Property Name="DeptHead_UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeptHead_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeptHead_EnglishName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeptHead_Recieved" Type="Boolean" />
+    <Property Name="DeptHead_RecievedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="DeptHead_Seen" Type="Boolean" />
+    <Property Name="DeptHead_SeenDateTime" Type="DateTime" Precision="3" />
+    <Property Name="DeptHead_ApprovalDateTime" Type="DateTime" Precision="3" />
+    <Property Name="DeptHead_Reason" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Employee_Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Employee_EnglishName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Employee_DepartmentEnglishName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Employee_Position" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Employee_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Employee_UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Employee_Recieved" Type="Boolean" />
+    <Property Name="Employee_RecievedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Employee_Seen" Type="Boolean" />
+    <Property Name="Employee_SeenDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Employee_Approval" Type="Boolean" />
+    <Property Name="Employee_ApprovalDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Employee_Reason" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Employee_Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Employee_ActionID" Type="Int32" />
+    <Property Name="Employee_ActionDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Employee_ReasonID" Type="Int32" />
+    <Property Name="IsFinished" Type="Boolean" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Precision="3" />
+    <Property Name="Modified" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="DeleteUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeleteFullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DeleteDateTime" Type="DateTime" Precision="3" />
+    <Property Name="DeleteReason" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FeedBackGiven" Type="Boolean" />
+    <Property Name="FeedBackGivenDateTime" Type="DateTime" Precision="3" />
+    <Property Name="AchievementFeedBack" Type="Double" />
+    <Property Name="TimeFeedBack" Type="Double" />
+    <Property Name="SatisfacationFeedBack" Type="Double" />
+    <Property Name="DirectManager_EnglishName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DirectManager_Position" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DirectManager_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DirectManager_UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DirectManager_Recieved" Type="Boolean" />
+    <Property Name="DirectManager_RecievedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="DirectManager_Seen" Type="Boolean" />
+    <Property Name="DirectManager_SeenDateTime" Type="DateTime" Precision="3" />
+    <Property Name="DirectManager_Approval" Type="Boolean" />
+    <Property Name="DirectManager_ApprovalDateTime" Type="DateTime" Precision="3" />
+    <Property Name="DirectManager_Reason" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DirectManager_Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DirectManager_ActionID" Type="Int32" />
+    <Property Name="DirectManager_ActionDateTime" Type="DateTime" Precision="3" />
+    <Property Name="DirectManager_ReasonID" Type="Int32" />
+    <Property Name="RequestCounter" Type="Int32" Nullable="false" />
+    <Property Name="RefrenceID" Type="Int32" />
+    <Property Name="HR_PerformanceUnit_EnglishName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HR_PerformanceUnit_DepartmentEnglishName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="HR_PerformanceUnit_Position" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="HR_PerformanceUnit_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HR_PerformanceUnit_UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HR_PerformanceUnit_Recieved" Type="Boolean" />
+    <Property Name="HR_PerformanceUnit_RecievedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="HR_PerformanceUnit_Seen" Type="Boolean" />
+    <Property Name="HR_PerformanceUnit_SeenDateTime" Type="DateTime" Precision="3" />
+    <Property Name="HR_PerformanceUnit_Approval" Type="Boolean" />
+    <Property Name="HR_PerformanceUnit_ApprovalDateTime" Type="DateTime" Precision="3" />
+    <Property Name="HR_PerformanceUnit_Reason" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="HR_PerformanceUnit_Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="HR_PerformanceUnit_ActionID" Type="Int32" />
+    <Property Name="HR_PerformanceUnit_ActionDateTime" Type="DateTime" Precision="3" />
+    <Property Name="HR_PerformanceUnit_ReasonID" Type="Int32" />
+    <Property Name="HR_ManagerOfPersonal_EnglishName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HR_ManagerOfPersonal_DepartmentEnglishName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="HR_ManagerOfPersonal_Position" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="HR_ManagerOfPersonal_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HR_ManagerOfPersonal_UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HR_ManagerOfPersonal_Recieved" Type="Boolean" />
+    <Property Name="HR_ManagerOfPersonal_RecievedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="HR_ManagerOfPersonal_Seen" Type="Boolean" />
+    <Property Name="HR_ManagerOfPersonal_SeenDateTime" Type="DateTime" Precision="3" />
+    <Property Name="HR_ManagerOfPersonal_Approval" Type="Boolean" />
+    <Property Name="HR_ManagerOfPersonal_ApprovalDateTime" Type="DateTime" Precision="3" />
+    <Property Name="HR_ManagerOfPersonal_Reason" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="HR_ManagerOfPersonal_Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="HR_ManagerOfPersonal_ActionID" Type="Int32" />
+    <Property Name="HR_ManagerOfPersonal_ActionDateTime" Type="DateTime" Precision="3" />
+    <Property Name="HR_ManagerOfPersonal_ReasonID" Type="Int32" />
+    <Property Name="HR_Director_EnglishName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HR_Director_DepartmentEnglishName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="HR_Director_Position" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="HR_Director_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HR_Director_UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HR_Director_Recieved" Type="Boolean" />
+    <Property Name="HR_Director_RecievedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="HR_Director_Seen" Type="Boolean" />
+    <Property Name="HR_Director_SeenDateTime" Type="DateTime" Precision="3" />
+    <Property Name="HR_Director_Approval" Type="Boolean" />
+    <Property Name="HR_Director_ApprovalDateTime" Type="DateTime" Precision="3" />
+    <Property Name="HR_Director_Reason" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="HR_Director_Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="HR_Director_ActionID" Type="Int32" />
+    <Property Name="HR_Director_ActionDateTime" Type="DateTime" Precision="3" />
+    <Property Name="HR_Director_ReasonID" Type="Int32" />
+    <NavigationProperty Name="Goals" Relationship="Model.FK_Goal_Request" FromRole="Request" ToRole="Goal" />
+    <NavigationProperty Name="FK_Request_DirectManager_Reason" Relationship="Model.FK_Request_DirectManager_Reason" FromRole="Request" ToRole="Reason" />
+    <NavigationProperty Name="FK_Request_Employee_Reason" Relationship="Model.FK_Request_Employee_Reason" FromRole="Request" ToRole="Reason" />
+    <NavigationProperty Name="FK_Request_HR_Director_ReasonID" Relationship="Model.FK_Request_HR_Director_ReasonID" FromRole="Request" ToRole="Reason" />
+    <NavigationProperty Name="FK_Request_HR_ManagerOfPersonal_ReasonID" Relationship="Model.FK_Request_HR_ManagerOfPersonal_ReasonID" FromRole="Request" ToRole="Reason" />
+    <NavigationProperty Name="FK_Request_HR_PerformanceUnit_ReasonID" Relationship="Model.FK_Request_HR_PerformanceUnit_ReasonID" FromRole="Request" ToRole="Reason" />
+    <NavigationProperty Name="FK_Request_DirectManager_SAction" Relationship="Model.FK_Request_DirectManager_SAction" FromRole="Request" ToRole="SAction" />
+    <NavigationProperty Name="FK_Request_Employee_SAction" Relationship="Model.FK_Request_Employee_SAction" FromRole="Request" ToRole="SAction" />
+    <NavigationProperty Name="FK_Request_HR_Director_ActionID" Relationship="Model.FK_Request_HR_Director_ActionID" FromRole="Request" ToRole="SAction" />
+    <NavigationProperty Name="FK_Request_HR_ManagerOfPersonal_ActionID" Relationship="Model.FK_Request_HR_ManagerOfPersonal_ActionID" FromRole="Request" ToRole="SAction" />
+    <NavigationProperty Name="FK_Request_HR_PerformanceUnit_ActionID" Relationship="Model.FK_Request_HR_PerformanceUnit_ActionID" FromRole="Request" ToRole="SAction" />
+    <NavigationProperty Name="Request1" Relationship="Model.FK_Request_Refrence_Request" FromRole="Request" ToRole="Request1" />
+    <NavigationProperty Name="Request2" Relationship="Model.FK_Request_Refrence_Request" FromRole="Request1" ToRole="Request" />
+    <NavigationProperty Name="RequestType" Relationship="Model.FK_Request_RequestType" FromRole="Request" ToRole="RequestType" />
+    <NavigationProperty Name="Status" Relationship="Model.FK_Request_Status" FromRole="Request" ToRole="Status" />
+    <Property Name="RejectedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PendingToUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsRejectedByEmpFirstTime" Type="Boolean" Nullable="false" />
+    <Property Name="IsRejectedByEmpSecondTime" Type="Boolean" Nullable="false" />
+    <Property Name="Employee_DeptCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Employee_StaffID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="RequestType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameEn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NameAr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DescAr" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DescEn" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Requests" Relationship="Model.FK_Request_RequestType" FromRole="RequestType" ToRole="Request" />
+  </EntityType>
+  <EntityType Name="SAction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="NameAr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Precision="3" />
+    <Property Name="Modified" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="FK_Request_DirectManager_SAction" Relationship="Model.FK_Request_DirectManager_SAction" FromRole="SAction" ToRole="Request" />
+    <NavigationProperty Name="FK_Request_Employee_SAction" Relationship="Model.FK_Request_Employee_SAction" FromRole="SAction" ToRole="Request" />
+    <NavigationProperty Name="FK_Request_HR_Director_ActionID" Relationship="Model.FK_Request_HR_Director_ActionID" FromRole="SAction" ToRole="Request" />
+    <NavigationProperty Name="FK_Request_HR_ManagerOfPersonal_ActionID" Relationship="Model.FK_Request_HR_ManagerOfPersonal_ActionID" FromRole="SAction" ToRole="Request" />
+    <NavigationProperty Name="FK_Request_HR_PerformanceUnit_ActionID" Relationship="Model.FK_Request_HR_PerformanceUnit_ActionID" FromRole="SAction" ToRole="Request" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NameAr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Precision="3" />
+    <Property Name="Modified" Type="DateTime" Precision="3" />
+    <Property Name="IsReject" Type="Boolean" Nullable="false" />
+    <Property Name="IsPending" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Requests" Relationship="Model.FK_Request_Status" FromRole="Status" ToRole="Request" />
+  </EntityType>
+  <Association Name="FK_CompetencyDetailsLookup_CompetencyLookup">
+    <End Type="Model.CompetencyLookup" Role="CompetencyLookup" Multiplicity="1" />
+    <End Type="Model.CompetencyDetailsLookup" Role="CompetencyDetailsLookup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompetencyLookup">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CompetencyDetailsLookup">
+        <PropertyRef Name="CompetencyLookupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Goal_CompetencyLookup">
+    <End Type="Model.CompetencyLookup" Role="CompetencyLookup" Multiplicity="0..1" />
+    <End Type="Model.Goal" Role="Goal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompetencyLookup">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Goal">
+        <PropertyRef Name="CompetencyLookupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Goal_Request">
+    <End Type="Model.Request" Role="Request" Multiplicity="1" />
+    <End Type="Model.Goal" Role="Goal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Request">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Goal">
+        <PropertyRef Name="RequestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_DirectManager_Reason">
+    <End Type="Model.Reason" Role="Reason" Multiplicity="0..1" />
+    <End Type="Model.Request" Role="Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reason">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="DirectManager_ReasonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_Employee_Reason">
+    <End Type="Model.Reason" Role="Reason" Multiplicity="0..1" />
+    <End Type="Model.Request" Role="Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reason">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="Employee_ReasonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_HR_Director_ReasonID">
+    <End Type="Model.Reason" Role="Reason" Multiplicity="0..1" />
+    <End Type="Model.Request" Role="Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reason">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="HR_Director_ReasonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_HR_ManagerOfPersonal_ReasonID">
+    <End Type="Model.Reason" Role="Reason" Multiplicity="0..1" />
+    <End Type="Model.Request" Role="Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reason">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="HR_ManagerOfPersonal_ReasonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_HR_PerformanceUnit_ReasonID">
+    <End Type="Model.Reason" Role="Reason" Multiplicity="0..1" />
+    <End Type="Model.Request" Role="Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reason">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="HR_PerformanceUnit_ReasonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_DirectManager_SAction">
+    <End Type="Model.SAction" Role="SAction" Multiplicity="0..1" />
+    <End Type="Model.Request" Role="Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SAction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="DirectManager_ActionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_Employee_SAction">
+    <End Type="Model.SAction" Role="SAction" Multiplicity="0..1" />
+    <End Type="Model.Request" Role="Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SAction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="Employee_ActionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_HR_Director_ActionID">
+    <End Type="Model.SAction" Role="SAction" Multiplicity="0..1" />
+    <End Type="Model.Request" Role="Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SAction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="HR_Director_ActionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_HR_ManagerOfPersonal_ActionID">
+    <End Type="Model.SAction" Role="SAction" Multiplicity="0..1" />
+    <End Type="Model.Request" Role="Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SAction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="HR_ManagerOfPersonal_ActionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_HR_PerformanceUnit_ActionID">
+    <End Type="Model.SAction" Role="SAction" Multiplicity="0..1" />
+    <End Type="Model.Request" Role="Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SAction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="HR_PerformanceUnit_ActionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_Refrence_Request">
+    <End Type="Model.Request" Role="Request" Multiplicity="0..1" />
+    <End Type="Model.Request" Role="Request1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Request">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Request1">
+        <PropertyRef Name="RefrenceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_RequestType">
+    <End Type="Model.RequestType" Role="RequestType" Multiplicity="1" />
+    <End Type="Model.Request" Role="Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RequestType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="RequestTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_Status">
+    <End Type="Model.Status" Role="Status" Multiplicity="1" />
+    <End Type="Model.Request" Role="Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="StatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SupervisorUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeFullNameEnglish" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TradeCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TradeGrade" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="TradeDescriptionEnglish" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DepartmentNameEnglish" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ContractTypeDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsSupervisor" Type="Boolean" Nullable="false" />
+  </EntityType>
+</Schema>

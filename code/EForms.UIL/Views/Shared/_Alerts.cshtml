@@ -1,0 +1,23 @@
+﻿@using Performance.Management.BLL.Helper
+
+@{
+    var alerts = TempData.ContainsKey(Alert.TempDataKey)
+                ? (List<Alert>)TempData[Alert.TempDataKey]
+                : new List<Alert>();
+
+    foreach (var alert in alerts)
+    {
+        var dismissableClass = alert.Dismissable ? "alert-dismissable" : null;
+        <div class="callout callout-@alert.AlertStyle @dismissableClass">
+            @if (alert.Dismissable)
+            {
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            }
+            <h4><i class="icon fa @alert.AlertFa"></i> @alert.Caption</h4>
+            @Html.Raw(alert.Message)
+        </div>
+    }
+}
+

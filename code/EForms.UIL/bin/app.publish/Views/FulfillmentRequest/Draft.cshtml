@@ -1,0 +1,166 @@
+﻿@using Performance.Management.UIL.Language;
+@using Performance.Management.BLL.ViewModel.Enums;
+
+@model Performance.Management.BLL.ViewModel.RequestModel
+@{
+    ViewBag.Title = "Evaluate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section title {
+    <h1>
+        @Resource.PerformanceManagement
+        <small>@Resource.Create</small>
+    </h1>
+}
+
+@section breadcrumb{
+    <li class="active">@Resource.Create - @Resource.Evaluate </li>
+}
+
+@{
+    string lang = Context.Request.Cookies["culture"].Value ?? "en";
+
+}
+
+<style>
+    .LockOn {
+        display: block;
+        visibility: visible;
+        position: absolute;
+        z-index: 999;
+        top: 0px;
+        left: 0px;
+        width: 105%;
+        height: 105%;
+        background-color: white;
+        vertical-align: bottom;
+        padding-top: 20%;
+        filter: alpha(opacity=75);
+        opacity: 0.75;
+        font-size: large;
+        color: blue;
+        font-style: italic;
+        font-weight: 400;
+        background-image: url('../../Content/images/spinner.gif');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+
+    .txt {
+        margin: auto;
+        width: 25%;
+        padding: 30px;
+        background-color: white;
+        font-size: x-large;
+        color: blue;
+        font-style: italic;
+        font-weight: 900;
+    }
+</style>
+
+<section class="content" id="sctnContent">
+
+    <div id="coverScreen" class="loader LockOn" hidden>
+        <div class="txt">
+            @Resource.PleaseBePatientCreateRequest
+        </div>
+    </div>
+
+    @Html.Partial("Evaluate/_EmployeeDetails", Model)
+
+    @using (Html.BeginForm("Draft", "Request", FormMethod.Post, new { id = "EvaluateForm", enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(m => m.Grade)
+        @Html.HiddenFor(m => m.Language)
+        @Html.HiddenFor(m => m.IsHRUser)
+        @Html.HiddenFor(m => m.CurrentUserName)
+        @Html.HiddenFor(m => m.FeedBackGiven)
+        @Html.HiddenFor(m => m.IsFinished)
+
+        <div id="EvaluateFormDiv" style="float:right!important;width: 100% !important;">
+            <div class="box box-primary">
+
+                <div class="box-header  with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-sticky-note-o"></i>
+                        @Resource.Evaluation
+                    </h3>
+                </div>
+
+                <div class="box-body">
+
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12">
+                            @Html.ValidationSummary()
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                @{
+                                    List<int> years = new List<int>();
+
+                                    foreach (var year in Enumerable.Range(DateTime.Now.Year - 5, 6))
+                                    {
+                                        years.Add(year);
+                                    }
+                                }
+
+                                <label>@Resource.DropDownSelect - @Resource.Year</label>
+                                @Html.DropDownListFor(m => m.Request.Year, new SelectList(years, selectedValue: DateTime.Now.Year), @Resource.DropDownSelect + @Resource.Year + " -", new { @class = "form-control Select", id = "lstYears" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Request.Year)
+                        </div>
+
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label>@Resource.DropDownSelect - @Resource.RequestType</label>
+                                @Html.DropDownListFor(m => m.Request.RequestTypeID, new SelectList(Model.RequestTypes, "ID", lang == "Ar" ? "NameAr" : "NameEn", (int)Model.Grade), @Resource.DropDownSelect + @Resource.RequestType + " -", new { @class = "form-control Select", id = "lstRequestTypes" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Request.RequestTypeID)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout callout-danger bottom-failed" hidden="hidden" id="bottom-failed">
+                @*<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>*@
+                <b><i class="fa fa-exclamation-triangle"></i></b> <b class="msgText"></b>
+                <span></span>
+            </div>
+
+            <div class="text-center" id="divButton">
+                <a href="/Request/Search" class="btn btn-danger btn-md"><i class="fa fa-times"></i> @Resource.Cancel</a>
+                <button type="submit" id="btnAddRequest" class="btn btn-primary btn-md"><i class="fa fa-check"></i> @Resource.NextStep</button>
+            </div>
+        </div>
+    }
+
+</section>
+
+@section scripts{
+    <script>
+        $(function () {
+            $("#coverScreen").hide();
+
+            $(".bottom-failed").fadeOut(600);
+            $(".goals-bottom-failed").fadeOut(600);
+
+            $("#btnAddRequest").click(function () {
+
+                //if (confirm('Are you sure you want to save this thing into the database?')) {
+                //    // Save it!
+                //    $("#coverScreen").show();
+
+                //    console.log('Thing was saved to the database.');
+                //} else {
+                //    // Do nothing!
+                //    console.log('Thing was not saved to the database.');
+                //    return false;
+                //}
+            });
+        });
+    </script>
+}

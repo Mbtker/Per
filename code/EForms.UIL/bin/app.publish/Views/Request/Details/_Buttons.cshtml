@@ -1,0 +1,36 @@
+﻿@model Performance.Management.BLL.ViewModel.RequestModel
+
+@{
+    string Name = new Performance.Management.UIL.Controllers.BaseController().GetUserName();
+}
+
+<div class="text-center">
+    <a href="/Request/Create" class="btn btn-primary"><i class="fa fa-plus"></i> @Performance.Management.UIL.Language.Resource.NewRequest </a>
+
+    @if (new Performance.Management.BLL.Helper.Permission().CheckUserIsRequestUserSingleRequest(Name, @Model.Request.ID))
+    {
+
+        <a href="/Request/Manage/@Model.Request.ID" class="btn btn-primary"><i class="fa fa-gear"></i> @Performance.Management.UIL.Language.Resource.Action </a>
+    }
+
+    <a href="/Request/Index" class="btn btn-primary"><i class="fa fa-reply"></i> @Performance.Management.UIL.Language.Resource.Back</a>
+
+    @if (!String.IsNullOrEmpty(Model.Request.RequesterUserName) && Model.CurrentUserName.ToLower() == Model.Request.RequesterUserName.ToLower())
+    {
+        //if (Model.Request.DeptHeadApproval == null && Model.Request.ApproverApproval == null && Model.Request.AssociateDept_Finished == null)
+        if (Model.Request.Status != null && Model.Request.StatusID == 1)
+        {
+            <button class="btn btn-danger" data-id="@Model.Request.ID" data-toggle="modal" data-target="#internal-modal-danger"><i class="fa fa-trash-o"></i> @Performance.Management.UIL.Language.Resource.Delete</button>
+        }
+        else
+        {
+            <p class="btn btn-warning disabled" title="@Performance.Management.UIL.Language.Resource.OnlyRequesterDelete2"><i class="fa fa-ban"></i> @Performance.Management.UIL.Language.Resource.Delete</p>
+        }
+    }
+    else
+    {
+        <p class="btn btn-danger disabled" title="@Performance.Management.UIL.Language.Resource.OnlyRequesterDelete"><i class="fa fa-ban"></i> @Performance.Management.UIL.Language.Resource.Delete</p>
+    }
+
+    @*<a href="/Request/Delete/@Model.Request.ID" class="btn btn-danger"><i class="fa fa-trash-o"></i> Delete</a>*@
+</div>

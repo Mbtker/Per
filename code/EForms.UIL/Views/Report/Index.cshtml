@@ -1,0 +1,281 @@
+﻿@using Performance.Management.UIL.Language;
+
+@model Performance.Management.BLL.ViewModel.RequestModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section title{
+    <h1>
+        @Resource.PerformanceManagement
+        <small> @Resource.EmployeesByDepartment </small>
+    </h1>
+}
+
+@section breadcrumb{
+    <li class="active"> @Resource.EmployeesByDepartment  </li>
+}
+
+@{
+    string lang = Context.Request.Cookies["culture"].Value ?? "en";
+
+    string username = new Performance.Management.UIL.Controllers.BaseController().GetUserName();
+
+    bool isCurrentUserIsHR = new Performance.Management.UIL.Controllers.BaseController().CheckCurrentUserIsHR;
+}
+
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header">
+
+            @*<a href="/Request/Search" class="btn btn-primary btn-group-lg pull-right"><i class="fa fa-plus"></i> @Resource.NewRequest</a>*@
+        </div>
+
+        <div class="box-body">
+            @if (isCurrentUserIsHR)
+            {
+                <div class="row col-md-12 col-xs-12">
+                    <h4 style="background-color:aqua">@Resource.PleaseNote</h4>
+                    <h5 style="background-color:aquamarine"> @Resource.DepartmentEmployeesNote </h5>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label>@Resource.Department @Resource.DropDownSelect </label>
+                            <div class="form-group">
+                                @Html.DropDownListFor(m => m.Department, new SelectList(Model.Department, "WORK_ENTITY", lang == "Ar" ? "DEPT_NAME_EN" : "DEPT_NAME_EN"), @Resource.All, new { @class = "form-control Select", id = "lstDepts" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label>@Resource.Statuses @Resource.DropDownSelect</label>
+                            <div class="form-group">
+                                @Html.DropDownListFor(m => m.Request.StatusID, new SelectList(Model.StatusList, "ID", lang == "Ar" ? "NameAr" : "Name"), @Resource.All, new { @class = "form-control Select", id = "lstStatuses" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="callout callout-danger bottom-failed" hidden="hidden" id="bottom-failed">
+                    @*<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>*@
+                    <b><i class="fa fa-exclamation-triangle"></i></b> <b class="msgText"></b>
+                    <span></span>
+                </div>
+                <br />
+
+                <div class="text-center" id="divButton">
+                    <a href="/Home/Index" class="btn btn-danger btn-md"><i class="fa fa-times"></i> @Resource.Cancel</a>
+                    <button type="submit" id="btnSearch" class="btn btn-primary btn-md"><i class="fa fa-check"></i> @Resource.Search</button>
+                </div>
+
+                <br /><br />
+            }
+
+            <div id="dataSearchDiv">
+                <table class="table table-bordered table-striped" id="tblData">
+                    <thead>
+                        <tr role="row">
+                            <th>@Resource.Name</th>
+                            <th>@Resource.StaffId</th>
+                            <th>@Resource.EqamaOrNationalID</th>
+                            <th>@Resource.RequestType</th>
+                            @*<th>@Resource.DirectManager</th>*@
+                            <th>@Resource.Department</th>
+                            <th>@Resource.Statuses</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                    <tfoot>
+                        <tr role="row">
+                            <th>@Resource.Name</th>
+                            <th>@Resource.StaffId</th>
+                            <th>@Resource.EqamaOrNationalID</th>
+                            <th>@Resource.RequestType</th>
+                            @*<th>@Resource.DirectManager</th>*@
+                            <th>@Resource.Department</th>
+                            <th>@Resource.Statuses</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    @*<button>Click to redirect</button>*@
+</section>
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#dataSearchDiv').hide();
+
+            //iCheck for checkbox and radio inputs
+            $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+                //checkboxClass: 'icheckbox_minimal-blue',
+                radioClass: 'iradio_minimal-blue'
+            })
+            //Red color scheme for iCheck
+            $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+                //checkboxClass: 'icheckbox_minimal-red',
+                radioClass: 'iradio_minimal-red'
+            })
+
+            //Flat red color scheme for iCheck
+            $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+                //checkboxClass: 'icheckbox_flat-green',
+                radioClass: 'iradio_flat-green'
+            })
+
+            $.fn.dataTable.ext.legacy.ajax = true;
+
+            if ($.fn.DataTable.isDataTable('#tblData')) {
+                $('#tblData').dataTable().fnDestroy();
+                $('#tblData').dataTable().empty();
+            }
+
+            $("#btnSearch").click(function () {
+
+                //if ($("#lstStatuses").val() == null || $("#lstStatuses").val() == undefined || $("#lstStatuses").val() == '' || $("#lstStatuses").val() == 0) {
+                //    $("#bottom-failed .msgText").text("@Resource.You_have_to_select_Form_ @Resource.Status");
+                //    $("#bottom-failed").fadeIn(1200).delay(4000).fadeOut(600);
+                //    return false;
+                //}
+
+                //if ($("#lstDepts").val() == null || $("#lstDepts").val() == undefined || $("#lstDepts").val() == '' || $("#lstDepts").val() == 0) {
+                //    $("#bottom-failed .msgText").text("@Resource.You_have_to_select_Form_ @Resource.Department");
+                //    $("#bottom-failed").fadeIn(1200).delay(4000).fadeOut(600);
+                //    return false;
+                //}
+
+                $('#dataSearchDiv').show();
+                GetData();
+
+            });
+
+
+            function GetData(url) {
+
+                let st = -1;//get selected stataus
+
+                if ($("#lstStatuses").val() != null && $("#lstStatuses").val() != undefined && $("#lstStatuses").val() != '' && $("#lstStatuses").val() != 0) {
+                    st = $("#lstStatuses").val();
+                } else {
+                    st = -1;
+                }
+
+                let workEntity = "-1";//get selected stataus
+
+                if ($("#lstDepts").val() != null && $("#lstDepts").val() != undefined && $("#lstDepts").val() != '' && $("#lstDepts").val() != 0) {
+                    workEntity = $("#lstDepts").val();
+                } else {
+                    workEntity = "-1";
+                }
+
+                var Data = $('#tblData').DataTable(
+                    {
+                        "serverSide": false,
+                        "destroy": true,
+                        "processing": true,
+                        "order": [[0, "desc"]],
+                        "autowidth": true,
+                        "ajax":
+                        {
+                            url: "/Report/Index?workEntity=" + workEntity + "&st=" + st,
+                            method: "POST"
+                        },
+                        dom: 'lBfrtip',
+                        buttons: [
+                            {
+                                extend: 'excelHtml5',
+                                text: 'Export to Excel',
+                                //className: 'btn btn-default btn-lg'
+                            },
+                            {
+                                extend: 'pdfHtml5',
+                                text: 'Export to PDF',
+                                //className: 'btn btn-default btn-lg'
+                            },
+                            'print'
+                            //'excelHtml5',
+                            //'pdfHtml5',
+                            //'csvHtml5'
+                        ],
+                        "columns": [
+                            //{ "data": "ID", "autowidth": true },
+                            { "data": "EmployeeUserEnglishName", "autowidth": true },
+                            { "data": "StaffID", "autowidth": true },
+                            { "data": "EmployeeUserName", "autowidth": true },
+                            { "data": "RequestType", "autowidth": true },
+                            //{ "data": "RequesterUserEnglishName", "autowidth": true },
+                            { "data": "RequestDeptEnglishName", "autowidth": true },
+                            {
+                                "data": "RequestStatus", "autowidth": true, "render": function (data) {
+                                    var Status = '';
+                                    if (data.StatusID === 4 || data.StatusID === 8) {
+                                        Status = '<span class="btn btn-danger btn-xs">' + data.StatusName + '</span>'
+                                    }
+                                    else {
+                                        //Status = '<span class="btn btn-primary btn-xs"> @Resource.PerformanceApplied </span>'
+                                        Status = '<span class="btn btn-primary btn-xs"> ' + data.StatusName + ' </span>'
+                                    }
+
+                                    return Status;
+                                }
+                            },
+                            {
+                                "data": "AllowDelete", "autowidth": true, "render": function (data) {
+
+                                    var Buttons = '';
+
+                                    if (data.RequestID > 0) {
+                                        Buttons = '<a href="/Request/Details/' + data.RequestID + '" class="btn btn-primary btn-xs" target="_blank"><i class="fa fa-share"></i> @Resource.Preview </a>';
+
+                                        //debugger;
+                                        if (data.CanAction == true) {
+                                            Buttons += ' <a href="/Request/Manage/' + data.RequestID + '" class="btn btn-primary btn-xs" target="_blank"><i class="fa fa-gear"></i> @Resource.Action</a>'
+                                        }
+
+                                        if (data.IsFinished == true) {
+                                            Buttons += ' <a href="http://sqlintralistnr/reportserver/?/performancemanagement/PerformanceEvReport&RequestID=' + data.RequestID + '&rs:Command=Render&rs:Format=PDF" class="btn btn-primary btn-xs" target="_blank"><i class="fa fa-print"></i> @Resource.Print</a>'
+                                        }
+
+                                        if (data.IsRequestUserName == true) {
+                                            if (!data.CanDelete) {
+                                                Buttons += ' <p class="btn btn-warning disabled  btn-xs" title="@Resource.OnlyRequesterDelete2"><i class="fa fa-ban"></i> @Resource.Delete</p>'
+                                                Buttons += ' <a href="/Request/Manage/' + data.RequestID + '" class="btn btn-primary btn-xs" target="_blank"><i class="fa fa-gear"></i> @Resource.Feedback</a>'
+                                            }
+                                            else {
+                                                Buttons += ' <button class="btn btn-danger btn-xs" id="' + data.RequestID + '" data-id="' + data.RequestID + '" data-url="/Request/Delete/" data-index="/Request/Index"  data-toggle="modal" data-target="#modal-danger"><i class="fa fa-trash-o"></i> @Resource.Delete</button>'
+                                            }
+                                        }
+                                        else {
+                                            Buttons += ' <p class="btn btn-danger disabled  btn-xs" title="@Resource.OnlyRequesterDelete"><i class="fa fa-ban"></i> @Resource.Delete</p>'
+                                        }
+                                    }
+                                    else {
+                                        Buttons = '<a href="/Report/EmpSearch/' + data.NotAppied_STAFF_ID + '" class="btn btn-primary btn-xs" target="_blank"><i class="fa fa-share"></i> @Resource.EmployeeDetails </a>';
+                                        Buttons = '';
+                                    }
+
+                                    return Buttons;
+                                }
+                            }
+                        ]
+                    }
+
+                );
+
+
+                return Data;
+            }
+        });
+    </script>
+}

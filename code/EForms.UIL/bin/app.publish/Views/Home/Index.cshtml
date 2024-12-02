@@ -1,0 +1,167 @@
+﻿@using Performance.Management.UIL.Language;
+@model Performance.Management.BLL.ViewModel.HomeModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section title{
+    <h1>
+        @Resource.PerformanceManagement
+        <small>@Resource.Home</small>
+    </h1>
+}
+
+@{
+    string lang = Context.Request.Cookies["culture"].Value ?? "en";
+
+    string username = new Performance.Management.UIL.Controllers.BaseController().GetUserName();
+
+    //var finishedItemName = lang == "Ar" ? Model.StatusList.FirstOrDefault(x => x.ID == (int)_finished).NameAr : Model.StatusList.FirstOrDefault(x => x.ID == (int)_finished).Name;
+}
+
+<section class="content" id="success">
+
+    <div class="row">
+
+        <div class="col-lg-4">
+
+            <div class="box text-muted">
+
+                <div class="box-body">
+
+                    <label>
+                        <i class="fa fa-file-text-o"></i>
+                        @Resource.description
+                    </label>
+
+                    @if (lang == "Ar")
+                    {
+                        <h4>تهدف هذه الخدمة إلى تسهيل طلب الخدمات من إدارة الموارد البشرية.</h4>
+                    }
+                    else
+                    {
+                        <h4>This service is to facilitate requesting services from HR Department.</h4>
+                    }
+
+                    <div class="form-group"></div>
+
+                    @if (lang == "Ar")
+                    {
+                        <h5>تم تصميم @Resource.ApplicationTittle لتحسين أداء الموظفين من خلال ميزات تضمن تبسيط عمليات الموارد البشرية وتحسين الحفاظ على الموظفين.</h5>
+                    }
+                    else
+                    {
+                        <h5>@Resource.ApplicationTittle is designed to improve employee performance with features that ensure streamlined HR processes and improved retention. Take advantage of a 360-degree, continuous feedback system, and evaluate employees with customized performance appraisal methods.</h5>
+                    }
+
+                </div>
+
+            </div>
+
+            <div class="" style="padding: 10px; padding-top: 30px;">
+
+                <a class="h4 callout callout-details" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="fa fa-whatsapp"> @Resource.ContactInformation </i></a>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="collapse multi-collapse" id="multiCollapseExample1">
+                        <div id="CONTACTUS" class="center-block description-block box-body">
+                            <div class="callout callout-info">
+                                <div class="row">
+                                    <b>
+                                        <i class="fa fa-telegram"></i>
+                                        @Resource.HomeIndexContactText
+                                    </b>
+                                </div>
+
+                            </div>
+
+                            <br />
+                            <hr align="center" class="break">
+
+                            <br />
+
+                            <div class="row center-block">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-telegram"></i>
+                                </div>
+                                <div class="col-sm-6">
+                                    HRPA@PSCC.MED.SA
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    
+                                </div>
+                                <div class="col-sm-2">
+                                    80121
+                                </div>
+                                <div class="col-sm-2">
+                                    80503
+                                </div>
+                                <div class="col-sm-2">
+                                    80555
+                                </div>
+
+                            </div>
+
+                            <br />
+                            <hr align="center" class="break">
+
+                            <br />
+
+                            <div class="row contacts-list-name center-block">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-user-md"></i>
+                                </div>
+                                <div class="col-sm-5">
+                                    منصور الجعيد
+                                </div>
+                                <div class="col-sm-5">
+                                    MALJOADE@PSCC.MED.SA
+                                </div>
+                            </div>
+
+                            <div class="row contacts-list-name center-block">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-user-md"></i>
+                                </div>
+                                <div class="col-sm-5">
+                                    أفنان المويزري
+                                </div>
+                                <div class="col-sm-5">
+                                    AALMOWAIZRI@PSCC.MED.SA
+                                </div>
+                            </div>
+
+                            <div class="row contacts-list-name center-block">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-user-md"></i>
+                                </div>
+                                <div class="col-sm-5">
+                                    فارس السحيباني
+                                </div>
+                                <div class="col-sm-5">
+                                    FALSUHAIBANI@PSCC.MED.SA
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-lg-8">
+            <img src="~/Content/images/open-access-image.jpg" class="img-thumbnail img-responsive" />
+        </div>
+
+    </div>
+
+</section>

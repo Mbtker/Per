@@ -1,0 +1,127 @@
+@model Performance.Management.BLL.ViewModel.RequestModel
+
+@{
+    string Name = new Performance.Management.UIL.Controllers.BaseController().GetUserName();
+}
+
+<div class="box box-primary">
+    <div class="box-header  with-border">
+        <h3 class="box-title">
+            <i class="fa fa-star"></i>
+            @Performance.Management.UIL.Language.Resource.Feedback
+        </h3>
+    </div>
+    <div class="box-body">
+
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group">
+                    <label>@Performance.Management.UIL.Language.Resource.Feedback_Sender_Name</label>
+                    <p class="text-muted">@Model.Request.RequesterUserEnglishName</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group">
+                    <label>@Performance.Management.UIL.Language.Resource.Feedback_Sender_Department</label>
+                    <p class="text-muted">@Model.Request.RequesterDeptEnglishName</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group">
+                    <label>@Performance.Management.UIL.Language.Resource.Feedback_Sent</label>
+                    @if (Model.Request.FeedBackGiven != null && Model.Request.FeedBackGiven.Value)
+                    {
+                        <p><i class="fa fa-check text-success"></i></p>
+                    }
+                    else
+                    {
+                        <p><i class="fa fa-times text-danger"></i></p>
+                    }
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group">
+                    @if (Model.Request.FeedBackGiven != null && Model.Request.FeedBackGiven.Value)
+                    {
+                        <label>@Performance.Management.UIL.Language.Resource.Sent_DateTime</label>
+
+                        if (Model.Request.FeedBackGivenDateTime != null)
+                        {
+                            <p class="text-muted">@Model.Request.FeedBackGivenDateTime.Value.ToString("dd/MM/yyyy hh:mm tt")</p>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+        @if (Model.Request.FeedBackGiven != null && Model.Request.FeedBackGiven.Value)
+        {
+            <div class="row">
+                <div class="col-md-4 col-xs-12">
+                    <!-- Info Boxes Style 2 -->
+                    <div class="info-box bg-aqua">
+                        <span class="info-box-icon"><i class="fa fa-line-chart"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">@Performance.Management.UIL.Language.Resource.Achievement</span>
+                            <span class="info-box-number">
+                                @((Model.Request.AchievementFeedBack != null)? Model.Request.AchievementFeedBack.Value : double.MinValue) %
+                            </span>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: @Model.Request.AchievementFeedBack.Value%"></div>
+                            </div>
+                            <span class="progress-description">
+                                @Performance.Management.UIL.Language.Resource.Evaluation_taken_into_consideration_
+                            </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <!-- Info Boxes Style 2 -->
+                    <div class="info-box bg-aqua">
+                        <span class="info-box-icon"><i class="fa fa-calendar-check-o"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">@Performance.Management.UIL.Language.Resource.TimeOfService</span>
+                            <span class="info-box-number">@Model.Request.TimeFeedBack.Value %</span>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: @Model.Request.TimeFeedBack.Value%"></div>
+                            </div>
+                            <span class="progress-description">
+                                @Performance.Management.UIL.Language.Resource.Evaluation_taken_into_consideration_
+                            </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <!-- Info Boxes Style 2 -->
+                    <div class="info-box bg-aqua">
+                        <span class="info-box-icon"><i class="fa fa-heartbeat"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">@Performance.Management.UIL.Language.Resource.Satisfacation</span>
+                            <span class="info-box-number">@Model.Request.SatisfacationFeedBack.Value %</span>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: @Model.Request.SatisfacationFeedBack.Value%"></div>
+                            </div>
+                            <span class="progress-description">
+                                @Performance.Management.UIL.Language.Resource.Evaluation_taken_into_consideration_
+                            </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

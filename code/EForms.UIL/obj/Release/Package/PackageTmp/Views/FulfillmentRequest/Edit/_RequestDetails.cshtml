@@ -1,0 +1,151 @@
+﻿@using Performance.Management.UIL.Language;
+
+@model Performance.Management.BLL.ViewModel.RequestModel
+
+@{
+    string lang = Context.Request.Cookies["culture"].Value ?? "en";
+
+    string username = new Performance.Management.UIL.Controllers.BaseController().GetUserName();
+}
+
+<div class="box box-primary">
+
+    <div class="box-header  with-border">
+        <h3 class="box-title">
+            <i class="fa fa-user-circle"></i>
+            @Resource.Edit
+        </h3>
+    </div>
+
+    <div class="box-body">
+
+        <div class="row">
+            <div class="col-md-4 col-xs-12">
+                <div class="form-group">
+                    <label>@Resource.RequestNumber</label>
+                    <p class="text-muted">@Model.Request.ID</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <div class="form-group">
+                    <label>@Resource.Name</label>
+                    <p class="text-muted">@Model.Request.RequesterUserName</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <div class="form-group">
+                    <label>@Resource.Name</label>
+                    <p class="text-muted">@Model.Request.RequesterUserEnglishName</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-xs-12">
+                <div class="form-group">
+                    <label>@Resource.Position_Code</label>
+                    <p class="text-muted">@Model.Request.RequesterPositionCode</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <div class="form-group">
+                    <label>@Resource.Position_Name</label>
+                    <p class="text-muted">@Model.Request.RequesterPositionName</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <div class="form-group">
+                    <label>@Resource.Department_Name</label>
+                    <p class="text-muted">@Model.Request.RequesterDeptEnglishName</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            @if (Model.Request.CreateDateTime != null)
+            {
+                <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                        <label>@Resource.Request_DateTime</label>
+                        <p class="text-muted">@Model.Request.CreateDateTime.Value.ToString("dd/MM/yyyy hh:mm tt")</p>
+                    </div>
+                </div>
+            }
+
+            <div class="col-md-4 col-xs-12">
+                <div class="form-group">
+                    <label>@Resource.Version </label>
+                    <p class="text-muted">@Model.Request.RequestCounter</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xs-12">
+                <div class="form-group">
+                    <label>@Resource.Status </label>
+                    @if (Model.Request.RequestType.NameAr.Contains("Reject"))
+                    {
+                        <p class="text-warning text-bold">
+                            @if (lang == "Ar")
+                            {
+                                @Model.Request.Status.NameAr
+                            }
+                            else
+                            {
+                                @Model.Request.Status.Name
+                            }
+                        </p>
+                    }
+                    else
+                    {
+                        <p class="text-info text-bold">
+                            @if (lang == "Ar")
+                            {
+                                @Model.Request.Status.NameAr
+                            }
+                            else
+                            {
+                                @Model.Request.Status.Name
+                            }
+                        </p>
+                    }
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            @if (Model.Request.DeadlineDate != null)
+            {
+                <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                        <label>@Resource.DeadlineDate</label>
+                        <p class="text-muted">@Model.Request.DeadlineDate.Value.ToString("dd/MM/yyyy")</p>
+                    </div>
+                </div>
+            }
+
+            @if (!String.IsNullOrWhiteSpace(Model.Request.Note))
+            {
+                <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                        <label>@Resource.Notes</label>
+                        <p class="text-muted">@Model.Request.Note</p>
+                    </div>
+                </div>
+            }
+
+            @if (!String.IsNullOrWhiteSpace(Model.Request.Attachment))
+            {
+                <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                        <label>@Resource.Attachment</label>
+                        <div class="form-group">
+                            <a href="http://@Model.Request.Attachment" target="_blank"><i class="fa fa-share-square"></i> Preview</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</div>
+

@@ -1,0 +1,221 @@
+﻿@using Performance.Management.UIL.Language;
+@using Performance.Management.BLL.ViewModel;
+@using Performance.Management.BLL.Helper;
+
+@model Performance.Management.BLL.ViewModel.EmpDetails
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section title{
+    <h1>
+        @Resource.PerformanceManagement
+        <small> @Resource.EmpSearch </small>
+    </h1>
+}
+
+@section breadcrumb{
+    <li class="active"> @Resource.EmpSearch </li>
+}
+
+@{
+    string lang = Context.Request.Cookies["culture"].Value ?? "en";
+
+    string username = new Performance.Management.UIL.Controllers.BaseController().GetUserName();
+}
+
+<section class="content">
+    <div id="coverScreen" class="loader LockOn" hidden>
+        <div class="txt">
+            @Resource.PleaseBePatientCreateRequest
+        </div>
+    </div>
+
+    <div class="box box-primary">
+        <div class="box-body">
+            <div id="searchFormDiv">
+                @using (Html.BeginForm("EmpSearch", "Report", FormMethod.Post, new { id = "searchForm", enctype = "multipart/form-data" }))
+                {
+                    <div id="EvaluateFormDiv" style="float:right!important;width: 100% !important;">
+                        <div class="box box-primary">
+
+                            <div class="box-header  with-border">
+                                <h3 class="box-title">
+                                    <i class="fa fa-sticky-note-o"></i>
+                                    @Resource.Employee - @Resource.Search
+                                </h3>
+                            </div>
+
+                            <div class="box-body">
+
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        @Html.ValidationSummary()
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form-group">
+                                            <label>@Resource.PleaseInsert @Resource.IdOrStaffId</label>
+                                            @Html.TextBoxFor(m => m.Id, new { @class = "form-control", @placeholder = @Resource.IdOrStaffId, id = "id", @required = "true", @maxlength = "10", @type = "text" })
+                                        </div>
+                                        @Html.ValidationMessageFor(m => m.Id)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="callout callout-danger bottom-failed" hidden="hidden" id="bottom-failed">
+                            @*<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>*@
+                            <b><i class="fa fa-exclamation-triangle"></i></b> <b class="msgText"></b>
+                            <span></span>
+                        </div>
+
+                        @Html.HiddenFor(m => m.Id)
+
+                        <div class="text-center" id="divButton">
+                            <a href="/Home/Index" class="btn btn-danger btn-md"><i class="fa fa-times"></i> @Resource.Cancel</a>
+                            <button type="submit" id="btnSearch" class="btn btn-primary btn-md"><i class="fa fa-check"></i> @Resource.Search</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+
+    @if (Model.Employee != null && Model.Employee.StaffId != null)
+    {
+        <div id="empDetails" style="float:right!important;width: 100% !important;">
+            <div class="box box-primary">
+
+                <div class="box-header  with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-sticky-note-o"></i>
+                        @Resource.Employee - @Resource.Details
+                    </h3>
+                </div>
+
+                <div class="box-body">
+                    @Html.Partial("_EmpDataView", Model.Employee)
+
+                    <div>
+                        <h4>Supervisor</h4>
+                        <hr />
+
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.IsSupervisor)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.IsSupervisor)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.SupervisorUserId)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.SupervisorUserId)
+                            </dd>
+                        </dl>
+
+                    </div>
+
+                    @if (Model.Requests != null && Model.Requests.Any())
+                    {
+                        <h4>
+                            Founded requests as following:
+                            <br />
+                        </h4>
+
+                        foreach (var r in Model.Requests)
+                        {
+                            <div>
+                                <h4>Requests</h4>
+                                <hr />
+
+                                <dl class="dl-horizontal">
+
+                                    <dt>
+                                        @if (r.CreateDateTime != null)
+                                        {
+                                            var date = r.CreateDateTime.Value;
+
+                                            @Html.DisplayNameFor(model => r.CreateDateTime.Value.Year)
+                                        }
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => r.CreateDateTime.Value.Year)
+                                        <a href="/Request/Details/@r.ID" class="btn btn-primary btn-xs" target="_blank"><i class="fa fa-share"></i> @Resource.Preview</a>
+                                    </dd>
+
+                                    <dd>
+                                    </dd>
+                                </dl>
+
+                            </div>
+
+                        }
+                    }
+                    else
+                    {
+                        <div>
+                            <h4>Requests</h4>
+                            <hr />
+
+                            <dl class="dl-horizontal">
+                                <dd>
+                                    <h4 style="background-color:aqua">There is no requests registered for this user.</h4>
+                                </dd>
+                            </dl>
+
+                        </div>
+                    }
+                </div>
+
+                @*@if (Model.IsSupervisor)
+                {
+                    <div class="text-center" id="divButton">
+                        <button class="btn btn-danger btn-xs" id="' + @Model.SupervisorUserId + '" data-id="' + data.SupervisorUserId + '" data-url="/Report/DeleteSupervisorUser/@Model.SupervisorUserId" data-index="/Report/EmpSearch" data-toggle="modal" data-target="#modal-danger"><i class="fa fa-trash-o"></i> @Resource.Delete SupervisorUser </button>
+                    </div>
+                }
+                else
+                {
+                    <a href="/Report/AddSupervisorUser/' + @Model.UserId + '" class="btn btn-primary btn-xs" target="_blank"><i class="fa fa-gear"></i> @Resource.Add SupervisorUser </a>
+                }*@
+            </div>
+        </div>
+    }
+
+</section>
+
+@section scripts{
+    <script type="text/javascript">
+        $(function () {
+            $("#coverScreen").hide();
+
+            $(".bottom-failed").fadeOut(600);
+            $(".goals-bottom-failed").fadeOut(600);
+
+            $("#btnSearch").click(function () {
+
+                //if (confirm('Are you sure you want to save this thing into the database?')) {
+                //    // Save it!
+                //    $("#coverScreen").show();
+
+                //    console.log('Thing was saved to the database.');
+                //} else {
+                //    // Do nothing!
+                //    console.log('Thing was not saved to the database.');
+                //    return false;
+                //}
+            });
+        });
+
+    </script>
+}

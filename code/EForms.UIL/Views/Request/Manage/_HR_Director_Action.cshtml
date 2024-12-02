@@ -1,0 +1,251 @@
+@using Performance.Management.UIL.Language;
+@using Performance.Management.BLL.ViewModel;
+
+@model Performance.Management.BLL.ViewModel.RequestModel
+
+@{
+    string lang = Context.Request.Cookies["culture"].Value ?? "en";
+
+    string username = new Performance.Management.UIL.Controllers.BaseController().GetUserName();
+
+    bool isCurrentUserIsHR = new Performance.Management.UIL.Controllers.BaseController().CheckCurrentUserIsHR;
+}
+
+@if (Model.Request.HR_ManagerOfPersonal_Approval != null && Model.Request.HR_ManagerOfPersonal_Approval.Value)
+{
+    <div class="box box-primary">
+        <div class="box-header  with-border">
+            <h3 class="box-title">
+                <i class="fa fa-user-plus"></i>
+                @Resource.HR_Director_Action
+            </h3>
+        </div>
+
+        <div class="box-body">
+
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Resource.Department_Head_Name</label>
+                        <p class="text-muted">@Model.Request.HR_Director_EnglishName</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Resource.Department_Name</label>
+                        <p class="text-muted">@Model.Request.HR_Director_DepartmentEnglishName</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                @if (!string.IsNullOrWhiteSpace(Model.Request.HR_Director_UserName))
+                {
+                    @Html.HiddenFor(m => m.Request.HR_Director_UserName, new { @id = "drpdown_HR_Director_UserName" })
+                }
+
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Resource.EqamaOrNationalID</label>
+                        <p class="text-muted">@Model.Request.HR_Director_UserName</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Resource.Position_Name</label>
+                        <p class="text-muted">@Model.Request.HR_Director_Position</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                @if (Model.Request.FK_Request_HR_Director_ReasonID != null)
+                {
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label>@Resource.Reason</label>
+                            <p class="text-muted">
+                                @{
+                                    var r = @Model.Request.FK_Request_HR_Director_ReasonID;
+                                }
+
+                                @if (lang == "Ar")
+                                {
+                                    @r.NameAr
+                                }
+                                else
+                                {
+                                    @r.Name
+                                }
+                            </p>
+                        </div>
+                    </div>
+                }
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Resource.Comments</label>
+                        <p class="text-muted">
+                            @Model.Request.HR_Director_Comment
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            @if (Model.Request.HR_Director_Approval != null)
+            {
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label>@Resource.Request_Recieved</label>
+                            @if (Model.Request.HR_Director_Recieved != null && Model.Request.HR_Director_Recieved.Value)
+                            {
+                                <p><i class="fa fa-check text-success"></i></p>
+                            }
+                            else if (Model.Request.HR_Director_Recieved != null && !Model.Request.HR_Director_Recieved.Value)
+                            {
+                                <p><i class="fa fa-times text-danger"></i></p>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group">
+                            @if (Model.Request.HR_Director_Recieved != null && Model.Request.HR_Director_Recieved.Value)
+                            {
+                                <label>@Resource.Recieved_DateTime</label>
+                                if (Model.Request.HR_Director_RecievedDateTime != null)
+                                {
+                                    <p class="text-muted">@Model.Request.HR_Director_RecievedDateTime.Value.ToString("dd/MM/yyyy hh:mm tt")</p>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label>@Resource.Request_Seen</label>
+                            @if (Model.Request.HR_Director_Seen != null && Model.Request.HR_Director_Seen.Value)
+                            {
+                                <p><i class="fa fa-check text-success"></i></p>
+                            }
+                            else
+                            {
+                                <p><i class="fa fa-times text-danger"></i></p>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group">
+                            @if (Model.Request.HR_Director_Seen != null && Model.Request.HR_Director_Seen.Value)
+                            {
+                                <label>@Resource.Seen_DateTime</label>
+                                if (Model.Request.HR_Director_SeenDateTime != null)
+                                {
+                                    <p class="text-muted">@Model.Request.HR_Director_SeenDateTime.Value.ToString("dd/MM/yyyy hh:mm tt")</p>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label>@Resource.DepartmentHeadAction</label>
+                            @if (Model.Request.HR_Director_Approval != null && Model.Request.HR_Director_Approval.Value)
+                            {
+                                <p><i class="fa fa-check text-success"></i></p>
+                            }
+                            else if (Model.Request.HR_Director_Approval != null && !Model.Request.HR_Director_Approval.Value)
+                            {
+                                <p><i class="fa fa-times text-danger"></i></p>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group">
+
+                            @if (Model.Request.HR_Director_ApprovalDateTime != null)
+                            {
+                                <label>@Resource.Action_Date</label>
+                                <p class="text-muted">@Model.Request.HR_Director_ApprovalDateTime.Value.ToString("dd/MM/yyyy hh:mm tt")</p>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+                if (Model.Request.HR_Director_Approval != null && !Model.Request.HR_Director_Approval.Value)
+                {
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label>@Resource.Disapproval_Reason</label>
+                                <p class="text-muted">@Model.Request.HR_Director_Reason</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+
+            @if (Model.Request.IsFinished == false &&
+                Model.Request.HR_ManagerOfPersonal_Approval != null)
+            {
+                using (Html.BeginForm("HR_Director_Action", "Request", FormMethod.Post))
+                {
+                    @Html.HiddenFor(m => m.Request.ID)
+                    @Html.HiddenFor(m => m.Request.StatusID)
+
+                    @Html.HiddenFor(m => m.CurrentUserName)
+                    @Html.HiddenFor(m => m.IsPerformanceUnitUser)
+                    @Html.HiddenFor(m => m.FeedBackGiven)
+                    @Html.HiddenFor(m => m.IsFinished)
+                    @Html.HiddenFor(m => m.IsHRUser)
+
+                    @Html.HiddenFor(m => m.HR_Director_UserName)
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                @if (Model.Request.HR_Director_UserName != null && Model.CurrentUserName != null && Model.CurrentUserName.ToLower() == Model.Request.HR_Director_UserName.ToLower())
+                                {
+                                    <label>@Resource.Approval</label>
+                                    <p>
+                                        <div>
+                                            @Html.RadioButtonFor(m => m.Request.HR_Director_Approval, true, new { @id = "rbtnHR_Director_Approve" }) @Resource.Approved
+                                            @Html.RadioButtonFor(m => m.Request.HR_Director_Approval, false, new { @id = "rbtnHR_Director_DisApprove" }) @Resource.Disapproved
+                                        </div>
+                                    </p>
+                                    <div id="divHR_Director_Reason">
+                                        <label>@Resource.Disapproval_Reason</label>
+                                        <div class="form-group">
+                                            @Html.TextAreaFor(m => m.Request.HR_Director_Reason, new { @class = "form-control", @style = "width: 100%", @rows = "3", @Resource.Disapproval_Reason, id = "txtHR_Director_Reason" })
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-md" id="btnUpdateHR_Director"><i class="fa fa-save"></i> @Resource.Update</button>
+                                }
+                                else
+                                {
+                                    <!--<div class="callout callout-danger bottom-failed">-->
+                                    @*<i class="icon fa fa-exclamation-triangle"></i>*@ <!--Only <strong>Department Head</strong> can approve!-->
+                                    <!--</div>-->
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            }
+
+        </div>
+    </div>
+}

@@ -1,0 +1,249 @@
+@using Performance.Management.BLL.ViewModel;
+
+@model Performance.Management.BLL.ViewModel.RequestModel
+
+@{
+    string lang = Context.Request.Cookies["culture"].Value ?? "en";
+
+    string username = new Performance.Management.UIL.Controllers.BaseController().GetUserName();
+
+    bool isCurrentUserIsHR = new Performance.Management.UIL.Controllers.BaseController().CheckCurrentUserIsHR;
+
+    var _req = Model.Request;
+}
+
+@if (Model.Request.DeptHead_Approval != null && Model.Request.DeptHead_Approval.Value)
+{
+    <div class="box box-primary">
+        <div class="box-header  with-border">
+            <h3 class="box-title">
+                <i class="fa fa-user-secret"></i>
+                @Performance.Management.UIL.Language.Resource.EmployeeAction
+            </h3>
+        </div>
+
+        @*@if (Model.Request.Employee_Finished != null && Model.Request.Employee_Finished.Value)*@
+        @*@if ((Model.Request.StatusID != null && Model.Request.StatusID.Value == 5))
+        {*@
+        <div class="box-body">
+
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Performance.Management.UIL.Language.Resource.Name</label>
+                        <p class="text-muted">@Model.Request.Employee_EnglishName</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Performance.Management.UIL.Language.Resource.Email</label>
+                        <p class="text-muted">@Model.Request.Employee_Email</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                @if (!string.IsNullOrWhiteSpace(Model.Request.Employee_UserName))
+                {
+                    @Html.HiddenFor(m => m.Request.Employee_UserName, new { @id = "drpdown_Employee_UserName" })
+                }
+
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Performance.Management.UIL.Language.Resource.EqamaOrNationalID</label>
+                        <p class="text-muted">@Model.Request.Employee_UserName</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Performance.Management.UIL.Language.Resource.Position_Name</label>
+                        <p class="text-muted">@Model.Request.Employee_Position</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Performance.Management.UIL.Language.Resource.Request_Recieved</label>
+                        @if (Model.Request.Employee_Recieved != null && Model.Request.Employee_Recieved.Value)
+                        {
+                            <p><i class="fa fa-check text-success"></i></p>
+                        }
+                        else
+                        {
+                            <p><i class="fa fa-times text-danger"></i></p>
+                        }
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        @if (Model.Request.Employee_Recieved != null && Model.Request.Employee_Recieved.Value)
+                        {
+                            <label>@Performance.Management.UIL.Language.Resource.Recieved_DateTime</label>
+                            if (Model.Request.Employee_RecievedDateTime != null)
+                            {
+                                <p class="text-muted">@Model.Request.Employee_RecievedDateTime.Value.ToString("dd/MM/yyyy hh:mm tt")</p>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Performance.Management.UIL.Language.Resource.Request_Seen</label>
+                        @if (Model.Request.Employee_Seen != null && Model.Request.Employee_Seen.Value)
+                        {
+                            <p><i class="fa fa-check text-success"></i></p>
+                        }
+                        else
+                        {
+                            <p><i class="fa fa-times text-danger"></i></p>
+                        }
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        @if (Model.Request.Employee_Seen != null && Model.Request.Employee_Seen.Value)
+                        {
+                            <label>@Performance.Management.UIL.Language.Resource.Seen_DateTime</label>
+                            if (Model.Request.Employee_SeenDateTime != null)
+                            {
+                                <p class="text-muted">@Model.Request.Employee_SeenDateTime.Value.ToString("dd/MM/yyyy hh:mm tt")</p>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Performance.Management.UIL.Language.Resource.Action</label>
+                        @if (Model.Request.FK_Request_Employee_SAction != null)
+                        {
+                            <p class="text-muted">
+                                @{
+                                    var _a = @Model.Request.FK_Request_Employee_SAction;
+                                }
+
+                                @if (lang == "Ar")
+                                {
+                                    @_a.NameAr
+                                }
+                                else
+                                {
+                                    @_a.Name
+                                }
+                            </p>
+                        }
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Performance.Management.UIL.Language.Resource.Action @Performance.Management.UIL.Language.Resource.DateTime</label>
+                        @if (Model.Request.Employee_ActionDateTime != null)
+                        {
+                            <p class="text-muted">@Model.Request.Employee_ActionDateTime.Value.ToString("dd/MM/yyyy hh:mm tt")</p>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                @if (Model.Request.FK_Request_Employee_Reason != null)
+                {
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label>@Performance.Management.UIL.Language.Resource.Reason</label>
+                            <p class="text-muted">
+                                @{
+                                    var r = @Model.Request.FK_Request_Employee_Reason;
+                                }
+
+                                @if (lang == "Ar")
+                                {
+                                    @r.NameAr
+                                }
+                                else
+                                {
+                                    @r.Name
+                                }
+                            </p>
+                        </div>
+                    </div>
+                }
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Performance.Management.UIL.Language.Resource.Comments</label>
+                        <p class="text-muted">
+                            @Model.Request.Employee_Comment
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        @if (_req.Employee_UserName == username && _req.PendingToUserName == username && _req.RejectedBy == null)
+        {
+            using (Html.BeginForm("Employee_Action", "Request", FormMethod.Post))
+            {
+                @Html.HiddenFor(m => m.Request.ID)
+                @Html.HiddenFor(m => m.Request.StatusID)
+
+                @Html.HiddenFor(m => m.CurrentUserName)
+                @Html.HiddenFor(m => m.IsPerformanceUnitUser)
+                @Html.HiddenFor(m => m.FeedBackGiven)
+                @Html.HiddenFor(m => m.IsFinished)
+                @Html.HiddenFor(m => m.IsHRUser)
+
+                @Html.HiddenFor(m => m.Employee_UserName)
+
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <label>@Performance.Management.UIL.Language.Resource.Action</label>
+                                        @Html.DropDownListFor(m => m.Request.Employee_ActionID, new SelectList(Model.SActionList, "ID", lang == "Ar" ? "NameAr" : "Name"), @Performance.Management.UIL.Language.Resource.DropDownSelect + @Performance.Management.UIL.Language.Resource.Action + " -", new { @class = "form-control Select", id = "lstEmployee_Actions" })
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div id="divEmployee_Reason">
+                                            <label>@Performance.Management.UIL.Language.Resource.Reason</label>
+                                            @Html.DropDownListFor(m => m.Request.Employee_ReasonID, new SelectList(Model.ReasonList, "ID", lang == "Ar" ? "NameAr" : "Name"), @Performance.Management.UIL.Language.Resource.DropDownSelect + @Performance.Management.UIL.Language.Resource.Reason + " -", new { @class = "form-control Select", id = "lstEmployee_Reasons" })
+                                        </div>
+                                    </div>
+                                    @*<div class="col-xs-4">
+                                        <div id="divEmployee_Group" hidden="hidden">
+                                            <label>@Performance.Management.UIL.Language.Resource.Group</label>
+                                            @Html.DropDownListFor(m => m.SGroupID, new SelectList(Model.SGroupList, "ID", "Name"), @Performance.Management.UIL.Language.Resource.DropDownSelect + @Performance.Management.UIL.Language.Resource.Group + " -", new { @class = "form-control Select", id = "lstEmployee_Groups" })
+                                        </div>
+                                    </div>*@
+                                </div>
+
+                                <label>@Performance.Management.UIL.Language.Resource.Comments</label>
+                                <div class="form-group">
+                                    @Html.TextAreaFor(m => m.Request.Employee_Comment, new { @class = "form-control", @style = "width: 100%", @rows = "3", @placeholder = @Performance.Management.UIL.Language.Resource.Comments, id = "txtEmployee_Comment" })
+                                </div>
+                                <button type="submit" id="btnUpdateEmployee" class="btn btn-primary btn-md"><i class="fa fa-save"></i> @Performance.Management.UIL.Language.Resource.Update</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+
+    </div>
+}

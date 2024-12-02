@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="CompetencyDetailsLookups">
+      <EntityTypeMapping TypeName="Model.CompetencyDetailsLookup">
+        <MappingFragment StoreEntitySet="CompetencyDetailsLookup">
+          <ScalarProperty Name="BehavioralDescriptionAr" ColumnName="BehavioralDescriptionAr" />
+          <ScalarProperty Name="BehavioralDescriptionEn" ColumnName="BehavioralDescriptionEn" />
+          <ScalarProperty Name="CompetencyThemesAr" ColumnName="CompetencyThemesAr" />
+          <ScalarProperty Name="CompetencyThemesEn" ColumnName="CompetencyThemesEn" />
+          <ScalarProperty Name="CompetencyLookupID" ColumnName="CompetencyLookupID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompetencyLookups">
+      <EntityTypeMapping TypeName="Model.CompetencyLookup">
+        <MappingFragment StoreEntitySet="CompetencyLookup">
+          <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+          <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Goals">
+      <EntityTypeMapping TypeName="Model.Goal">
+        <MappingFragment StoreEntitySet="Goal">
+          <ScalarProperty Name="CompetencyLookupID" ColumnName="CompetencyLookupID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Fulfillment" ColumnName="Fulfillment" />
+          <ScalarProperty Name="TargetOutput" ColumnName="TargetOutput" />
+          <ScalarProperty Name="RelativeWeight" ColumnName="RelativeWeight" />
+          <ScalarProperty Name="MeasurementStandard" ColumnName="MeasurementStandard" />
+          <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+          <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HRSAllowedUsers">
+      <EntityTypeMapping TypeName="Model.HRSAllowedUser">
+        <MappingFragment StoreEntitySet="HRSAllowedUser">
+          <ScalarProperty Name="DelegateEndDate" ColumnName="DelegateEndDate" />
+          <ScalarProperty Name="DelegateStartDate" ColumnName="DelegateStartDate" />
+          <ScalarProperty Name="DelegateToUserName" ColumnName="DelegateToUserName" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reasons">
+      <EntityTypeMapping TypeName="Model.Reason">
+        <MappingFragment StoreEntitySet="Reason">
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Requests">
+      <EntityTypeMapping TypeName="Model.Request">
+        <MappingFragment StoreEntitySet="Request">
+          <ScalarProperty Name="Employee_StaffID" ColumnName="Employee_StaffID" />
+          <ScalarProperty Name="Employee_DeptCode" ColumnName="Employee_DeptCode" />
+          <ScalarProperty Name="IsRejectedByEmpSecondTime" ColumnName="IsRejectedByEmpSecondTime" />
+          <ScalarProperty Name="IsRejectedByEmpFirstTime" ColumnName="IsRejectedByEmpFirstTime" />
+          <ScalarProperty Name="PendingToUserName" ColumnName="PendingToUserName" />
+          <ScalarProperty Name="RejectedBy" ColumnName="RejectedBy" />
+          <ScalarProperty Name="HR_Director_ReasonID" ColumnName="HR_Director_ReasonID" />
+          <ScalarProperty Name="HR_Director_ActionDateTime" ColumnName="HR_Director_ActionDateTime" />
+          <ScalarProperty Name="HR_Director_ActionID" ColumnName="HR_Director_ActionID" />
+          <ScalarProperty Name="HR_Director_Comment" ColumnName="HR_Director_Comment" />
+          <ScalarProperty Name="HR_Director_Reason" ColumnName="HR_Director_Reason" />
+          <ScalarProperty Name="HR_Director_ApprovalDateTime" ColumnName="HR_Director_ApprovalDateTime" />
+          <ScalarProperty Name="HR_Director_Approval" ColumnName="HR_Director_Approval" />
+          <ScalarProperty Name="HR_Director_SeenDateTime" ColumnName="HR_Director_SeenDateTime" />
+          <ScalarProperty Name="HR_Director_Seen" ColumnName="HR_Director_Seen" />
+          <ScalarProperty Name="HR_Director_RecievedDateTime" ColumnName="HR_Director_RecievedDateTime" />
+          <ScalarProperty Name="HR_Director_Recieved" ColumnName="HR_Director_Recieved" />
+          <ScalarProperty Name="HR_Director_UserName" ColumnName="HR_Director_UserName" />
+          <ScalarProperty Name="HR_Director_Email" ColumnName="HR_Director_Email" />
+          <ScalarProperty Name="HR_Director_Position" ColumnName="HR_Director_Position" />
+          <ScalarProperty Name="HR_Director_DepartmentEnglishName" ColumnName="HR_Director_DepartmentEnglishName" />
+          <ScalarProperty Name="HR_Director_EnglishName" ColumnName="HR_Director_EnglishName" />
+          <ScalarProperty Name="HR_ManagerOfPersonal_ReasonID" ColumnName="HR_ManagerOfPersonal_ReasonID" />
+          <ScalarProperty Name="HR_ManagerOfPersonal_ActionDateTime" ColumnName="HR_ManagerOfPersonal_ActionDateTime" />
+          <ScalarProperty Name="HR_ManagerOfPersonal_ActionID" ColumnName="HR_ManagerOfPersonal_ActionID" />
+          <ScalarProperty Name="HR_ManagerOfPersonal_Comment" ColumnName="HR_ManagerOfPersonal_Comment" />
+          <ScalarProperty Name="HR_ManagerOfPersonal_Reason" ColumnName="HR_ManagerOfPersonal_Reason" />
+          <ScalarProperty Name="HR_ManagerOfPersonal_ApprovalDateTime" ColumnName="HR_ManagerOfPersonal_ApprovalDateTime" />
+          <ScalarProperty Name="HR_ManagerOfPersonal_Approval" ColumnName="HR_ManagerOfPersonal_Approval" />
+          <ScalarProperty Name="HR_ManagerOfPersonal_SeenDateTime" ColumnName="HR_ManagerOfPersonal_SeenDateTime" />
+          <ScalarProperty Name="HR_ManagerOfPersonal_Seen" ColumnName="HR_ManagerOfPersonal_Seen" />
+          <ScalarProperty Name="HR_ManagerOfPersonal_RecievedDateTime" ColumnName="HR_ManagerOfPersonal_RecievedDateTime" />
+          <ScalarProperty Name="HR_ManagerOfPersonal_Recieved" ColumnName="HR_ManagerOfPersonal_Recieved" />
+          <ScalarProperty Name="HR_ManagerOfPersonal_UserName" ColumnName="HR_ManagerOfPersonal_UserName" />
+          <ScalarProperty Name="HR_ManagerOfPersonal_Email" ColumnName="HR_ManagerOfPersonal_Email" />
+          <ScalarProperty Name="HR_ManagerOfPersonal_Position" ColumnName="HR_ManagerOfPersonal_Position" />
+          <ScalarProperty Name="HR_ManagerOfPersonal_DepartmentEnglishName" ColumnName="HR_ManagerOfPersonal_DepartmentEnglishName" />
+          <ScalarProperty Name="HR_ManagerOfPersonal_EnglishName" ColumnName="HR_ManagerOfPersonal_EnglishName" />
+          <ScalarProperty Name="HR_PerformanceUnit_ReasonID" ColumnName="HR_PerformanceUnit_ReasonID" />
+          <ScalarProperty Name="HR_PerformanceUnit_ActionDateTime" ColumnName="HR_PerformanceUnit_ActionDateTime" />
+          <ScalarProperty Name="HR_PerformanceUnit_ActionID" ColumnName="HR_PerformanceUnit_ActionID" />
+          <ScalarProperty Name="HR_PerformanceUnit_Comment" ColumnName="HR_PerformanceUnit_Comment" />
+          <ScalarProperty Name="HR_PerformanceUnit_Reason" ColumnName="HR_PerformanceUnit_Reason" />
+          <ScalarProperty Name="HR_PerformanceUnit_ApprovalDateTime" ColumnName="HR_PerformanceUnit_ApprovalDateTime" />
+          <ScalarProperty Name="HR_PerformanceUnit_Approval" ColumnName="HR_PerformanceUnit_Approval" />
+          <ScalarProperty Name="HR_PerformanceUnit_SeenDateTime" ColumnName="HR_PerformanceUnit_SeenDateTime" />
+          <ScalarProperty Name="HR_PerformanceUnit_Seen" ColumnName="HR_PerformanceUnit_Seen" />
+          <ScalarProperty Name="HR_PerformanceUnit_RecievedDateTime" ColumnName="HR_PerformanceUnit_RecievedDateTime" />
+          <ScalarProperty Name="HR_PerformanceUnit_Recieved" ColumnName="HR_PerformanceUnit_Recieved" />
+          <ScalarProperty Name="HR_PerformanceUnit_UserName" ColumnName="HR_PerformanceUnit_UserName" />
+          <ScalarProperty Name="HR_PerformanceUnit_Email" ColumnName="HR_PerformanceUnit_Email" />
+          <ScalarProperty Name="HR_PerformanceUnit_Position" ColumnName="HR_PerformanceUnit_Position" />
+          <ScalarProperty Name="HR_PerformanceUnit_DepartmentEnglishName" ColumnName="HR_PerformanceUnit_DepartmentEnglishName" />
+          <ScalarProperty Name="HR_PerformanceUnit_EnglishName" ColumnName="HR_PerformanceUnit_EnglishName" />
+          <ScalarProperty Name="RefrenceID" ColumnName="RefrenceID" />
+          <ScalarProperty Name="RequestCounter" ColumnName="RequestCounter" />
+          <ScalarProperty Name="DirectManager_ReasonID" ColumnName="DirectManager_ReasonID" />
+          <ScalarProperty Name="DirectManager_ActionDateTime" ColumnName="DirectManager_ActionDateTime" />
+          <ScalarProperty Name="DirectManager_ActionID" ColumnName="DirectManager_ActionID" />
+          <ScalarProperty Name="DirectManager_Comment" ColumnName="DirectManager_Comment" />
+          <ScalarProperty Name="DirectManager_Reason" ColumnName="DirectManager_Reason" />
+          <ScalarProperty Name="DirectManager_ApprovalDateTime" ColumnName="DirectManager_ApprovalDateTime" />
+          <ScalarProperty Name="DirectManager_Approval" ColumnName="DirectManager_Approval" />
+          <ScalarProperty Name="DirectManager_SeenDateTime" ColumnName="DirectManager_SeenDateTime" />
+          <ScalarProperty Name="DirectManager_Seen" ColumnName="DirectManager_Seen" />
+          <ScalarProperty Name="DirectManager_RecievedDateTime" ColumnName="DirectManager_RecievedDateTime" />
+          <ScalarProperty Name="DirectManager_Recieved" ColumnName="DirectManager_Recieved" />
+          <ScalarProperty Name="DirectManager_UserName" ColumnName="DirectManager_UserName" />
+          <ScalarProperty Name="DirectManager_Email" ColumnName="DirectManager_Email" />
+          <ScalarProperty Name="DirectManager_Position" ColumnName="DirectManager_Position" />
+          <ScalarProperty Name="DirectManager_EnglishName" ColumnName="DirectManager_EnglishName" />
+          <ScalarProperty Name="SatisfacationFeedBack" ColumnName="SatisfacationFeedBack" />
+          <ScalarProperty Name="TimeFeedBack" ColumnName="TimeFeedBack" />
+          <ScalarProperty Name="AchievementFeedBack" ColumnName="AchievementFeedBack" />
+          <ScalarProperty Name="FeedBackGivenDateTime" ColumnName="FeedBackGivenDateTime" />
+          <ScalarProperty Name="FeedBackGiven" ColumnName="FeedBackGiven" />
+          <ScalarProperty Name="DeleteReason" ColumnName="DeleteReason" />
+          <ScalarProperty Name="DeleteDateTime" ColumnName="DeleteDateTime" />
+          <ScalarProperty Name="DeleteFullName" ColumnName="DeleteFullName" />
+          <ScalarProperty Name="DeleteUserName" ColumnName="DeleteUserName" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="IsFinished" ColumnName="IsFinished" />
+          <ScalarProperty Name="Employee_ReasonID" ColumnName="Employee_ReasonID" />
+          <ScalarProperty Name="Employee_ActionDateTime" ColumnName="Employee_ActionDateTime" />
+          <ScalarProperty Name="Employee_ActionID" ColumnName="Employee_ActionID" />
+          <ScalarProperty Name="Employee_Comment" ColumnName="Employee_Comment" />
+          <ScalarProperty Name="Employee_Reason" ColumnName="Employee_Reason" />
+          <ScalarProperty Name="Employee_ApprovalDateTime" ColumnName="Employee_ApprovalDateTime" />
+          <ScalarProperty Name="Employee_Approval" ColumnName="Employee_Approval" />
+          <ScalarProperty Name="Employee_SeenDateTime" ColumnName="Employee_SeenDateTime" />
+          <ScalarProperty Name="Employee_Seen" ColumnName="Employee_Seen" />
+          <ScalarProperty Name="Employee_RecievedDateTime" ColumnName="Employee_RecievedDateTime" />
+          <ScalarProperty Name="Employee_Recieved" ColumnName="Employee_Recieved" />
+          <ScalarProperty Name="Employee_UserName" ColumnName="Employee_UserName" />
+          <ScalarProperty Name="Employee_Email" ColumnName="Employee_Email" />
+          <ScalarProperty Name="Employee_Position" ColumnName="Employee_Position" />
+          <ScalarProperty Name="Employee_DepartmentEnglishName" ColumnName="Employee_DepartmentEnglishName" />
+          <ScalarProperty Name="Employee_EnglishName" ColumnName="Employee_EnglishName" />
+          <ScalarProperty Name="Employee_Grade" ColumnName="Employee_Grade" />
+          <ScalarProperty Name="DeptHead_Reason" ColumnName="DeptHead_Reason" />
+          <ScalarProperty Name="DeptHead_ApprovalDateTime" ColumnName="DeptHead_ApprovalDateTime" />
+          <ScalarProperty Name="DeptHead_SeenDateTime" ColumnName="DeptHead_SeenDateTime" />
+          <ScalarProperty Name="DeptHead_Seen" ColumnName="DeptHead_Seen" />
+          <ScalarProperty Name="DeptHead_RecievedDateTime" ColumnName="DeptHead_RecievedDateTime" />
+          <ScalarProperty Name="DeptHead_Recieved" ColumnName="DeptHead_Recieved" />
+          <ScalarProperty Name="DeptHead_EnglishName" ColumnName="DeptHead_EnglishName" />
+          <ScalarProperty Name="DeptHead_Email" ColumnName="DeptHead_Email" />
+          <ScalarProperty Name="DeptHead_UserName" ColumnName="DeptHead_UserName" />
+          <ScalarProperty Name="DeptHead_Approval" ColumnName="DeptHead_Approval" />
+          <ScalarProperty Name="RequesterDeptEnglishName" ColumnName="RequesterDeptEnglishName" />
+          <ScalarProperty Name="RequesterDeptCode" ColumnName="RequesterDeptCode" />
+          <ScalarProperty Name="RequesterPositionName" ColumnName="RequesterPositionName" />
+          <ScalarProperty Name="RequesterPositionCode" ColumnName="RequesterPositionCode" />
+          <ScalarProperty Name="RequesterUserEmail" ColumnName="RequesterUserEmail" />
+          <ScalarProperty Name="RequesterUserEnglishName" ColumnName="RequesterUserEnglishName" />
+          <ScalarProperty Name="RequesterUserName" ColumnName="RequesterUserName" />
+          <ScalarProperty Name="Attachment" ColumnName="Attachment" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="DeadlineDate" ColumnName="DeadlineDate" />
+          <ScalarProperty Name="RequestTypeID" ColumnName="RequestTypeID" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequestTypes">
+      <EntityTypeMapping TypeName="Model.RequestType">
+        <MappingFragment StoreEntitySet="RequestType">
+          <ScalarProperty Name="DescEn" ColumnName="DescEn" />
+          <ScalarProperty Name="DescAr" ColumnName="DescAr" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+          <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SActions">
+      <EntityTypeMapping TypeName="Model.SAction">
+        <MappingFragment StoreEntitySet="SAction">
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="Model.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="IsPending" ColumnName="IsPending" />
+          <ScalarProperty Name="IsReject" ColumnName="IsReject" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SupervisorUsers">
+      <EntityTypeMapping TypeName="Model.SupervisorUser">
+        <MappingFragment StoreEntitySet="SupervisorUser">
+          <ScalarProperty Name="IsSupervisor" ColumnName="IsSupervisor" />
+          <ScalarProperty Name="ContractTypeDescription" ColumnName="ContractTypeDescription" />
+          <ScalarProperty Name="DepartmentNameEnglish" ColumnName="DepartmentNameEnglish" />
+          <ScalarProperty Name="TradeDescriptionEnglish" ColumnName="TradeDescriptionEnglish" />
+          <ScalarProperty Name="TradeGrade" ColumnName="TradeGrade" />
+          <ScalarProperty Name="TradeCategory" ColumnName="TradeCategory" />
+          <ScalarProperty Name="EmployeeFullNameEnglish" ColumnName="EmployeeFullNameEnglish" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

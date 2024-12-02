@@ -1,0 +1,184 @@
+@using Performance.Management.BLL.ViewModel;
+
+@model Performance.Management.BLL.ViewModel.RequestModel
+
+@{
+    string lang = Context.Request.Cookies["culture"].Value ?? "en";
+
+    string username = new Performance.Management.UIL.Controllers.BaseController().GetUserName();
+
+    bool isCurrentUserIsHR = new Performance.Management.UIL.Controllers.BaseController().CheckCurrentUserIsHR;
+}
+
+@if (Model.Request.IsFinished == true && Model.Request.Employee_UserName != null && Model.Request.Employee_UserName.ToLower() == Model.CurrentUserName.ToLower())
+{
+    <div class="box box-primary">
+
+        <div class="box-header  with-border">
+            <h3 class="box-title">
+                <i class="fa fa-star"></i>
+                @Performance.Management.UIL.Language.Resource.Give_us_Feedback
+            </h3>
+        </div>
+
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Performance.Management.UIL.Language.Resource.Feedback_Sender_Name</label>
+                        <p class="text-muted">@Model.Request.Employee_EnglishName</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label>@Performance.Management.UIL.Language.Resource.Feedback_Sender_Department</label>
+                        <p class="text-muted">@Model.Request.Employee_DepartmentEnglishName</p>
+                    </div>
+                </div>
+            </div>
+
+            @if (Model.Request.FeedBackGiven != null && Model.Request.FeedBackGiven == true)
+            {
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label>@Performance.Management.UIL.Language.Resource.Feedback_Sent</label>
+                            <p><i class="fa fa-check text-success"></i></p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label>@Performance.Management.UIL.Language.Resource.Sent_DateTime</label>
+                            @if (Model.Request.FeedBackGivenDateTime != null)
+                            {
+                                <p class="text-muted">@Model.Request.FeedBackGivenDateTime.Value.ToString("dd/MM/yyyy hh:mm tt")</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-xs-12">
+                        <!-- Info Boxes Style 2 -->
+                        <div class="info-box bg-aqua">
+                            <span class="info-box-icon"><i class="fa fa-line-chart"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text">@Performance.Management.UIL.Language.Resource.Achievement</span>
+                                <span class="info-box-number">@Model.Request.AchievementFeedBack.Value %</span>
+
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: @Model.Request.AchievementFeedBack.Value%"></div>
+                                </div>
+                                <span class="progress-description">
+                                    @Performance.Management.UIL.Language.Resource.Evaluation_taken_into_consideration_
+                                </span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <!-- Info Boxes Style 2 -->
+                        <div class="info-box bg-aqua">
+                            <span class="info-box-icon"><i class="fa fa-calendar-check-o"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text">@Performance.Management.UIL.Language.Resource.TimeOfService</span>
+                                <span class="info-box-number">@Model.Request.TimeFeedBack.Value %</span>
+
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: @Model.Request.TimeFeedBack.Value%"></div>
+                                </div>
+                                <span class="progress-description">
+                                    @Performance.Management.UIL.Language.Resource.Evaluation_taken_into_consideration_
+                                </span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <!-- Info Boxes Style 2 -->
+                        <div class="info-box bg-aqua">
+                            <span class="info-box-icon"><i class="fa fa-heartbeat"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text">@Performance.Management.UIL.Language.Resource.Satisfacation</span>
+                                <span class="info-box-number">@Model.Request.SatisfacationFeedBack.Value %</span>
+
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: @Model.Request.SatisfacationFeedBack.Value%"></div>
+                                </div>
+                                <span class="progress-description">
+                                    @Performance.Management.UIL.Language.Resource.Evaluation_taken_into_consideration_
+                                </span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                using (Html.BeginForm("GiveFeedBack", "Request", FormMethod.Post, new { id = "FeedBackForm" }))
+                {
+                    @Html.HiddenFor(m => m.Request.ID)
+                    @Html.HiddenFor(m => m.Request.StatusID)
+                    @Html.HiddenFor(m => m.CurrentUserName)
+                    @Html.HiddenFor(m => m.IsPerformanceUnitUser)
+                    @Html.HiddenFor(m => m.FeedBackGiven)
+                    @Html.HiddenFor(m => m.IsFinished)
+                    @Html.HiddenFor(m => m.IsHRUser)
+
+                    if (Model.Request.Employee_UserName != null && Model.Request.Employee_UserName.ToLower() == Model.CurrentUserName.ToLower())
+                    {
+                        <div class="row">
+
+                            <div class="col-md-4 col-xs-12">
+                                <div class="form-group">
+                                    <label>@Performance.Management.UIL.Language.Resource.Achievement</label>
+                                    <div class="input-group">
+                                        <label class="marginRight20">@Html.RadioButtonFor(m => m.Request.AchievementFeedBack, 25)<span class="label label-danger">25</span></label>
+                                        <label class="marginRight20">@Html.RadioButtonFor(m => m.Request.AchievementFeedBack, 50)<span class="label label-warning">50</span></label>
+                                        <label class="marginRight20">@Html.RadioButtonFor(m => m.Request.AchievementFeedBack, 75)<span class="label label-info">75</span></label>
+                                        <label class="marginRight20">@Html.RadioButtonFor(m => m.Request.AchievementFeedBack, 100)<span class="label label-success">100</span></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-xs-12">
+                                <div class="form-group">
+                                    <label>@Performance.Management.UIL.Language.Resource.TimeOfService</label>
+                                    <div class="input-group">
+                                        <label class="marginRight20">@Html.RadioButtonFor(m => m.Request.TimeFeedBack, 25)<span class="label label-danger">25</span></label>
+                                        <label class="marginRight20">@Html.RadioButtonFor(m => m.Request.TimeFeedBack, 50)<span class="label label-warning">50</span></label>
+                                        <label class="marginRight20">@Html.RadioButtonFor(m => m.Request.TimeFeedBack, 75)<span class="label label-info">75</span></label>
+                                        <label class="marginRight20">@Html.RadioButtonFor(m => m.Request.TimeFeedBack, 100)<span class="label label-success">100</span></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-xs-12">
+                                <div class="form-group">
+                                    <label>@Performance.Management.UIL.Language.Resource.Satisfacation</label>
+                                    <div class="input-group">
+                                        <label class="marginRight20">@Html.RadioButtonFor(m => m.Request.SatisfacationFeedBack, 25)<span class="label label-danger">25</span></label>
+                                        <label class="marginRight20">@Html.RadioButtonFor(m => m.Request.SatisfacationFeedBack, 50)<span class="label label-warning">50</span></label>
+                                        <label class="marginRight20">@Html.RadioButtonFor(m => m.Request.SatisfacationFeedBack, 75)<span class="label label-info">75</span></label>
+                                        <label class="marginRight20">@Html.RadioButtonFor(m => m.Request.SatisfacationFeedBack, 100)<span class="label label-success">100</span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary btn-md"><i class="fa fa-check"></i> @Performance.Management.UIL.Language.Resource.Send</button>
+                        </div>
+                    }
+                }
+            }
+
+        </div>
+    </div>
+
+}

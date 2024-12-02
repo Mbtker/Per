@@ -1,0 +1,144 @@
+﻿@using Performance.Management.UIL.Controllers;
+@using Performance.Management.UIL.Language;
+
+@model Performance.Management.BLL.ViewModel.RequestModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section title{
+    <h1>
+        @Resource.PerformanceManagement
+        <small>@Resource.Preview</small>
+    </h1>
+}
+
+@section breadcrumb{
+    <li class="active">@Resource.Preview @Resource.RequestInformation </li>
+}
+
+@{
+    string lang = Context.Request.Cookies["culture"].Value ?? "en";
+
+    string username = new Performance.Management.UIL.Controllers.BaseController().GetUserName();
+}
+
+
+<section class="content">
+    @Html.Partial("Evaluate/_EmployeeDetails", Model)
+
+    @Html.Partial("Details/_RequestDetails", Model)
+
+    <div class="" style="padding: 10px; padding-top: 30px; padding-bottom:30px;">
+
+        <a class="h4 callout callout-details" data-toggle="collapse" href="#requestDetailsCollapse" role="button" aria-expanded="false" aria-controls="requestDetailsCollapse"><i class="fa fa-columns"> @Resource.Preview - @Resource.EvaluationForm </i></a>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="collapse multi-collapse" id="requestDetailsCollapse">
+
+                @Html.Partial("Details/_EvaluationDetails", Model)
+            </div>
+        </div>
+    </div>
+
+    <div class="" style="padding: 10px; padding-top: 30px; padding-bottom:30px;">
+
+        <a class="h4 callout callout-details" data-toggle="collapse" href="#requestDetailsActions" role="button" aria-expanded="false" aria-controls="requestDetailsActions"><i class="fa fa-columns"> @Resource.Preview - @Resource.RequestActions   </i></a>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="collapse multi-collapse" id="requestDetailsActions">
+
+                @Html.Partial("Details/_DeptHeadActionDetails", Model)
+
+                @Html.Partial("Details/_DirectManagerActionDetails", Model)
+
+                @Html.Partial("Details/_EmployeeActionDetails", Model)
+
+                @Html.Partial("Details/_HR_PerformanceUnit_ActionDetails", Model)
+
+                @Html.Partial("Details/_HR_ManagerOfPersonal_ActionDetails", Model)
+
+                @Html.Partial("Details/_HRDirectorActionDetails", Model)
+
+                @Html.Partial("Details/_FeedbackDetails", Model)
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("Details/_Buttons", Model)
+</section>
+
+<div class="modal modal-danger fade" id="internal-modal-danger" hidden="hidden">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">Delete Confirm</h4>
+            </div>
+            <div class="modal-body">
+                <p>@*Are you sure you want to permanently delete?*@</p>
+                <p>@Resource.DeleteConfirmation</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">@Resource.Cancel</button>
+                <button type="button" class="btn btn-outline" id="btn-internal-Yes">@Resource.Yes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+
+            var ID;
+
+            $('#internal-modal-danger').on('show.bs.modal', function (event) {
+
+                button = $(event.relatedTarget);
+                ID = button.data("id");
+            })
+
+            $("#btn-internal-Yes").click(function (event) {
+                $("#internal-modal-danger").modal('hide');
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Request/Delete/",
+                    dataType: "json",
+                    data: { id: ID },
+                    success: function (data) {
+                        if (data) {
+
+                            $(".bottom-success .msgText").text("Request deleted successfully!");
+                            $(".bottom-success").fadeIn(600).delay(1500).slideUp(500);
+
+                            setTimeout(function () { window.location.href = "/Request/Index" }, 2000);
+
+                        }
+                        if (!data) {
+                            window.setTimeout(function () {
+                                $(".bottom-failed .msgText").text("Request can't be deleted!");
+                                $(".bottom-failed").fadeIn(600).delay(1500).slideUp(500);
+                            }, 1000);
+                        }
+
+                    }
+                });
+            });
+
+
+
+        });
+
+    </script>
+}

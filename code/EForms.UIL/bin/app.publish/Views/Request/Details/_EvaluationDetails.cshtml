@@ -1,0 +1,178 @@
+﻿@using Performance.Management.BLL.ViewModel.Enums;
+@using Performance.Management.BLL.Helper;
+@using Performance.Management.UIL.Language;
+@model Performance.Management.BLL.ViewModel.RequestModel
+
+@{
+    string lang = Context.Request.Cookies["culture"].Value ?? "en";
+
+    string username = new Performance.Management.UIL.Controllers.BaseController().GetUserName();
+}
+
+@if (Model.Goals.Any() && Model.Goals.Count() > 0)
+{
+    <div class="box box-primary" id="goals-tbl">
+
+        <div class="box-header  with-border">
+            <h3 class="box-title">
+                <i class="fa fa-user-circle"></i>
+                @Resource.Evaluation - @Resource.GoalsName
+            </h3>
+        </div>
+
+        <div class="box-body">
+            <div>
+
+                <div class="callout callout-success">
+                    <label>
+                        <i class="fa fa-warning"></i>
+                        @Resource.RequestType:
+                        @if (lang == "Ar")
+                        {
+                            @Model.Request.RequestType.NameAr
+                        }
+                        else
+                        {
+                            @Model.Request.RequestType.NameEn
+                        }
+                    </label>
+                </div>
+                <br />
+                <table class="table table-bordered table-striped" id="tblData">
+                    <thead>
+                        <tr role="row">
+                            <th>@Resource.Index</th>
+                            <th>@Resource.Name</th>
+                            <th>@Resource.MeasurementStandard</th>
+                            <th>@Resource.RelativeWeight</th>
+                            <th>@Resource.TargetOutput</th>
+                            @if (Model.Request.IsFinished == true)
+                            {
+                                <th>@Resource.Fulfillment</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.Goals.Count; i++)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(m => m.Goals[i].Index)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(m => m.Goals[i].Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(m => m.Goals[i].MeasurementStandard)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(m => m.Goals[i].RelativeWeight)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(m => m.Goals[i].TargetOutput)
+                                </td>
+                                @if (Model.Request.IsFinished == true)
+                                {
+                                    <td>
+                                        @Html.DisplayFor(m => m.Goals[i].Fulfillment)
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-danger goals-bottom-failed" hidden="hidden" id="goals-bottom-failed">
+                @*<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>*@
+                <b><i class="fa fa-exclamation-triangle"></i></b> <b class="msgGoalText"></b>
+                <span></span>
+            </div>
+
+        </div>
+
+    </div>
+
+}
+else
+{
+    <div>No Goals Founded</div>
+}
+
+@if (Model.Competencies.Any() && Model.Competencies.Count() > 0)
+{
+    <div class="box box-primary">
+
+        <div class="box-header  with-border">
+            <h3 class="box-title">
+                <i class="fa fa-check-circle"></i>
+                @Resource.Evaluation - @Resource.Competency
+            </h3>
+        </div>
+
+        <div class="box-body">
+            <div>
+
+                <table class="table table-bordered table-striped" id="tblCompetencyData">
+                    <thead>
+                        <tr role="row">
+                            <th>@Resource.Index</th>
+                            <th>@Resource.Name</th>
+                            <th>@Resource.CompetencyThemesAndBehavioral</th>
+                            <th>@Resource.RelativeWeight</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.Competencies.Count; i++)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(m => m.Competencies[i].Index)
+                                </td>
+                                <td>
+                                    @if (lang == "Ar")
+                                    {
+                                        @Html.DisplayFor(m => m.Competencies[i].NameAr)
+                                    }
+                                    else
+                                    {
+                                        @Html.DisplayFor(m => m.Competencies[i].NameEn)
+                                    }
+                                </td>
+                                <td>
+                                    @for (int y = 0; y < Model.Competencies[i].Details.Count; y++)
+                                    {
+                                        <div class="row">
+                                            <div class="col-sm-1">
+                                                @Html.DisplayFor(m => m.Competencies[i].Details[y].Index)
+                                            </div>
+                                            <div class="col-sm-3">
+                                                @Html.DisplayFor(m => m.Competencies[i].Details[y].CompetencyThemes)
+                                            </div>
+                                            <div class="col-sm-8">
+                                                @Html.DisplayFor(m => m.Competencies[i].Details[y].CompetencyDesc)
+                                            </div>
+                                        </div>
+                                        if (Model.Competencies[i].Details[y].Index >= 1 && Model.Competencies[i].Details.Count != Model.Competencies[i].Details[y].Index)
+                                        {
+                                            <hr align="center" class="table_break">
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(m => m.Competencies[i].RelativeWeight)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+}
+else
+{
+    <div>No Competencies Founded</div>
+}

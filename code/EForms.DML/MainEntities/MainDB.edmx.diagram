@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="34f7c1dce5d34dcf9cf9b5bf949afc42" Name="Diagram1" ZoomLevel="32">
+        <EntityTypeShape EntityType="Model.CompetencyDetailsLookup" Width="1.5" PointX="7.625" PointY="31.75" />
+        <EntityTypeShape EntityType="Model.CompetencyLookup" Width="1.5" PointX="3" PointY="31.75" />
+        <EntityTypeShape EntityType="Model.Goal" Width="1.5" PointX="7.625" PointY="14.125" />
+        <EntityTypeShape EntityType="Model.HRSAllowedUser" Width="1.5" PointX="8.125" PointY="0.875" />
+        <EntityTypeShape EntityType="Model.Reason" Width="1.5" PointX="0.75" PointY="18.25" />
+        <EntityTypeShape EntityType="Model.Request" Width="3.5" PointX="3" PointY="2.125" />
+        <EntityTypeShape EntityType="Model.RequestType" Width="1.5" PointX="0.75" PointY="11.125" />
+        <EntityTypeShape EntityType="Model.SAction" Width="1.5" PointX="0.75" PointY="14.25" />
+        <EntityTypeShape EntityType="Model.Status" Width="1.5" PointX="0.75" PointY="21.875" />
+        <AssociationConnector Association="Model.FK_CompetencyDetailsLookup_CompetencyLookup" />
+        <AssociationConnector Association="Model.FK_Goal_CompetencyLookup" />
+        <AssociationConnector Association="Model.FK_Goal_Request" />
+        <AssociationConnector Association="Model.FK_Request_DirectManager_Reason" />
+        <AssociationConnector Association="Model.FK_Request_Employee_Reason" />
+        <AssociationConnector Association="Model.FK_Request_HR_Director_ReasonID" />
+        <AssociationConnector Association="Model.FK_Request_HR_ManagerOfPersonal_ReasonID" />
+        <AssociationConnector Association="Model.FK_Request_HR_PerformanceUnit_ReasonID" />
+        <AssociationConnector Association="Model.FK_Request_DirectManager_SAction" />
+        <AssociationConnector Association="Model.FK_Request_Employee_SAction" />
+        <AssociationConnector Association="Model.FK_Request_HR_Director_ActionID" />
+        <AssociationConnector Association="Model.FK_Request_HR_ManagerOfPersonal_ActionID" />
+        <AssociationConnector Association="Model.FK_Request_HR_PerformanceUnit_ActionID" />
+        <AssociationConnector Association="Model.FK_Request_Refrence_Request" />
+        <AssociationConnector Association="Model.FK_Request_RequestType" />
+        <AssociationConnector Association="Model.FK_Request_Status" />
+        <EntityTypeShape EntityType="Model.SupervisorUser" Width="1.5" PointX="7.375" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
